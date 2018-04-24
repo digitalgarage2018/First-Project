@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 public class LoginDao {
 
-	private static final String SELECT_BY_USERNAME = "SELECT * FROM login WHERE username=?";
+	private static final String SELECT_BY_USERNAME = "SELECT * FROM Login WHERE Username=?";
 
 
 
