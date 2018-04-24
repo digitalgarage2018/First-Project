@@ -7,17 +7,13 @@
 		<title>Servlet + JSP</title>
 	</head>
 	<body>
-	
-		Log In:
 		<form action="LoginController" method="post">
 			Enter username : <input type="text" name="username"> <BR>
 			Enter password : <input type="password" name="password"> <BR>
 			<input type="submit" />
 		</form>
 		
-		
-		Sign Up:
-		<form action="SignUpController" method="post">
+		<form action="LoginController" method="post">
 			Enter username : <input type="text" name="username"> <BR>
 			Enter password : <input type="password" name="password"> <BR>
 			<input type="submit" />
