@@ -16,7 +16,7 @@ public class StudentBean {
 		this.cognome = cognome;
 		this.email = email;
 		this.dataNascita = dataNascita;
-		this.pianoId=pianoId;
+		this.setPianoId(pianoId);
 	}
 	
 	public long getnMatricola() {
@@ -48,6 +48,14 @@ public class StudentBean {
 	}
 	public void setDataNascita(Date dataNascita) {
 		this.dataNascita = dataNascita;
+	}
+
+	public long getPianoId() {
+		return pianoId;
+	}
+
+	public void setPianoId(long pianoId) {
+		this.pianoId = pianoId;
 	}
 	
 }

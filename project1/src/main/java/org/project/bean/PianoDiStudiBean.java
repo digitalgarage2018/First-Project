@@ -3,8 +3,8 @@ package org.project.bean;
 import java.util.*;
 
 public class PianoDiStudiBean {
-	List <Long> iDEsami;
-	long idPiano;//è anche la matricola dello studente
+	private List <Long> iDEsami;
+	private long idPiano;//è anche la matricola dello studente
 	public PianoDiStudiBean(List<Long> iDEsami, long idPiano) {
 		super();
 		this.iDEsami = iDEsami;
