@@ -36,7 +36,7 @@ public class LoginController extends HttpServlet {
 		String result = userDao.authenticateUser(userBean);
 		System.out.println("valore ritornato: " +result);
 		if (result.equals("success")) {
-			rd = request.getRequestDispatcher("/WEB-INF/view/success.jsp");
+			rd = request.getRequestDispatcher("/WEB-INF/view/map.jsp");
 			LoginBean user = new LoginBean(username, password);
 			request.setAttribute("user", user);
 		} else {
