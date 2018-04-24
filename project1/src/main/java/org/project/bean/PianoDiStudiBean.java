@@ -2,10 +2,10 @@ package org.project.bean;
 
 import java.util.*;
 
-public class PianoDiStudi {
+public class PianoDiStudiBean {
 	List <Long> iDEsami;
 	long idPiano;//è anche la matricola dello studente
-	public PianoDiStudi(List<Long> iDEsami, long idPiano) {
+	public PianoDiStudiBean(List<Long> iDEsami, long idPiano) {
 		super();
 		this.iDEsami = iDEsami;
 		this.idPiano = idPiano;

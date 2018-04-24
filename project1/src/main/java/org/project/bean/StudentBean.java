@@ -2,7 +2,7 @@ package org.project.bean;
 
 import java.util.Date;
 
-public class Student {
+public class StudentBean {
 	private long nMatricola;
 	private String nome;
 	private String cognome;
@@ -10,7 +10,7 @@ public class Student {
 	private Date dataNascita;
 	private long pianoId;
 	
-	public Student(long nMatricola, String nome, String cognome, String email, Date dataNascita, long pianoId) {
+	public StudentBean(long nMatricola, String nome, String cognome, String email, Date dataNascita, long pianoId) {
 		this.nMatricola = nMatricola;
 		this.nome = nome;
 		this.cognome = cognome;
