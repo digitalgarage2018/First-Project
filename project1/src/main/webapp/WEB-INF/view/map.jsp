@@ -1,6 +1,8 @@
         <%@ page import="org.project.controller.MarkerController" %>
 <%@ page import="org.w3c.dom.Document" %>
-        <%@ page import="org.project.dao.MarkerDao" %><%--
+        <%@ page import="org.project.dao.MarkerDao" %>
+        <%@ page import="org.project.bean.MarkerBean" %>
+        <%@ page import="java.util.ArrayList" %><%--
   Created by IntelliJ IDEA.
   User: Gianmarco
   Date: 24/04/18
@@ -25,14 +27,20 @@
 <h3>Search!</h3>
 
 <%
-    MarkerController placesToView = new MarkerController();
+    /*    MarkerController placesToView = new MarkerController();
     Document places = null;
     try {
         places = placesToView.getXMLPlaces();
     } catch (Exception e) {
             System.out.println("Exception occurred" + e.toString());
         }
+*/
+        //MAYBE I SHOULD JUST GRAB DATA FROM DB WITH DAO AND CONTROLLER, CREATE A MARKERBEAN AND INJECT IT HERE...
 
+        MarkerController placesToView = new MarkerController();
+        ArrayList<MarkerBean> markerList = placesToView.grabPlaces();
+
+        System.out.println(markerList.toString());
 %>
 
 <div id="map"></div>

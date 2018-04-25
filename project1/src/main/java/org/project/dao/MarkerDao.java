@@ -7,6 +7,8 @@ import java.net.URL;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.text.Format;
+import java.util.ArrayList;
+import java.util.List;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -16,6 +18,7 @@ import javax.xml.transform.stream.StreamResult;
 
 import static org.project.util.DBController.*;
 
+import org.project.bean.MarkerBean;
 import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -24,6 +27,38 @@ public class MarkerDao {
 
     private static final String SELECT_MARKERS = "SELECT * FROM markers";
     private static final String XML_PATH = "/Users/Gianmarco/Desktop/DigitalGarage/First-Project/markers.xml";
+
+
+    //method grabMarkerData()
+    public static ArrayList<MarkerBean> getUpdatedPlacesFromDB() {
+
+        ArrayList<MarkerBean> listPlaces = new ArrayList<MarkerBean>();
+        try {
+
+            if(connectDB(SELECT_MARKERS)) {
+                rs = stmt.executeQuery();
+
+                while(rs.next()) {
+                    MarkerBean place = new MarkerBean();
+                    place.setId(Integer.parseInt(rs.getObject(1).toString()));
+                    place.setName(rs.getObject(2).toString());
+                    place.setAddress(rs.getObject(3).toString());
+                    place.setLatitude(Double.parseDouble(rs.getObject(4).toString()));
+                    place.setLongitude(Double.parseDouble(rs.getObject(5).toString()));
+                    place.setType(rs.getObject(6).toString());
+
+                    listPlaces.add(place);
+                }
+
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            disconnectDB();
+        }
+
+        return listPlaces;
+    }
 
 
     public static Document generateXML() throws TransformerException,
