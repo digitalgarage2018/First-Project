@@ -7,8 +7,21 @@
 		<title>Insert title here</title>
 	</head>
 	<body>
-
-		Welcome ${requestScope['user'].username}. 
+		<a href="LogoutController">Logout</a> |  
+		<a href="ProfileController">Profile</a>  
+		<%
+    		if ((session.getAttribute("user") == null) || (session.getAttribute("user") == "")) {
+		%>
+		You are not logged in<br/>
+		<a href="login_sign.jsp">Please Login</a>
+		<%} else {
+		%>
+		Welcome <%=session.getAttribute("user")%>
+		<a href="index.jsp">Go home</a>
+		<%
+		    }
+		%>
+		<!--  Welcome ${requestScope['user'].username}.  -->
 
 	</body>
 </html>

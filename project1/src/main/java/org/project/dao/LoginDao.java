@@ -7,8 +7,7 @@ import java.sql.SQLException;
 
 public class LoginDao {
 
-	private static final String SELECT_BY_USERNAME = "SELECT * FROM login WHERE username=?";
-
+	private static final String SELECT_BY_USERNAME = "select * from USERS where s_username=?";
 
 
 	public String authenticateUser(LoginBean loginBean)
@@ -23,6 +22,8 @@ public class LoginDao {
 				if (rs.next()) {
 					if(loginBean.getUsername().equals(rs.getString(1)) && loginBean.getPassword().equals(rs.getString(2))){
 						ret= "success"; ////If the user entered values are already present in database, which means user has already registered so I will return SUCCESS message.
+						loginBean.setLogged(true);
+						//System.out.println("valore ritornato: " +loginBean.getLogged());
 					}else{
 						ret= "failure";
 					}

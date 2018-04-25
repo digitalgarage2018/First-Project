@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -24,7 +25,8 @@ public class LoginController extends HttpServlet {
  
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
-		LoginBean loginBean = new LoginBean(username,password);
+		boolean isLogged	= false;
+		LoginBean loginBean = new LoginBean(username,password, isLogged);
 		LoginDao loginDao = new LoginDao() ;
 		RequestDispatcher rd = null;
 		//System.out.println("valore prima: " +result);
@@ -33,8 +35,13 @@ public class LoginController extends HttpServlet {
 		System.out.println("valore ritornato: " +result);
 		if (result.equals("success")) {
 			rd = request.getRequestDispatcher("/WEB-INF/view/success.jsp");
-			LoginBean user = new LoginBean(username, password);
-			request.setAttribute("user", user);
+			LoginBean user = new LoginBean(username, password, isLogged);
+
+			HttpSession session=request.getSession();  
+			session.setAttribute("user", user.getUsername());
+			//request.setAttribute("user", user);
+			
+			//response.sendRedirect("/WEB-INF/view/success.jsp");
 		} else {
 			rd = request.getRequestDispatcher("/WEB-INF/view/error.jsp");
 		}

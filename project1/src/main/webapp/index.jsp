@@ -4,13 +4,21 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-		<title>Servlet + JSP</title>
+		<title>Home</title>
 	</head>
 	<body>
-		<form action="LoginController" method="post">
-			Enter username : <input type="text" name="username"> <BR>
-			Enter password : <input type="password" name="password"> <BR>
-			<input type="submit" />
-		</form>
+		<div id="wrapper">
+			<div id="header">
+				<h2>Wellness super</h2>
+			</div>
+		</div>
+		
+	<form action="login_sign.jsp">
+    	<input type="submit" value="Go Login/Sign">
+	</form>
+	
+	<a href="LogoutController">Logout</a> |  
+	<a href="ProfileController">Profile</a>  
+		
 	</body>
 </html>

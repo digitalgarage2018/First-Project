@@ -13,11 +13,43 @@
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 	
+	<servlet>
+		<servlet-name>SignUpController</servlet-name>
+		<servlet-class>org.project.controller.SignUpController</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>LogoutController</servlet-name>
+		<servlet-class>org.project.controller.LogoutController</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>ProfileController</servlet-name>
+		<servlet-class>org.project.controller.ProfileController</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	
 	<servlet-mapping>
 		<servlet-name>LoginController</servlet-name>
 		<url-pattern>/LoginController</url-pattern>
 	</servlet-mapping>
 	
+	<servlet-mapping>
+		<servlet-name>SignUpController</servlet-name>
+		<url-pattern>/SignUpController</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>LogoutController</servlet-name>
+		<url-pattern>/LogoutController</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>ProfileController</servlet-name>
+		<url-pattern>/ProfileController</url-pattern>
+	</servlet-mapping>
 	<welcome-file-list>
    		<welcome-file>index.jsp</welcome-file>
   	</welcome-file-list>
