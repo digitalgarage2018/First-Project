@@ -8,10 +8,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.project.bean.LoginBean;
 import org.project.bean.UserBean;
-import org.project.dao.LoginDao;
+import org.project.bean.WalletBean;
 import org.project.dao.UserDao;
+import org.project.dao.WalletDao;
 
  
 public class SignUpController extends HttpServlet {
@@ -27,13 +27,26 @@ public class SignUpController extends HttpServlet {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		
+		
+		/*
+		 * creazione user
+		 */
 		UserBean userBean = new UserBean(username,password);
 		UserDao userDao = new UserDao();
-		
+		//id gestito da auto increment
 		userDao.createUser(userBean);
 		
+		/*
+		 * creazione wallet
+		 */
+		WalletBean walletBean = new WalletBean(userBean.getId(),1000);
+		WalletDao walletDao = new WalletDao();
+		walletDao.createWallet(walletBean);
+		userBean.setWallet(walletBean);
+		
+		
 		RequestDispatcher rd = null;
-		rd = request.getRequestDispatcher("/WEB-INF/view/success.jsp");
+		rd = request.getRequestDispatcher("/index.jsp");
 		
 		rd.forward(request, response);
 	}

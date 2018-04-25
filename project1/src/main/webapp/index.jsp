@@ -8,19 +8,25 @@
 	</head>
 	<body>
 	
-		Log In:
-		<form action="LoginController" method="post">
-			Enter username : <input type="text" name="username"> <BR>
-			Enter password : <input type="password" name="password"> <BR>
-			<input type="submit" />
-		</form>
+		<div>
+			<h1>Log In:</h1>
+			<form action="LoginController" method="post">
+				Enter username : <input type="text" name="username"> <BR>
+				Enter password : <input type="password" name="password"> <BR>
+				<input type="submit" />
+			</form>
+		</div>
 		
 		
-		Sign Up:
-		<form action="SignUpController" method="post">
-			Enter username : <input type="text" name="username"> <BR>
-			Enter password : <input type="password" name="password"> <BR>
-			<input type="submit" />
-		</form>
+		<div>
+			<h1>Sign Up:</h1>
+			<form action="SignUpController" method="post">
+				Enter username : <input type="text" name="username"> <BR>
+				Enter password : <input type="password" name="password"> <BR>
+				<input type="submit" />
+			</form>
+		</div>
+		
+		
 	</body>
 </html>
