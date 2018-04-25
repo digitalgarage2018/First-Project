@@ -1,4 +1,6 @@
-<%--
+        <%@ page import="org.project.controller.MarkerController" %>
+<%@ page import="org.w3c.dom.Document" %>
+        <%@ page import="org.project.dao.MarkerDao" %><%--
   Created by IntelliJ IDEA.
   User: Gianmarco
   Date: 24/04/18
@@ -9,7 +11,7 @@
 <html>
 <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <title>Interactive Map</title>
     <style>
         #map {
@@ -19,21 +21,88 @@
     </style>
 </head>
 <body>
+
 <h3>Search!</h3>
+
+<%
+    MarkerController placesToView = new MarkerController();
+    Document places = null;
+    try {
+        places = placesToView.getXMLPlaces();
+    } catch (Exception e) {
+            System.out.println("Exception occurred" + e.toString());
+        }
+
+%>
+
 <div id="map"></div>
 <script>
+
+
     function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 12,
-            center: {lat: 45.474687, lng: 9.187337}
+            center: new google.maps.LatLng(45.474687, 9.187337),
+            zoom: 12
         });
-        //adding markers from mysql...later
+
+        var infoWindow = new google.maps.InfoWindow;
+
+        //trying to retrieve the xml doc to put into downloadUrl. CHECK
+        //at this time, I'm just loading the markers.xml file in which I put the markers...
+
+        //I must specify a correct URL (localhost) -- ask
+        downloadUrl('/Users/Gianmarco/Desktop/DigitalGarage/First-Project/markers.xml', function(data) {
+            var xml = data.responseXML;
+            var markers = xml.documentElement.getElementsByTagName('marker');
+            Array.prototype.forEach.call(markers, function(markerElem) {
+                var id = markerElem.getAttribute('id');
+                var name = markerElem.getAttribute('name');
+                var address = markerElem.getAttribute('address');
+                var type = markerElem.getAttribute('type');
+                var point = new google.maps.LatLng(
+                    parseFloat(markerElem.getAttribute('latitude')),
+                    parseFloat(markerElem.getAttribute('longitude')));
+
+                /*
+                Gianmarco:
+
+                laying out the pop up window with basic specs on map, for each building
+                The construction is pretty simple: append children as you would do in a
+                xml document construction. You oughta append every graphical tag you want,
+                in order to get a graphically satisfying result
+                */
+                var infowincontent = document.createElement('div');
+                var strong = document.createElement('strong');
+                strong.textContent = name
+                infowincontent.appendChild(strong);
+                infowincontent.appendChild((document.createElement('br')));
+                var text = document.createElement('text');
+                text.textContent = address
+                infowincontent.appendChild(text);
+                //you can even customize an icon -- I'm staying with the standard here...
+
+                var marker = new google.maps.Marker({
+                    map: map,
+                    position: point
+                    //later I shall add a custom label, maybe iterate over an array just to number each occurrence
+                });
+                /*
+                Gianmarco:
+                now I'm setting up a listener, so that I can dinamically pass the mouse onto a
+                marker (or click on it), and visualize the infowincontent pop-up...
+                */
+                marker.addListener('click', function() {
+                    infoWindow.setContent(infowincontent);
+                    infoWindow.open(map, marker);
+                });
+             });
+        });
 
         /*
         temporary labels for markers:
         maybe later I should import markers from mysql table (ready
         to be load in mysql_server)
-        */
+
         var labels = '123456';
 
         var markers = locations.map(function (location, i) {
@@ -43,8 +112,30 @@
                 map: map
             });
         });
+        */
     }
 
+    /*
+    Gianmarco: implement the downloadURL function -- signature: standard, from googlemapsAPI
+     */
+    function downloadUrl(url, callback) {
+        var request = window.ActiveXObject ?
+            new ActiveXObject('Microsoft.XMLHTTP') :
+            new XMLHttpRequest;
+
+        request.onreadystatechange = function() {
+            if (request.readyState == 4) {      //don't know what that 4 means...
+                request.onreadystatechange = doNothing;
+                callback(request, request.status);
+            }
+        };
+
+        request.open('GET', url, true);
+        request.send(null);
+    }
+
+    function doNothing() {}
+/*
     var locations = [
         {lat: 45.491684, lng: 9.204736},
         {lat: 45.477931, lng: 9.141652},
@@ -53,9 +144,7 @@
         {lat: 45.483139, lng: 9.197228},
         {lat: 45.477429, lng: 9.195515}
     ]
-
-</script>
-<script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
+*/
 </script>
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAeZarnT-wYAMc6IZpwls-P6Cf90H_SVRk&callback=initMap">

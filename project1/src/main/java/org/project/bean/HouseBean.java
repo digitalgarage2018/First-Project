@@ -4,10 +4,14 @@ import java.io.Serializable;
 
 public class HouseBean implements Serializable {
 
+	/*
+	Gianmarco -- IMPORTANTE: variabili, metodi etc...in INGLESE :)
+	 */
 
 	private static final long serialVersionUID = 1L;
 	
-	private String indirizzo; //da esplicitare
+	private String indirizzo; //da esplicitare --> Gianmarco: Non serve, basta il formato String come su maps quando cerchi
+													//un indirizzo: i.e. "Corso Giacomo Matteotti, 25"
 	private double costo;
 	/*
 	 * attributi da aggiungere bene
