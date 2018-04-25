@@ -27,6 +27,10 @@ public class MarkerBean {
         this.type = type;
     }
 
+    public String toString() {
+        return this.id + " " + this.name + " " + this.address + " " + this.latitude + " " + this.longitude + " " + this.type;
+    }
+
     public int getId() {
         return id;
     }

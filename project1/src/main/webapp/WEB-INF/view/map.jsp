@@ -1,8 +1,7 @@
         <%@ page import="org.project.controller.MarkerController" %>
-<%@ page import="org.w3c.dom.Document" %>
-        <%@ page import="org.project.dao.MarkerDao" %>
         <%@ page import="org.project.bean.MarkerBean" %>
-        <%@ page import="java.util.ArrayList" %><%--
+        <%@ page import="java.util.ArrayList" %>
+       <%--
   Created by IntelliJ IDEA.
   User: Gianmarco
   Date: 24/04/18
@@ -40,7 +39,10 @@
         MarkerController placesToView = new MarkerController();
         ArrayList<MarkerBean> markerList = placesToView.grabPlaces();
 
-        System.out.println(markerList.toString());
+        for (MarkerBean el : markerList)
+            System.out.println(el.toString() + "\n");
+
+
 %>
 
 <div id="map"></div>
@@ -59,7 +61,7 @@
         //at this time, I'm just loading the markers.xml file in which I put the markers...
 
         //I must specify a correct URL (localhost) -- ask
-        downloadUrl('/Users/Gianmarco/Desktop/DigitalGarage/First-Project/markers.xml', function(data) {
+/*        downloadUrl('/Users/Gianmarco/Desktop/DigitalGarage/First-Project/markers.xml', function(data) {
             var xml = data.responseXML;
             var markers = xml.documentElement.getElementsByTagName('marker');
             Array.prototype.forEach.call(markers, function(markerElem) {
@@ -78,7 +80,7 @@
                 The construction is pretty simple: append children as you would do in a
                 xml document construction. You oughta append every graphical tag you want,
                 in order to get a graphically satisfying result
-                */
+                *//*
                 var infowincontent = document.createElement('div');
                 var strong = document.createElement('strong');
                 strong.textContent = name
@@ -98,13 +100,52 @@
                 Gianmarco:
                 now I'm setting up a listener, so that I can dinamically pass the mouse onto a
                 marker (or click on it), and visualize the infowincontent pop-up...
-                */
+                *//*
                 marker.addListener('click', function() {
                     infoWindow.setContent(infowincontent);
                     infoWindow.open(map, marker);
                 });
              });
         });
+
+*/
+        //cannot iterate through java arrayList...
+            var id = <%=markerList.get(0).getId()%>
+            var name = <%=markerList.get(0).getName()%>
+            var address = <%=markerList.get(0).getAddress()%>
+            var type = <%=markerList.get(0).getType()%>
+            var point = new google.maps.LatLng(<%=markerList.get(0).getLatitude()%>, <%=markerList.get(0).getLongitude()%>);
+
+            var infowincontent = document.createElement('div');
+
+            /*
+                    Gianmarco:
+
+                    laying out the pop up window with basic specs on map, for each building
+                    The construction is pretty simple: append children as you would do in a
+                    xml document construction. You oughta append every graphical tag you want,
+                    in order to get a graphically satisfying result
+                    */
+            var infowincontent = document.createElement('div');
+            var strong = document.createElement('strong');
+            strong.textContent = name
+            infowincontent.appendChild(strong);
+            infowincontent.appendChild((document.createElement('br')));
+            var text = document.createElement('text');
+            text.textContent = address
+            infowincontent.appendChild(text);
+            //you can even customize an icon -- I'm staying with the standard here...
+
+            var marker = new google.maps.Marker({
+                map: map,
+                position: point
+                //later I shall add a custom label, maybe iterate over an array just to number each occurrence
+            });
+
+            marker.addListener('click', function () {
+                infoWindow.setContent(infowincontent);
+                infoWindow.open(map, marker);
+            });
 
         /*
         temporary labels for markers:
@@ -126,7 +167,7 @@
     /*
     Gianmarco: implement the downloadURL function -- signature: standard, from googlemapsAPI
      */
-    function downloadUrl(url, callback) {
+ /*   function downloadUrl(url, callback) {
         var request = window.ActiveXObject ?
             new ActiveXObject('Microsoft.XMLHTTP') :
             new XMLHttpRequest;
@@ -140,7 +181,7 @@
 
         request.open('GET', url, true);
         request.send(null);
-    }
+    } */
 
     function doNothing() {}
 /*
