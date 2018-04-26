@@ -18,6 +18,17 @@
 		<url-pattern>/LoginController</url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name>HouseController</servlet-name>
+		<servlet-class>org.project.controller.HouseController</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>HouseController</servlet-name>
+		<url-pattern>/houses</url-pattern>
+	</servlet-mapping>
+
 	<welcome-file-list>
    		<welcome-file>index.jsp</welcome-file>
   	</welcome-file-list>

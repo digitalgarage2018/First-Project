@@ -18,5 +18,6 @@
 			Enter password : <input type="password" name="password"> <BR>
 			<input type="submit" />
 		</form>
+		
 	</body>
 </html>

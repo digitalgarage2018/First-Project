@@ -7,14 +7,13 @@ public class HouseBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
-	private String indirizzo; //da esplicitare
-	private double costo;
-	/*
-	 * attributi da aggiungere bene
-	 * per la ricerca, metratura, classe energetica, ecc.
-	 */
+	private double latitudine, longitudine;
+	private String indirizzo;
+	private double costo, metratura;
 	
 
+	public HouseBean() {}
+	
 	public HouseBean(String indirizzo, double costo) {
 		super();
 		this.indirizzo = indirizzo;
