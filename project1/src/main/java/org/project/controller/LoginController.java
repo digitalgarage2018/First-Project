@@ -40,7 +40,7 @@ public class LoginController extends HttpServlet {
 		System.out.println("valore ritornato: " +resultSet.getMessage());
 
 		if (resultSet.getErrorState() == ResponseState.SUCCESS.getCode()) {
-			rd = request.getRequestDispatcher("/WEB-INF/view/success.jsp");
+			rd = request.getRequestDispatcher("/WEB-INF/view/studentWelcome.jsp");
 			LoginBean user = new LoginBean(username, password);
 			request.setAttribute("user", user);
 			request.setAttribute("resultSet", resultSet);
