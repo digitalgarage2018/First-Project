@@ -20,11 +20,3 @@ nbbuild/
 dist/
 nbdist/
 .nb-gradle/
-
-### macOS ###
-*.DS_Store
-.AppleDouble
-.LSOverride
-
-###
-src/main/java/org/project/util/DBController.java
