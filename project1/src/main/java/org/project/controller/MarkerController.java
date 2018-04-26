@@ -1,6 +1,5 @@
 package org.project.controller;
 
-import org.codehaus.jackson.map.ObjectMapper;
 import org.project.bean.MarkerBean;
 import org.project.dao.MarkerDao;
 import org.w3c.dom.Document;
