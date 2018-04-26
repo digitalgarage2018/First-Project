@@ -28,6 +28,7 @@ public class ExamBean {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+
 	public int getCrediti() {
 		return crediti;
 	}

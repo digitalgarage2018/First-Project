@@ -7,6 +7,6 @@
 		<title>Insert title here</title>
 	</head>
 <body>
-	Login failed, please try again. 
+	Login failed, please try again.
 </body>
 </html>
