@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
@@ -12,7 +11,7 @@
 	<title>Massaggi e saune</title>
 	<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery.min.js" ></script>
 	<!-- Custom Theme files -->
 	<!--theme-style-->
 	<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
@@ -45,7 +44,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 			<div class="header-left">
 
-				<div class="search-box">
+	<!--			<div class="search-box">
 					<div id="sb-search" class="sb-search">
 						<form action="#" method="post">
 							<input class="sb-search-input" placeholder="Enter your search term..." type="search"  id="search">
@@ -54,6 +53,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</form>
 					</div>
 				</div>
+				-->
 
 				<!-- search-scripts -->
 
@@ -61,8 +61,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 				<div class="ca-r">
 					<div class="cart box_1">
-						<a href="checkout.html">
-							<h3> <div class="total">
+						<a href="index.jsp">
+							    <div class="total">
 								<span class="simpleCart_total"></span> </div>
 								<img src="images/cart.png" alt=""/></h3>
 						</a>
@@ -78,7 +78,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="container">
 		<div class="head-top">
 			<div class="logo">
-				<h1><a href="index.html">Welness Madness</a></h1>
+				<h1><a href="index.jsp">Welness Madness</a></h1>
 			</div>
 			<div class=" h_menu4">
 				<ul class="memenu skyblue">
@@ -112,49 +112,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 					<li><a class="color6" onclick="document.getElementById('id01').style.display='block'">Sign Up</a></li>
 
-					<div id="id01" class="modal">
-						<span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-						<form class="modal-content" action="SignUpController" method="post">
-							<div class="container">
-								<h1>Sign Up</h1>
-								<p>Please fill in this form to create an account.</p>
-								<hr>
 
-								<label for="email"><b>Username</b></label>
-								<input type="text" placeholder="Enter Username" name="username" required>
-
-								<label for="psw"><b>Password</b></label>
-								<input type="password" placeholder="Enter Password" name="password" required>
-
-								<label for="email"><b>Email</b></label>
-								<input type="text" placeholder="Enter Email" name="email" required>
-
-								<label for="email"><b>Name</b></label>
-								<input type="text" placeholder="Enter Name" name="name" required>
-
-								<label for="email"><b>Surname</b></label>
-								<input type="text" placeholder="Enter Surname" name="surname" required>
-
-								<label for="email"><b>Born date</b></label>
-								<input type="text" placeholder="Enter Born date" name="born_date" required>
-
-								<label for="email"><b>Born place</b></label>
-								<input type="text" placeholder="Enter Born place" name="born_place" required>
-
-
-								<!--  <label>
-                                  <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
-                                </label>
-
-                                <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
-
-                                  -->
-								<div class="clearfix">
-									<button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-									<button type="submit" class="signup">Sign Up</button>
-								</div>
-							</div>
-						</form>
 					</div>
 				</ul>
 			</div>
@@ -166,7 +124,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="banner">
 	<div class="container">
 		<script src="js/responsiveslides.min.js"></script>
-		<script>
+		<script type="">
             $(function () {
                 $("#slider").responsiveSlides({
                     auto: true,
@@ -200,8 +158,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</li>
 				<li>
 					<div class="banner-text">
-						<h3>Sed ut perspiciatis</h3>
-						<p>Lorem Ipsum is not simply random text. Contrary to popular belief, It has roots in a piece of classical Latin literature from 45 BC.</p>
+						<h3>Che bello, finalmente</h3>
+						<p>Veramente molto relax nei nostri punti relax, complimenti</p>
 
 
 					</div>
@@ -215,5 +173,4 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 </body>
-</html>
 </html>
