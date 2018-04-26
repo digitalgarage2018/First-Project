@@ -1,13 +1,14 @@
         <%@ page import="org.project.controller.MarkerController" %>
         <%@ page import="org.project.bean.MarkerBean" %>
         <%@ page import="java.util.ArrayList" %>
-       <%--
-  Created by IntelliJ IDEA.
-  User: Gianmarco
-  Date: 24/04/18
-  Time: 18:20
-  To change this template use File | Settings | File Templates.
---%>
+        <%@ page import="com.google.gson.Gson" %>
+        <%--
+   Created by IntelliJ IDEA.
+   User: Gianmarco
+   Date: 24/04/18
+   Time: 18:20
+   To change this template use File | Settings | File Templates.
+ --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -34,20 +35,28 @@
             System.out.println("Exception occurred" + e.toString());
         }
 */
-        //MAYBE I SHOULD JUST GRAB DATA FROM DB WITH DAO AND CONTROLLER, CREATE A MARKERBEAN AND INJECT IT HERE...
+    //MAYBE I SHOULD JUST GRAB DATA FROM DB WITH DAO AND CONTROLLER, CREATE A MARKERBEAN AND INJECT IT HERE...
 
-        MarkerController placesToView = new MarkerController();
-        ArrayList<MarkerBean> markerList = placesToView.grabPlaces();
+    MarkerController placesToView = new MarkerController();
+    ArrayList<MarkerBean> markerList = placesToView.grabPlaces();
 
-        for (MarkerBean el : markerList)
-            System.out.println(el.toString() + "\n");
+    for (MarkerBean el : markerList)
+        System.out.println(el.toString() + "\n");
 
+    String json = new Gson().toJson(markerList);
 
 %>
 
+
+
+
+<br>
+
+
+</br>
+
 <div id="map"></div>
 <script>
-
 
     function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
@@ -109,12 +118,24 @@
         });
 
 */
-        //cannot iterate through java arrayList...
-            var id = <%=markerList.get(0).getId()%>
-            var name = <%=markerList.get(0).getName()%>
-            var address = <%=markerList.get(0).getAddress()%>
-            var type = <%=markerList.get(0).getType()%>
-            var point = new google.maps.LatLng(<%=markerList.get(0).getLatitude()%>, <%=markerList.get(0).getLongitude()%>);
+        var list1 = '<%=json%>';
+        var places = JSON.parse(list1);
+        var placeName = places.map(place => place.name)
+        console.log(list1);
+        console.log(places);
+        console.log(places[0].id);
+        console.log(places[1].address);
+        console.log(places[1].latitude);
+        console.log(places[1].longitude);
+
+        for (var i = 0; i < places.length; i++) {
+            var id = places[i].id;
+            var name = places[i].name;
+            var address = places[i].address;
+            var type = places[i].type;
+            var lat = places[i].latitude;
+            var lng = places[i].longitude;
+            var point = new google.maps.LatLng(lat, lng);
 
             var infowincontent = document.createElement('div');
 
@@ -128,11 +149,11 @@
                     */
             var infowincontent = document.createElement('div');
             var strong = document.createElement('strong');
-            strong.textContent = name
+            strong.textContent = name;
             infowincontent.appendChild(strong);
             infowincontent.appendChild((document.createElement('br')));
             var text = document.createElement('text');
-            text.textContent = address
+            text.textContent = address;
             infowincontent.appendChild(text);
             //you can even customize an icon -- I'm staying with the standard here...
 
@@ -147,6 +168,7 @@
                 infoWindow.open(map, marker);
             });
 
+        }
         /*
         temporary labels for markers:
         maybe later I should import markers from mysql table (ready

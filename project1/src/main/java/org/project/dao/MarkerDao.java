@@ -25,7 +25,7 @@ import org.w3c.dom.Element;
 
 public class MarkerDao {
 
-    private static final String SELECT_MARKERS = "SELECT * FROM markers";
+    private static final String SELECT_MARKERS = "SELECT * FROM marker";
     private static final String XML_PATH = "/Users/Gianmarco/Desktop/DigitalGarage/First-Project/markers.xml";
 
 
