@@ -2,7 +2,12 @@
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
-<html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://xmlns.jcp.org/jsf/html"
+	  xmlns:f="http://xmlns.jcp.org/jsf/core"
+	  xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+
+
 <head>
 	<title>Massaggi e saune</title>
 	<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
@@ -89,13 +94,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						if ((session.getAttribute("user") == null) || (session.getAttribute("user") == "")) {
 					%>
 
-					<li><a class="color4" href="login_sign.jsp">Login</a></li>
+					<li><a class="color4" href="login.jsp">Login</a></li>
 
 					<%}
 
 					else {
 					%>
-					<li><a class="color4" href="login_sign.jsp">Logout</a></li>
+					<li><a class="color4" href="LogoutController" onclick="if (!confirm('Are you sure you want to delete this ARTISTA? You will cancel all its relationships with GROUPS and BRANOS too')) return false"
+						   action="">Logout</a></li>
+<!-- 					<h:commandLink value="Logout"
+								   onclick="if (!confirm('Are you sure you want to delete this ARTISTA? You will cancel all its relationships with GROUPS and BRANOS too')) return false"
+								   action=""/> -->
 
 					<%
 						}

@@ -1,33 +1,92 @@
-<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="js/jquery.min.js"></script>
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<link href="css/login.css" rel="stylesheet" type="text/css" media="all" />
 
-<!------ Include the above in your HEAD tag ---------->
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Login </title>
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery.min.js"></script>
+    <!-- Custom Theme files -->
+    <!--theme-style-->
+    <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!--//theme-style-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Mattress Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!--fonts-->
+    <link href='//fonts.googleapis.com/css?family=Lato:100,300,400,700,900' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'><!--//fonts-->
+    <!-- start menu -->
+    <link href="css/memenu.css" rel="stylesheet" type="text/css" media="all" />
+    <script type="text/javascript" src="js/memenu.js"></script>
+    <script>$(document).ready(function(){$(".memenu").memenu();});</script>
+    <script src="js/simpleCart.min.js"> </script>
+</head>
+<body>
 
-<script src="https://use.typekit.net/ayg4pcz.js"></script>
+<div class="header">
+    <div class="header-top">
+        <div class="container">
 
-<script>try{Typekit.load({ async: true });}catch(e){}</script>
-
-<div class="container">
-    <h1 class="welcome text-center">Welcome to <br> Ice Code</h1>
-    <div class="card card-container">
-        <h2 class='login_title text-center'>Login</h2>
-        <hr>
-
-        <form class="form-signin">
-            <span id="reauth-email" class="reauth-email"></span>
-            <p class="input_title">Email</p>
-            <input type="text" id="inputEmail" class="login_box" placeholder="user01@IceCode.com" required autofocus>
-            <p class="input_title">Password</p>
-            <input type="password" id="inputPassword" class="login_box" placeholder="******" required>
-            <div id="remember" class="checkbox">
-                <label>
-
-                </label>
+            <div class="header-top">
+                Torna alla home
             </div>
-            <button class="btn btn-lg btn-primary" type="submit">Login</button>
-        </form><!-- /form -->
-    </div><!-- /card-container -->
-</div><!-- /container -->
+
+        </div>
+    </div>
+</div>
+
+
+<div class="grow">
+    <div class="container">
+        <h2 align="center"> Welcome in SuperRelax </h2>
+    </div>
+</div>
+
+
+<!--content-->
+<div align="center" class="container">
+    <div class="account">
+        <div class="account-pass">
+            <div class="col-md-2 left-account">
+                <!-- colonna sinistra vuota-->
+            </div>
+            <div class="col-md-8 account-top">
+
+                <h1> Login </h1>
+                <form align="center" action="LoginController" method="post">
+
+                    <div>
+                        <span id="reauth-email" class="reauth-email">Username</span>
+                        <input type="text" name="username" id="inputEmail" class="login_box"  required autofocus>
+
+                    </div>
+                    <div>
+                        <span >Password</span>
+                        <input type="password" name="password" id="inputPassword" class="login_box" required>
+                    </div>
+                    <input type="submit" value="Login">
+                </form>
+
+                <br> <br>
+                Non sei ancora registrato? <br>
+                <input type="submit" value="Sign Up">
+
+
+            </div>
+
+            <div class="col-md-2 left-account">
+                <!-- colonna destra vuota-->
+            </div>
+
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+
+</div>
+
+
+</body>
+</html>
