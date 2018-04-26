@@ -8,8 +8,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.project.bean.LoginBean;
-import org.project.dao.LoginDao;
+import org.project.bean.UserBean;
+import org.project.bean.WalletBean;
+import org.project.dao.UserDao;
+import org.project.dao.WalletDao;
 
  
 public class SignUpController extends HttpServlet {
@@ -26,20 +28,26 @@ public class SignUpController extends HttpServlet {
 		String password = request.getParameter("password");
 		
 		
-		LoginBean loginBean = new LoginBean(username,password);
-		LoginDao loginDao = new LoginDao() ;
-		RequestDispatcher rd = null;
-		//System.out.println("valore prima: " +result);
+		/*
+		 * creazione user
+		 */
+		UserBean userBean = new UserBean(username,password);
+		UserDao userDao = new UserDao();
+		//id gestito da auto increment
+		userDao.createUser(userBean);
 		
-		String result = loginDao.authenticateUser(loginBean);
-		System.out.println("valore ritornato: " +result);
-		if (result.equals("success")) {
-			rd = request.getRequestDispatcher("/WEB-INF/view/success.jsp");
-			LoginBean user = new LoginBean(username, password);
-			request.setAttribute("user", user);
-		} else {
-			rd = request.getRequestDispatcher("/WEB-INF/view/error.jsp");
-		}
+		/*
+		 * creazione wallet
+		 */
+		WalletBean walletBean = new WalletBean(userBean.getId(),1000);
+		WalletDao walletDao = new WalletDao();
+		walletDao.createWallet(walletBean);
+		userBean.setWallet(walletBean);
+		
+		
+		RequestDispatcher rd = null;
+		rd = request.getRequestDispatcher("/index.jsp");
+		
 		rd.forward(request, response);
 	}
  

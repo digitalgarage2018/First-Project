@@ -9,7 +9,6 @@
 	<body>
 
 		Welcome ${requestScope['user'].username}. 
-		Your credit is ${requestScope['wallet'].credit}. 
 
 	</body>
 </html>

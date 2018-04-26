@@ -7,6 +7,7 @@ public class UserBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
+	private int id;
 	private String username;
 	private String password;
 	private String name, surname;
@@ -15,18 +16,28 @@ public class UserBean implements Serializable {
 	
 	
 	public UserBean(String user, String pass) {
+		id = -1; //negativo non consentito, mi è utile questo metodo
 		this.username=user;
 		this.password=pass;
 	}
 	
-	public UserBean(String user, String pass, WalletBean wallet) {
+	
+	public UserBean(int id, String user, String pass) {
+		this.id=id;
+		this.username=user;
+		this.password=pass;
+	}
+	
+	public UserBean(int id, String user, String pass, WalletBean wallet) {
+		this.id=id;
 		this.username=user;
 		this.password=pass;
 		this.wallet=wallet;
 	}
 	
 	
-	public UserBean(String user, String pass, String name, String surname, Date birth, WalletBean wallet) {
+	public UserBean(int id, String user, String pass, String name, String surname, Date birth, WalletBean wallet) {
+		this.id=id;
 		this.username = user;
 		this.password = pass;
 		this.name = name;
@@ -37,6 +48,10 @@ public class UserBean implements Serializable {
 
 	
 	
+	public int getId() {
+		return id;
+	}
+
 	public String getUsername() {
 		return username;
 	}
@@ -61,6 +76,10 @@ public class UserBean implements Serializable {
 		return wallet;
 	}
 
+	public void setId(int id) {
+		this.id = id;
+	}
+	
 	public void setUser(String user) {
 		this.username = user;
 	}
