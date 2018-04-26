@@ -73,11 +73,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="container">
 		<div class="head-top">
 			<div class="logo">
-				<h1><a href="index.html">Servizi</a></h1>
+				<h1><a href="index.html">Welness Madness</a></h1>
 			</div>
 			<div class=" h_menu4">
 				<ul class="memenu skyblue">
-					<li><a class="color8" href="index.html">Wallet</a></li>
+					<li><a class="color8" href="Wallet.jsp">Wallet</a></li>
 					<li><a class="color1" href="#">Prodotti</a>
 
 					</li>
@@ -89,19 +89,64 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						if ((session.getAttribute("user") == null) || (session.getAttribute("user") == "")) {
 					%>
 
-					<li><a class="color4" href="login_sign.jsp">Logout</a></li>
+					<li><a class="color4" href="login_sign.jsp">Login</a></li>
 
 					<%}
 
 					else {
 					%>
-					<li><a class="color4" href="login_sign.jsp">Login</a></li>
+					<li><a class="color4" href="login_sign.jsp">Logout</a></li>
 
 					<%
 						}
 					%>
 
-					<li><a class="color6" href="contact.html">Registrati</a></li>
+					<li><a class="color6" onclick="document.getElementById('id01').style.display='block'">Sign Up</a></li>
+
+					<div id="id01" class="modal">
+						<span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+						<form class="modal-content" action="SignUpController" method="post">
+							<div class="container">
+								<h1>Sign Up</h1>
+								<p>Please fill in this form to create an account.</p>
+								<hr>
+
+								<label for="email"><b>Username</b></label>
+								<input type="text" placeholder="Enter Username" name="username" required>
+
+								<label for="psw"><b>Password</b></label>
+								<input type="password" placeholder="Enter Password" name="password" required>
+
+								<label for="email"><b>Email</b></label>
+								<input type="text" placeholder="Enter Email" name="email" required>
+
+								<label for="email"><b>Name</b></label>
+								<input type="text" placeholder="Enter Name" name="name" required>
+
+								<label for="email"><b>Surname</b></label>
+								<input type="text" placeholder="Enter Surname" name="surname" required>
+
+								<label for="email"><b>Born date</b></label>
+								<input type="text" placeholder="Enter Born date" name="born_date" required>
+
+								<label for="email"><b>Born place</b></label>
+								<input type="text" placeholder="Enter Born place" name="born_place" required>
+
+
+								<!--  <label>
+                                  <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+                                </label>
+
+                                <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+
+                                  -->
+								<div class="clearfix">
+									<button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+									<button type="submit" class="signup">Sign Up</button>
+								</div>
+							</div>
+						</form>
+					</div>
 				</ul>
 			</div>
 
