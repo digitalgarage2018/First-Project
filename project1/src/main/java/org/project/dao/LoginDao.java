@@ -17,7 +17,7 @@ public class LoginDao {
 		try {
 
 			if(connectDB(SELECT_BY_USERNAME)) {
-				stmt.setString(1, loginBean.getUsername());
+				stmt.setString(1, loginBean.getUsername()); //serve a settare parametri di imput delle query
 				rs = stmt.executeQuery();
 
 				if (rs.next()) {
