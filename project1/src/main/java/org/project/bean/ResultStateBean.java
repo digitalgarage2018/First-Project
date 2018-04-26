@@ -7,6 +7,7 @@ public class ResultStateBean {
 
     //0 for OK and 1 for ERROR
     private int errorState;
+    private Object resultSet;
 
     public ResultStateBean(String message, String result, int errorState){
         this.message = message;
@@ -36,6 +37,14 @@ public class ResultStateBean {
 
     public void setErrorState(int errorState) {
         this.errorState = errorState;
+    }
+
+    public Object getResultSet() {
+        return resultSet;
+    }
+
+    public void setResultSet(Object resultSet) {
+        this.resultSet = resultSet;
     }
 
 }

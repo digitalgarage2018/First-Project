@@ -6,15 +6,18 @@ public class ExamBean {
 	private int crediti;
 	private String descrizione;
 	private long matricolaProfessor;
-	
-	public ExamBean (long id, String nome, int crediti, String descrizione, long matricolaProfessor) {
-		this.id = id;
+
+	public ExamBean(){
+
+	};
+
+	public ExamBean (String nome, int crediti, String descrizione, long matricolaProfessor) {
 		this.nome = nome;
 		this.crediti = crediti;
 		this.descrizione = descrizione;
 		this.matricolaProfessor = matricolaProfessor;
-		
 	}
+
 	public long getId() {
 		return id;
 	}
