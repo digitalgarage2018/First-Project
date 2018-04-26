@@ -10,13 +10,11 @@ public class StudentBean {
 	private Date dataNascita;
 	private long pianoId;
 	
-	public StudentBean(long nMatricola, String nome, String cognome, String email, Date dataNascita, long pianoId) {
-		this.nMatricola = nMatricola;
+	public StudentBean(String nome, String cognome, String email, Date dataNascita) {
 		this.nome = nome;
 		this.cognome = cognome;
 		this.email = email;
 		this.dataNascita = dataNascita;
-		this.setPianoId(pianoId);
 	}
 	
 	public long getnMatricola() {

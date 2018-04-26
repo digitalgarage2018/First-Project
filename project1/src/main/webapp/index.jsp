@@ -8,9 +8,10 @@
 	</head>
 	<body>
 		<form action="LoginController" method="post">
-			Enter username : <input type="text" name="username"> <BR>
-			Enter password : <input type="password" name="password"> <BR>
+			Enter Email : <input type="text" name="username"> <BR>
+			Enter Password : <input type="password" name="password"> <BR>
 			<input type="submit" />
 		</form>
+		<p><a href="register.jsp">Registrati</a></p>
 	</body>
 </html>

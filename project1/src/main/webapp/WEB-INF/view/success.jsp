@@ -8,7 +8,9 @@
 	</head>
 	<body>
 
-		Welcome ${requestScope['user'].username}. 
+		Welcome : ${requestScope['user'].username} .
+		<br>
+		Message: ${requestScope['resultSet'].message}.
 
 	</body>
 </html>
