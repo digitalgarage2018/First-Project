@@ -1,3 +1,15 @@
+/*
+ ============================================================================
+ Name        : WalletBean.java
+ Author      : Alessio Onori
+ Version     : 1.0
+ Copyright   : Your copyright notice
+ Description : Bean per modellare il portafoglio.
+ 	da migliorare l'attributo credit che non può essere 
+ 	un semplice double.
+ ============================================================================
+ */
+
 package org.project.bean;
 
 import java.io.Serializable;

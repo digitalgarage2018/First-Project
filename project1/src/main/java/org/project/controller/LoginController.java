@@ -1,3 +1,13 @@
+/*
+ ============================================================================
+ Name        : LoginController.java
+ Author      : Alessio Onori
+ Version     : 1.0
+ Copyright   : Your copyright notice
+ Description : modificato rispetto al template originale, recupero del wallet
+ ============================================================================
+ */
+
 package org.project.controller;
 
 import java.io.IOException;

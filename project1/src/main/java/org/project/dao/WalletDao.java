@@ -1,3 +1,13 @@
+/*
+ ============================================================================
+ Name        : WalletDao.java
+ Author      : Alessio Onori
+ Version     : 1.0
+ Copyright   : Your copyright notice
+ Description : Dao per il bean Wallet
+ ============================================================================
+ */
+
 package org.project.dao;
 
 import org.project.bean.WalletBean;

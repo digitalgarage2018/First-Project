@@ -1,3 +1,13 @@
+/*
+ ============================================================================
+ Name        : SignInController.java
+ Author      : Alessio Onori
+ Version     : 1.0
+ Copyright   : Your copyright notice
+ Description : controller per la business logic della registrazione
+ ============================================================================
+ */
+
 package org.project.controller;
 
 import java.io.IOException;

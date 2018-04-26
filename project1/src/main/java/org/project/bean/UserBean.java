@@ -1,3 +1,13 @@
+/*
+ ============================================================================
+ Name        : UserBean.java
+ Author      : Alessio Onori
+ Version     : 1.0
+ Copyright   : Your copyright notice
+ Description : Bean per modellare l'utente
+ ============================================================================
+ */
+
 package org.project.bean;
 
 import java.io.Serializable;
@@ -14,7 +24,10 @@ public class UserBean implements Serializable {
 	private Date birth;
 	private WalletBean wallet=null;
 	
-	
+	/*
+	 * questo metodo mi è utile per inizializzare l'user bean
+	 * dato che nel db il campo id è auto increment
+	 */
 	public UserBean(String user, String pass) {
 		id = -1; //negativo non consentito, mi è utile questo metodo
 		this.username=user;
