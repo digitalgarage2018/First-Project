@@ -6,6 +6,8 @@
 <head>
     <title>Massaggi e saune</title>
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="css/wallet.css" rel="stylesheet" type="text/css" media="all" />
+
     <!-- Custom Theme files -->
     <!--theme-style-->
     <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
@@ -57,7 +59,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <span class="simpleCart_total"></span> </div>
                                 <img src="images/cart.png" alt=""/></h3>
                         </a>
-                        <p><a href="javascript:;" class="simpleCart_empty">Carrello Vuoto</a></p>
+                        <p><a class="simpleCart_empty">Carrello Vuoto</a></p>
 
                     </div>
                 </div>
@@ -93,11 +95,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </div>
 </div>
 
-    <div id="wallet">
-        Importo:
 
-        <div id=importo> </div>
 
+
+<img src="images/ethereum.png" alt="" class="ethereum"/>
+
+<h3><p class="text-center" id="address">0xE08aa75AAE695c4622Cd430FbeBF4B97689d4Ee3</p></h3>
+<h3><p class="text-center" id="balance">3,67 ETH</p></h3>
+
+
+</div>
 
 
 
