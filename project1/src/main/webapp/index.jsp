@@ -105,7 +105,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<li><a class="color4" href="LogoutController" onclick="if (!confirm('Sei sicuro di voler uscire? ')) return false"
 						   action="">Logout</a></li>
 						   
-						   <li><a class="color8" href="Wallet.jsp">Wallet</a></li>
+						   <li><a class="color8" href="EthereumController">Wallet</a></li>
 
 					<%
 						}
