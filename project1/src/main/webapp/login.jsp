@@ -29,7 +29,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="header">
     <div class="header-top">
         <div class="container">
-
             <div class="header-top">
                 Torna alla home
             </div>
@@ -41,7 +40,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <div class="grow">
     <div class="container">
-        <h2 align="center"> Welcome in SuperRelax </h2>
+        <h1 align="center"> Welcome in SuperRelax </h1>
     </div>
 </div>
 
@@ -55,16 +54,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
             <div class="col-md-8 account-top">
 
-                <h1> Login </h1>
-                <form align="center" action="LoginController" method="post">
+                <h3> Login </h3>
+                <form action="LoginController" method="post">
 
                     <div>
-                        <span id="reauth-email" class="reauth-email">Username</span>
+                        <span align="left" id="reauth-email" class="reauth-email">Username</span>
                         <input type="text" name="username" id="inputEmail" class="login_box"  required autofocus>
 
                     </div>
                     <div>
-                        <span >Password</span>
+                        <span align="left">Password</span>
                         <input type="password" name="password" id="inputPassword" class="login_box" required>
                     </div>
                     <input type="submit" value="Login">
@@ -72,8 +71,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                 <br> <br>
                 Non sei ancora registrato? <br>
-                <input type="submit" value="Sign Up">
 
+                <form action="sign_up.jsp">
+                    <input type="submit" value="Sign Up">
+                </form>
 
             </div>
 

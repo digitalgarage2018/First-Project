@@ -100,18 +100,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 					else {
 					%>
-					<li><a class="color4" href="LogoutController" onclick="if (!confirm('Are you sure you want to delete this ARTISTA? You will cancel all its relationships with GROUPS and BRANOS too')) return false"
+					<li><a class="color4" href="LogoutController" onclick="if (!confirm('Sei sicuro di voler uscire? ')) return false"
 						   action="">Logout</a></li>
-<!-- 					<h:commandLink value="Logout"
-								   onclick="if (!confirm('Are you sure you want to delete this ARTISTA? You will cancel all its relationships with GROUPS and BRANOS too')) return false"
-								   action=""/> -->
 
 					<%
 						}
 					%>
-
-					<li><a class="color6" onclick="document.getElementById('id01').style.display='block'">Sign Up</a></li>
-
+					<li><a class="color4" href="sign_up.jsp">Sign Up</a></li>
 
 					</div>
 				</ul>
