@@ -1,5 +1,9 @@
 package org.project.bean;
 
+import sun.net.www.content.text.Generic;
+
+import java.util.ArrayList;
+
 public class ResultStateBean {
     //message send to caller
     private String message;
@@ -9,10 +13,11 @@ public class ResultStateBean {
     private int errorState;
     private Object resultSet;
 
-    public ResultStateBean(String message, String result, int errorState){
+    public ResultStateBean(String message, String result, int errorState, Object resultSet){
         this.message = message;
         this.errorState = errorState;
         this.result = result;
+        this.resultSet = resultSet;
     }
 
     public String getMessage() {
