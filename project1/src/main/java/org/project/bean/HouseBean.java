@@ -4,90 +4,93 @@ import java.io.Serializable;
 
 public class HouseBean implements Serializable {
 
-	/*
-	Gianmarco -- IMPORTANTE: variabili, metodi etc...in INGLESE :)
-	 */
-
 	private static final long serialVersionUID = 1L;
 	
-	private String indirizzo; //da esplicitare --> Gianmarco: Non serve, basta il formato String come su maps quando cerchi
-													//un indirizzo: i.e. "Corso Giacomo Matteotti, 25"
-	private double costo;
-	/*
-	 * attributi da aggiungere bene
-	 * per la ricerca, metratura, classe energetica, ecc.
-	 */
-	
+	private int id;
+	private String name, address, city, type;
+	private double area, price, latitude, longitude; 
+	private char E_class;
 
 	public HouseBean() {}
-	
-	public HouseBean(String indirizzo, double costo) {
-		super();
-		this.indirizzo = indirizzo;
-		this.costo = costo;
+
+	public int getId() {
+		return id;
 	}
 
-
-
-	public String getIndirizzo() {
-		return indirizzo;
+	public void setId(int id) {
+		this.id = id;
 	}
 
-
-	public double getCosto() {
-		return costo;
+	public String getName() {
+		return name;
 	}
 
-
-	public void setIndirizzo(String indirizzo) {
-		this.indirizzo = indirizzo;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-
-	public void setCosto(double costo) {
-		this.costo = costo;
+	public String getAddress() {
+		return address;
 	}
 
+	public void setAddress(String address) {
+		this.address = address;
+	}
 
+	public String getCity() {
+		return city;
+	}
 
-//	@Override
-//	public int hashCode() {
-//		final int prime = 31;
-//		int result = 1;
-//		long temp;
-//		temp = Double.doubleToLongBits(costo);
-//		result = prime * result + (int) (temp ^ (temp >>> 32));
-//		result = prime * result + ((indirizzo == null) ? 0 : indirizzo.hashCode());
-//		return result;
-//	}
-//
-//
-//
-//	@Override
-//	public boolean equals(Object obj) {
-//		if (this == obj)
-//			return true;
-//		if (obj == null)
-//			return false;
-//		if (getClass() != obj.getClass())
-//			return false;
-//		House other = (House) obj;
-//		if (Double.doubleToLongBits(costo) != Double.doubleToLongBits(other.costo))
-//			return false;
-//		if (indirizzo == null) {
-//			if (other.indirizzo != null)
-//				return false;
-//		} else if (!indirizzo.equals(other.indirizzo))
-//			return false;
-//		return true;
-//	}
+	public void setCity(String city) {
+		this.city = city;
+	}
 
+	public String getType() {
+		return type;
+	}
 
+	public void setType(String type) {
+		this.type = type;
+	}
 
-	
+	public double getArea() {
+		return area;
+	}
 
-	
+	public void setArea(double area) {
+		this.area = area;
+	}
 
+	public double getPrice() {
+		return price;
+	}
 
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+	public double getLatitude() {
+		return latitude;
+	}
+
+	public void setLatitude(double latitude) {
+		this.latitude = latitude;
+	}
+
+	public double getLongitude() {
+		return longitude;
+	}
+
+	public void setLongitude(double longitude) {
+		this.longitude = longitude;
+	}
+
+	public char getE_class() {
+		return E_class;
+	}
+
+	public void setE_class(char e_class) {
+		E_class = e_class;
+	}
 	
 }

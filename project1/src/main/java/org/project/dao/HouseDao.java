@@ -14,24 +14,29 @@ import org.project.bean.HouseBean;
 
 public class HouseDao {
 	
-	private static final String SELECT = "SELECT * FROM houses WHERE 1=1";
+	private static final String SELECT = "SELECT * FROM house WHERE 1=1";
 	
 
 	public List<HouseBean> find(Map<String, String> parameters){
 		List<HouseBean> houses = new ArrayList<>();
 		
-		String minPrice, maxPrice, minSize, maxSize, minLatitude, maxLatitude, minLongitude, maxLongitude;
+		String minPrice, maxPrice, minArea, maxArea, 
+			minLatitude, maxLatitude, minLongitude, 
+			maxLongitude, type, city, E_class;
 		
 		System.out.println(parameters);
 		
 		minPrice = parameters.get("minPrice");
 		maxPrice = parameters.get("maxPrice");
-		minSize = parameters.get("minSize");
-		maxSize = parameters.get("maxSize");
+		minArea = parameters.get("minArea");
+		maxArea = parameters.get("maxArea");
 		minLatitude = parameters.get("minLatitude");
 		maxLatitude = parameters.get("maxLatitude");
 		minLongitude = parameters.get("minLongitude");
 		maxLongitude = parameters.get("maxLongitude");
+		type = parameters.get("type");
+		city = parameters.get("city");
+		E_class = parameters.get("E_class");
 		
 		StringBuilder query = new StringBuilder();
 
@@ -39,32 +44,42 @@ public class HouseDao {
 		
 		if(minPrice != null && maxPrice != null && minPrice != "" && maxPrice != "") {
 			query.append(" and");
-			query.append(" Price>" + minPrice);
+			query.append(" price>" + minPrice);
 			query.append(" and");
-			query.append(" Price<" + maxPrice);
+			query.append(" price<" + maxPrice);
 		}
 		
-		if(minSize != null && maxSize != null && minSize != "" && maxSize != "") {
+		if(minArea != null && maxArea != null && minArea != "" && maxArea != "") {
 			query.append(" and");
-			query.append(" Size>" + minSize);
+			query.append(" area>" + minArea);
 			query.append(" and");
-			query.append(" Size<" + maxSize);
+			query.append(" area<" + maxArea);
 		}
 		
 		if(minLatitude != null && maxLatitude != null && minLatitude != "" && maxLatitude != "") {
 			query.append(" and");
-			query.append(" Latitude>" + minLatitude);
+			query.append(" latitude>" + minLatitude);
 			query.append(" and");
-			query.append(" Latitude<" + maxLatitude);			
+			query.append(" latitude<" + maxLatitude);			
 		}
 		
 		if(minLongitude != null && maxLongitude != null && minLongitude != "" && maxLongitude != "") {
 			query.append(" and");
-			query.append(" Longitude>" + minLongitude);
+			query.append(" longitude>" + minLongitude);
 			query.append(" and");
-			query.append(" Longitude<" + maxLongitude);						
+			query.append(" longitude<" + maxLongitude);						
 		}
 		
+		if(type != null && type != "")
+			query.append(" and type='" + type + "'");
+		
+		if(city != null && city != "")
+			query.append(" and city='" + city + "'");
+
+		if(E_class != null && E_class != "")
+			query.append(" and E_class='" + E_class + "'");
+
+			
 		System.out.println(query.toString());
 		
 		try {
@@ -74,8 +89,12 @@ public class HouseDao {
 
 				while(rs.next()){
 					HouseBean house = new HouseBean();
-					house.setIndirizzo(rs.getString("Address"));
-					house.setCosto(rs.getDouble("Price"));
+					house.setId(rs.getInt("id"));
+					house.setName(rs.getString("name"));
+					house.setAddress(rs.getString("address"));
+					house.setCity(rs.getString("city"));
+					house.setPrice(rs.getDouble("price"));
+					house.setE_class(rs.getString("E_class").charAt(0));
 					
 					houses.add(house);
 				}
