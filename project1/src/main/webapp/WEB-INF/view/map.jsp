@@ -86,7 +86,9 @@
             <input type="text" name="maxLongitude" placeholder="maxLongitude">--%>
 
 
-			<input type="hidden" name="choice" value="Range"> <input
+			<br>
+
+			<input
 				type="range" min="0" max="10" value="5" class="slider" id="myRange"
 				name="myRange">
 			<p>
