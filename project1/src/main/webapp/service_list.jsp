@@ -132,7 +132,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <c:forEach items="${services}" var="service">
                     <div class="col-md-6 bottom-cd simpleCart_shelfItem">
                         <div class="product-at ">
-                            <a href="detail.jsp"><img class="img-responsive" src="images/services-demo-img.jpg" alt="">
+                            <a href="detail.jsp"><img class="img-responsive" src="${service.sr_image}" alt="">
                                 <div class="pro-grid">
                                     <span class="buy-in">Buy Now</span>
                                 </div>
@@ -158,21 +158,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </div>
     </div>
 </div>
-
-<table>
-    <c:forEach items="${services}" var="service">
-        <tr>            
-            <td><c:out value="${service.sr_name}" /></td>
-            <td><c:out value="${service.sr_type}" /></td>
-            <td><c:out value="${service.sr_description}" /></td>
-            <td><c:out value="${service.sr_price}" /></td>
-            <td><c:out value="${service.sr_time}" /></td>
-            <td><c:out value="${service.sr_wellness_center}" /></td>
-            <td><c:out value="${service.sr_serviceID}" /></td>     
-            <img src="${service.sr_image}" alt="">    
-        </tr>
-    </c:forEach>
-</table>
 
 </body>
 </html>
