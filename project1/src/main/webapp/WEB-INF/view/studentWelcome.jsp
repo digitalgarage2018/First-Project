@@ -30,6 +30,6 @@
     <tr><td><button>Segui Lezione Online</button></td></tr>
     <tr><td><button>Logout</button></td></tr>
 </table>
-<p style="color: SlateBlue;position: absolute; bottom:100px; right: 50px; font-size:250%"> Benvenuto ${requestScope['StudentBean'].name}. </p>
+<p style="color: SlateBlue;position: absolute; bottom:100px; right: 50px; font-size:260%"> Benvenuto ${requestScope['StudentBean'].name}. </p>
 </body>
 </html>
