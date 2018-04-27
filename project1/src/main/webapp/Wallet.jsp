@@ -1,3 +1,4 @@
+<%@ page import="org.project.dao.EthereumDao" %>
 <%@ page contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -24,6 +25,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 </head>
 <body>
+
+
+
 <!--header-->
 <div class="header">
     <div class="header-top">
@@ -75,16 +79,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
             <div class=" h_menu4">
                 <ul class="memenu skyblue">
-                    <li><a class="color8" href="Wallet.jsp">Wallet</a></li>
                     <li><a class="color1" href="#">Prodotti</a>
 
                     </li>
-                    <li class="grid"><a class="color2" href="#">Servizi</a>
+                    <li class="grid"><a class="color2" href="ServiceController">Servizi</a>
 
                     </li>
 
 
-                    <li><a class="color4" href="login_sign.jsp">Logout</a></li>
+                    <li class="grid"><a class="color2" href="LogoutController">Logout</a>
 
                 </ul>
             </div>
@@ -101,7 +104,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <img src="images/ethereum.png" alt="" class="ethereum"/>
 
 <h3><p class="text-center" id="address">0xE08aa75AAE695c4622Cd430FbeBF4B97689d4Ee3</p></h3>
-<h3><p class="text-center" id="balance">3,67 ETH</p></h3>
+<h3><p class="text-center" id="balance">
+    saldo: ${requestScope['wei']}
+
+
+
+</p></h3>
 
 
 </div>

@@ -41,8 +41,20 @@
 		<servlet-name>ProductsServlet</servlet-name>
 		<servlet-class>org.project.controller.ProductsServlet</servlet-class>
 		<load-on-startup>1</load-on-startup>
-	</servlet>	
-		
+	</servlet>
+
+	<servlet>
+		<servlet-name>EthereumController</servlet-name>
+		<servlet-class>org.project.controller.EthereumController</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>EthereumController</servlet-name>
+		<url-pattern>/EthereumController</url-pattern>
+	</servlet-mapping>
+
+
 	<servlet-mapping>
 		<servlet-name>LoginController</servlet-name>
 		<url-pattern>/LoginController</url-pattern>
