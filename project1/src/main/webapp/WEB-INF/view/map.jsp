@@ -17,25 +17,42 @@
     <title>Interactive Map</title>
     <style>
         #map {
-            height: 600px;
-            width: 600px;
+            height: 100%;
+        }
+
+        .slider {
+            -webkit-appearance: none;
+            width: 500px;
+            height: 15px;
+            border-radius: 5px;
+            background: #d3d3d3;
+            outline: none;
+            opacity: 0.7;
+            -webkit-transition: .2s;
+            transition: opacity .2s;
+        }
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: #4CAF50;
+            cursor: pointer;
+        }
+
+        .slider::-moz-range-thumb {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: #4CAF50;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
-
-<h3>Search!</h3>
-
 <%
-    /*    MarkerController placesToView = new MarkerController();
-    Document places = null;
-    try {
-        places = placesToView.getXMLPlaces();
-    } catch (Exception e) {
-            System.out.println("Exception occurred" + e.toString());
-        }
-*/
-    //MAYBE I SHOULD JUST GRAB DATA FROM DB WITH DAO AND CONTROLLER, CREATE A MARKERBEAN AND INJECT IT HERE...
 
     MarkerController placesToView = new MarkerController();
     ArrayList<MarkerBean> markerList = placesToView.grabPlaces();
@@ -48,142 +65,88 @@
 %>
 
 
+<div class="slidecontainer">
+    <form action="MarkerController" method="get">
+        <input type="range" min="0" max="10" value="5" class="slider" id="myRange" name="myRange">
+        <p>Distance (km): <span id="demo"></span></p>
+        <script>
+            var slider = document.getElementById("myRange");
+            var output = document.getElementById("demo");
+            output.innerHTML = slider.value;
 
-
-<br>
-
-
-</br>
-
+            slider.oninput = function() {
+                output.innerHTML = this.value;
+            }
+        </script>
+        <input type="submit" />
+    </form>
+</div>
+<div style="display: none;" id="places">
+    ${requestScope['places']}
+</div>
 <div id="map"></div>
 <script>
 
     function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
             center: new google.maps.LatLng(45.474687, 9.187337),
-            zoom: 12
+            zoom: 14
         });
 
-        var infoWindow = new google.maps.InfoWindow;
+        //filtered places:
+        var filteredPlaces = JSON.parse(document.getElementById('places').innerHTML);
 
-        //trying to retrieve the xml doc to put into downloadUrl. CHECK
-        //at this time, I'm just loading the markers.xml file in which I put the markers...
+        console.log(filteredPlaces);
+        //all places:
+       <%--var list1 = '<%=json%>';--%>
+       // var places = JSON.parse(list1);
 
-        //I must specify a correct URL (localhost) -- ask
-/*        downloadUrl('/Users/Gianmarco/Desktop/DigitalGarage/First-Project/markers.xml', function(data) {
-            var xml = data.responseXML;
-            var markers = xml.documentElement.getElementsByTagName('marker');
-            Array.prototype.forEach.call(markers, function(markerElem) {
-                var id = markerElem.getAttribute('id');
-                var name = markerElem.getAttribute('name');
-                var address = markerElem.getAttribute('address');
-                var type = markerElem.getAttribute('type');
-                var point = new google.maps.LatLng(
-                    parseFloat(markerElem.getAttribute('latitude')),
-                    parseFloat(markerElem.getAttribute('longitude')));
+        for (var i = 0; i < filteredPlaces.length; i++) {
+            (function () {
+                var id = filteredPlaces[i].id;
+                var name = filteredPlaces[i].name;
+                var address = filteredPlaces[i].address;
+                var type = filteredPlaces[i].type;
+                var lat = filteredPlaces[i].latitude;
+                var lng = filteredPlaces[i].longitude;
+                var point = new google.maps.LatLng(lat, lng);
 
                 /*
-                Gianmarco:
+                        Gianmarco:
 
-                laying out the pop up window with basic specs on map, for each building
-                The construction is pretty simple: append children as you would do in a
-                xml document construction. You oughta append every graphical tag you want,
-                in order to get a graphically satisfying result
-                *//*
+                        laying out the pop up window with basic specs on map, for each building.
+                        The construction is pretty simple: append children as you would do in a
+                        xml document construction. You oughta append every graphical tag you want,
+                        in order to get a graphically satisfying result.
+                */
                 var infowincontent = document.createElement('div');
                 var strong = document.createElement('strong');
-                strong.textContent = name
+                strong.textContent = name;
                 infowincontent.appendChild(strong);
                 infowincontent.appendChild((document.createElement('br')));
                 var text = document.createElement('text');
-                text.textContent = address
+                text.textContent = address;
                 infowincontent.appendChild(text);
+
                 //you can even customize an icon -- I'm staying with the standard here...
+
 
                 var marker = new google.maps.Marker({
                     map: map,
                     position: point
                     //later I shall add a custom label, maybe iterate over an array just to number each occurrence
                 });
-                /*
-                Gianmarco:
-                now I'm setting up a listener, so that I can dinamically pass the mouse onto a
-                marker (or click on it), and visualize the infowincontent pop-up...
-                *//*
-                marker.addListener('click', function() {
+
+                var infoWindow = new google.maps.InfoWindow;
+
+                marker.addListener('click', function () {
+                    //show info here
                     infoWindow.setContent(infowincontent);
                     infoWindow.open(map, marker);
                 });
-             });
-        });
 
-*/
-        var list1 = '<%=json%>';
-        var places = JSON.parse(list1);
-        var placeName = places.map(place => place.name)
-        console.log(list1);
-        console.log(places);
-        console.log(places[0].id);
-        console.log(places[1].address);
-        console.log(places[1].latitude);
-        console.log(places[1].longitude);
-
-        for (var i = 0; i < places.length; i++) {
-            var id = places[i].id;
-            var name = places[i].name;
-            var address = places[i].address;
-            var type = places[i].type;
-            var lat = places[i].latitude;
-            var lng = places[i].longitude;
-            var point = new google.maps.LatLng(lat, lng);
-
-            var infowincontent = document.createElement('div');
-
-            /*
-                    Gianmarco:
-
-                    laying out the pop up window with basic specs on map, for each building
-                    The construction is pretty simple: append children as you would do in a
-                    xml document construction. You oughta append every graphical tag you want,
-                    in order to get a graphically satisfying result
-                    */
-            var infowincontent = document.createElement('div');
-            var strong = document.createElement('strong');
-            strong.textContent = name;
-            infowincontent.appendChild(strong);
-            infowincontent.appendChild((document.createElement('br')));
-            var text = document.createElement('text');
-            text.textContent = address;
-            infowincontent.appendChild(text);
-            //you can even customize an icon -- I'm staying with the standard here...
-
-            var marker = new google.maps.Marker({
-                map: map,
-                position: point
-                //later I shall add a custom label, maybe iterate over an array just to number each occurrence
-            });
-
-            marker.addListener('click', function () {
-                infoWindow.setContent(infowincontent);
-                infoWindow.open(map, marker);
-            });
-
+            }())
         }
-        /*
-        temporary labels for markers:
-        maybe later I should import markers from mysql table (ready
-        to be load in mysql_server)
-
-        var labels = '123456';
-
-        var markers = locations.map(function (location, i) {
-            return new google.maps.Marker({
-                position: location,
-                label: labels[i % labels.length],
-                map: map
-            });
-        });
-        */
     }
 
     /*
@@ -206,16 +169,7 @@
     } */
 
     function doNothing() {}
-/*
-    var locations = [
-        {lat: 45.491684, lng: 9.204736},
-        {lat: 45.477931, lng: 9.141652},
-        {lat: 45.479081, lng: 9.182454},
-        {lat: 45.477285, lng: 9.192178},
-        {lat: 45.483139, lng: 9.197228},
-        {lat: 45.477429, lng: 9.195515}
-    ]
-*/
+
 </script>
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAeZarnT-wYAMc6IZpwls-P6Cf90H_SVRk&callback=initMap">

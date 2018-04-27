@@ -1,3 +1,13 @@
+/*
+ ============================================================================
+ Name        : WalletDao.java
+ Author      : Alessio Onori
+ Version     : 1.0
+ Copyright   : Your copyright notice
+ Description : Dao per il bean Wallet
+ ============================================================================
+ */
+
 package org.project.dao;
 
 import org.project.bean.WalletBean;
@@ -23,7 +33,7 @@ public class WalletDao {
 	// == STATEMENT SQL ====================================================================
 
 	//query di ricerca
-	static String SELECT_BY_ID = 
+	static String SELECT_BY_ID_USER = 
 			"SELECT * " +
 					"FROM " + TABLE + " " +
 					"WHERE " + ID_USER + " = ? "
@@ -66,6 +76,7 @@ public class WalletDao {
 			if(connectDB(INSERT)) {
 				// --- Pulizia e impostazione dei parametri (se ve ne sono)
 				stmt.clearParameters();
+				//id impostato da auto increment
 				stmt.setInt(1, wallet.getIdUser());
 				stmt.setDouble(2, wallet.getCredit());
 				
@@ -99,7 +110,7 @@ public class WalletDao {
 		try {
 			// --- 3. connessione gia aperta da DB controller
 			// --- 4. Tentativo di accesso al db e impostazione del risultato ---
-			if(connectDB(SELECT_BY_ID)) {
+			if(connectDB(SELECT_BY_ID_USER)) {
 				// --- Pulizia e impostazione dei parametri (se ve ne sono)
 				stmt.clearParameters();
 				stmt.setInt(1, idUser);
@@ -107,7 +118,7 @@ public class WalletDao {
 				// --- Esegui l'azione sul database ed estrai il risultato (se atteso)
 				rs = stmt.executeQuery();
 				// --- Cicla sul risultato (se presente) pe accedere ai valori di ogni sua tupla
-				// if in quanto mi aspetto username chiave per ora
+				// if in quanto ID_USER è unique
 				if (rs.next()) {
 
 					WalletBean entry = new WalletBean(
