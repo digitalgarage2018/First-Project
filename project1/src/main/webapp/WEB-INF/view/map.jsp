@@ -84,7 +84,7 @@
             <input type="text" name="maxLatitude" placeholder="maxLatitude">
             <input type="text" name="minLongitude" placeholder="minLongitude">
             <input type="text" name="maxLongitude" placeholder="maxLongitude">--%>
-        <input type="submit" value="cerca"/>
+        <input type="submit" value="Search"/>
     </form>
 </div>
 
@@ -102,7 +102,7 @@
                 output.innerHTML = this.value;
             }
         </script>
-        <input type="submit" />
+        <input type="submit" value="Check!"/>
     </form>
 </div>
 
@@ -134,13 +134,20 @@
 
         for (var i = 0; i < filteredPlaces.length; i++) {
             (function () {
+
                 var id = filteredPlaces[i].id;
                 var name = filteredPlaces[i].name;
                 var address = filteredPlaces[i].address;
+                var city = filteredPlaces[i].city;
                 var type = filteredPlaces[i].type;
+                var price = filteredPlaces[i].price;
+                var area = filteredPlaces[i].area;
+                var E_class = filteredPlaces[i].eClass;
                 var lat = filteredPlaces[i].latitude;
                 var lng = filteredPlaces[i].longitude;
                 var point = new google.maps.LatLng(lat, lng);
+
+
 
                 /*
                         Gianmarco:
@@ -151,14 +158,54 @@
                         in order to get a graphically satisfying result.
                 */
                 var infowincontent = document.createElement('div');
+                //link to image icon: 'http://delltelephone.com/wp-content/uploads/2017/03/House-Icon.png'
+                var picture = document.createElement("img");
+                picture.setAttribute('src', 'http://delltelephone.com/wp-content/uploads/2017/03/House-Icon.png');
+                picture.setAttribute('alt', 'na');
+                picture.setAttribute('height', '50px');
+                picture.setAttribute('width', '50px');
+                infowincontent.appendChild(picture);
+                //title
+                infowincontent.appendChild((document.createElement('br')));
                 var strong = document.createElement('strong');
                 strong.textContent = name;
                 infowincontent.appendChild(strong);
+                //address
                 infowincontent.appendChild((document.createElement('br')));
                 var text = document.createElement('text');
                 text.textContent = address;
                 infowincontent.appendChild(text);
-
+                //city
+                infowincontent.appendChild((document.createElement('br')));
+                var text1 = document.createElement('text');
+                text1.textContent = city;
+                infowincontent.appendChild(text1);
+                //type
+                infowincontent.appendChild((document.createElement('br')));
+                var text2 = document.createElement('text');
+                text2.textContent = type;
+                infowincontent.appendChild(text2);
+                //price
+                infowincontent.appendChild((document.createElement('br')));
+                var text3 = document.createElement('text');
+                text3.textContent = price + " €";
+                infowincontent.appendChild(text3);
+                //area
+                infowincontent.appendChild((document.createElement('br')));
+                var text4 = document.createElement('text');
+                text4.textContent = area + " mq2";
+                infowincontent.appendChild(text4);
+                //energetic class
+                infowincontent.appendChild((document.createElement('br')));
+                var text5 = document.createElement('text');
+                text5.textContent = "Classe energetica " + E_class;
+                infowincontent.appendChild(text5);
+                infowincontent.appendChild((document.createElement('br')));
+                infowincontent.appendChild((document.createElement('br')));
+                var text6 = document.createElement('strong');
+                text6.textContent = "Request an Appointment";
+                text6.href="";
+                infowincontent.appendChild(text6);
                 //you can even customize an icon -- I'm staying with the standard here...
 
 
