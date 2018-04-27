@@ -78,7 +78,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="container">
 		<div class="head-top">
 			<div class="logo">
-				<h1><a href="index.jsp">Welness Madness</a></h1>
+				<h1><a href="index.jsp"> Super Relax </a></h1>
 			</div>
 			<div class=" h_menu4">
 				<ul class="memenu skyblue">
