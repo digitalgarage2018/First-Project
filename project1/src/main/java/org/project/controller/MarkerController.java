@@ -2,8 +2,8 @@ package org.project.controller;
 
 import com.google.gson.Gson;
 
-import org.project.bean.MarkerBean;
-import org.project.dao.MarkerDao;
+import org.project.bean.BuildingBean;
+import org.project.dao.BuildingDao;
 
 
 import javax.servlet.RequestDispatcher;
@@ -20,8 +20,8 @@ public class MarkerController extends HttpServlet {
         super();
     }
 
-    public ArrayList<MarkerBean> grabPlaces() {
-            return MarkerDao.getUpdatedPlacesFromDB();
+    public ArrayList<BuildingBean> grabPlaces() {
+        return BuildingDao.getUpdatedPlacesFromDB();
     }
 
     protected void doGet(HttpServletRequest request,
@@ -29,7 +29,7 @@ public class MarkerController extends HttpServlet {
 
         int range = Integer.parseInt(request.getParameter("myRange"));
 
-        MarkerDao markerDao = new MarkerDao();
+        BuildingDao markerDao = new BuildingDao();
         ArrayList<MarkerBean> listOfPlaces = markerDao.getPlacesByRange(range);
 
 

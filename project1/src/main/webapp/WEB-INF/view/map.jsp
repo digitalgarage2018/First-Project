@@ -2,6 +2,7 @@
         <%@ page import="org.project.bean.MarkerBean" %>
         <%@ page import="java.util.ArrayList" %>
         <%@ page import="com.google.gson.Gson" %>
+        <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
         <%--
    Created by IntelliJ IDEA.
    User: Gianmarco
@@ -9,7 +10,8 @@
    Time: 18:20
    To change this template use File | Settings | File Templates.
  --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+        <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <html>
 <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
@@ -53,7 +55,7 @@
 </head>
 <body>
 <%
-
+/*
     MarkerController placesToView = new MarkerController();
     ArrayList<MarkerBean> markerList = placesToView.grabPlaces();
 
@@ -61,9 +63,41 @@
         System.out.println(el.toString() + "\n");
 
     String json = new Gson().toJson(markerList);
-
+*/
 %>
 
+<div id="filters">
+    <form action="HouseController" method="get">
+        <input type="text" name="minPrice" placeholder="minPrice">
+        <input type="text" name="maxPrice" placeholder="maxPrice">
+        <input type="text" name="minArea" placeholder="minArea">
+        <input type="text" name="maxArea" placeholder="maxArea">
+        <select name="type">
+            <option value="">Tipo</option>
+            <option value="Bilocale">Bilocale</option>
+            <option value="Trilocale">Trilocale</option>
+            <option value="Quadrilocale">Quadrilocale</option>
+            <option value="Plurilocale">Plurilocale</option>
+            <option value="Loft">Loft</option>
+        </select>
+        <select name="E_class">
+            <option value="">Classe Energetica</option>
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+            <option value="E">E</option>
+            <option value="F">F</option>
+            <option value="G">G</option>
+        </select>
+        <input type="text" name="city" placeholder="city">
+        <%--	<input type="text" name="minLatitude" placeholder="minLatitude">
+            <input type="text" name="maxLatitude" placeholder="maxLatitude">
+            <input type="text" name="minLongitude" placeholder="minLongitude">
+            <input type="text" name="maxLongitude" placeholder="maxLongitude">--%>
+        <input type="submit" value="cerca"/>
+    </form>
+</div>
 
 <div class="slidecontainer">
     <form action="MarkerController" method="get">
@@ -81,10 +115,15 @@
         <input type="submit" />
     </form>
 </div>
+
 <div style="display: none;" id="places">
     ${requestScope['places']}
 </div>
+
 <div id="map"></div>
+
+<br>
+
 <script>
 
     function initMap() {
@@ -174,5 +213,6 @@
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAeZarnT-wYAMc6IZpwls-P6Cf90H_SVRk&callback=initMap">
 </script>
+
 </body>
 </html>

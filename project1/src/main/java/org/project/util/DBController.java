@@ -11,7 +11,7 @@ public class DBController {
 
     //  Database credentials
 
-    public static final String DB_URL = "jdbc:mysql://localhost:3306/prova";
+    public static final String DB_URL = "jdbc:mysql://localhost:3306/WebImmobiliare";
     public static final String USER = "root";
     public static final String PASS = "";
     public static Connection conn = null;

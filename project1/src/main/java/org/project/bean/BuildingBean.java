@@ -1,30 +1,74 @@
 package org.project.bean;
 
-public class MarkerBean {
+public class BuildingBean {
 
     private int id;
     private String name;
     private String address;
+    private String city;
     private double latitude;
     private double longitude;
     private String type;
+    private int price;
+    private int area;
+    private String eClass;
 
-    public MarkerBean() {
+    public BuildingBean() {
         id = 0;
         name = "";
         address = "";
+        city = "";
         latitude = 0.0;
         longitude = 0.0;
         type = "";
+        price = 0;
+        area = 0;
+        eClass = "a";
     }
 
-    public MarkerBean(int id, String n, String ad, double lat, double lng, String type) {
+    public BuildingBean(int id, String n, String ad, String city, double lat, double lng, String type, int price, int area, String ch) {
         this.id = id;
         this.name = n;
         this.address = ad;
+        this.city = city;
         this.latitude = lat;
         this.longitude = lng;
         this.type = type;
+        this.price = price;
+        this.area = area;
+        this.eClass = ch;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public long getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public int getArea() {
+        return area;
+    }
+
+    public void setArea(int area) {
+        this.area = area;
+    }
+
+    public String geteClass() {
+        return eClass;
+    }
+
+    public void seteClass(String eClass) {
+        this.eClass = eClass;
     }
 
     public String toString() {
