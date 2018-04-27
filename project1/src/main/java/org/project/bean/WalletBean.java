@@ -19,6 +19,7 @@ public class WalletBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
+	private int id = -1; //gestito da AutoIncrement
 	private int idUser;
 	private double credit;
 	
@@ -35,6 +36,9 @@ public class WalletBean implements Serializable {
 	}
 
 
+	public int getId() {
+		return id;
+	}
 
 	public int getIdUser() {
 		return idUser;
@@ -42,6 +46,10 @@ public class WalletBean implements Serializable {
 
 	public double getCredit() {
 		return credit;
+	}
+	
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public void setIdUser(int idUser) {

@@ -17,7 +17,7 @@ public class UserBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
-	private int id;
+	private int id = -1; //gestito da AutoIncrement
 	private String username;
 	private String password;
 	private String name, surname;
@@ -29,7 +29,6 @@ public class UserBean implements Serializable {
 	 * dato che nel db il campo id è auto increment
 	 */
 	public UserBean(String user, String pass) {
-		id = -1; //negativo non consentito, mi è utile questo metodo
 		this.username=user;
 		this.password=pass;
 	}
