@@ -17,29 +17,12 @@ public class LoginDao {
 	//private static final String SELECT_USER = "SELECT * FROM Login WHERE (NMatricola=? OR Email=?) AND Password=?";
 	private static final String SELECT_USER_BY_USERNAME = "SELECT * FROM Login WHERE Email=? AND Password=?";
 
-<<<<<<< HEAD
-    /*
-	public String authenticateUser(LoginBean loginBean)
-	{
-		String ret="";
-		try {
-
-
-			if(connectDB(SELECT_USER_BY_USERNAME)) {
-				//stmt.setString(1, loginBean.getnMatricola());
-				//stmt.setString(2, loginBean.getEmail());
-				//stmt.setString(3, loginBean.getPassword());
-				stmt.setString(1, loginBean.getUsername());
-
-				rs = stmt.executeQuery();
-=======
 	private static final String SELECT_STUDENT_INFO = "SELECT * FROM Student " +
 			"INNER JOIN Login ON Login.NMatricola=Student.BadgeNumber" +
 			"WHERE Tipo=? AND BdageNumber=?";
 	private static final String SELECT_DOCENT_INFO = "SELECT * FROM Docent " +
 			"INNER JOIN Login ON Login.NMatricola=Docent.BadgeNumber" +
 			"WHERE Tipo=? AND BdageNumber=?";
->>>>>>> a4fbb50f38a36de86661aa5e09eaa7f2aa00b4d7
 
 
 	public ResultStateBean authenticateUser(LoginBean loginBean)

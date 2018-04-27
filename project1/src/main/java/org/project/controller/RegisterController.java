@@ -20,12 +20,14 @@ public class RegisterController extends HttpServlet {
     protected void doPost(HttpServletRequest request,
                           HttpServletResponse response) throws ServletException, IOException {
         String nome = request.getParameter("nome");
+        String nMatricola=request.getParameter("nMatricola");
         String cognome = request.getParameter("cognome");
+        String pianoId=request.getParameter("pianoId");
         Date dataNascita = new Date();
                 //request.getParameter("dataDiNascita"));
         String email = request.getParameter("email");
 
-        StudentBean studente = new StudentBean(nome, cognome, email, dataNascita);
+        StudentBean studente = new StudentBean(Long.parseLong(nMatricola),nome, cognome, email, dataNascita,Long.parseLong(pianoId));
 
         RegisterDao registerDao = new RegisterDao();
    //   if(registerDao.authenticateStudent(studente)==true) {

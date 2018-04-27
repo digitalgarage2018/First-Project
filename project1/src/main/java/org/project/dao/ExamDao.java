@@ -19,7 +19,7 @@ public class ExamDao {
 
     public ResultStateBean getElencoEsami() {
 
-        ResultStateBean result = new ResultStateBean("", "", ResponseState.NOCHANGE.getCode());
+        ResultStateBean result = new ResultStateBean("", "", ResponseState.NOCHANGE.getCode(),null);
         ArrayList<ExamBean> res = new ArrayList<ExamBean>();
         try {
             if (connectDB(SELECT_BY_EXAM)) {
