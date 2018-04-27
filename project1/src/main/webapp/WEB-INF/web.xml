@@ -20,8 +20,8 @@
 	</servlet>
 	
 	<servlet>
-		<servlet-name>MarkerController</servlet-name>
-		<servlet-class>org.project.controller.MarkerController</servlet-class>
+		<servlet-name>BuildingController</servlet-name>
+		<servlet-class>org.project.controller.BuildingController</servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 	
@@ -36,20 +36,10 @@
 	</servlet-mapping>
 	
 	<servlet-mapping>
-		<servlet-name>MarkerController</servlet-name>
-		<url-pattern>/MarkerController</url-pattern>
+		<servlet-name>BuildingController</servlet-name>
+		<url-pattern>/BuildingController</url-pattern>
 	</servlet-mapping>
-	
-		<servlet>
-		<servlet-name>HouseController</servlet-name>
-		<servlet-class>org.project.controller.HouseController</servlet-class>
-		<load-on-startup>1</load-on-startup>
-	</servlet>
-	
-	<servlet-mapping>
-		<servlet-name>HouseController</servlet-name>
-		<url-pattern>/HouseController</url-pattern>
-	</servlet-mapping>
+
 
 
 	

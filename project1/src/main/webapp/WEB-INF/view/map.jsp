@@ -1,5 +1,5 @@
-        <%@ page import="org.project.controller.MarkerController" %>
-        <%@ page import="org.project.bean.MarkerBean" %>
+        <%@ page import="org.project.controller.BuildingController" %>
+        <%@ page import="org.project.bean.BuildingBean" %>
         <%@ page import="java.util.ArrayList" %>
         <%@ page import="com.google.gson.Gson" %>
         <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -54,20 +54,9 @@
     </style>
 </head>
 <body>
-<%
-/*
-    MarkerController placesToView = new MarkerController();
-    ArrayList<MarkerBean> markerList = placesToView.grabPlaces();
-
-    for (MarkerBean el : markerList)
-        System.out.println(el.toString() + "\n");
-
-    String json = new Gson().toJson(markerList);
-*/
-%>
-
 <div id="filters">
-    <form action="HouseController" method="get">
+    <form action="BuildingController" method="get">
+        <input type="hidden" name="choice" value="filter">
         <input type="text" name="minPrice" placeholder="minPrice">
         <input type="text" name="maxPrice" placeholder="maxPrice">
         <input type="text" name="minArea" placeholder="minArea">
@@ -100,7 +89,8 @@
 </div>
 
 <div class="slidecontainer">
-    <form action="MarkerController" method="get">
+    <form action="BuildingController" method="get">
+        <input type="hidden" name="choice" value="Range">
         <input type="range" min="0" max="10" value="5" class="slider" id="myRange" name="myRange">
         <p>Distance (km): <span id="demo"></span></p>
         <script>
@@ -119,6 +109,8 @@
 <div style="display: none;" id="places">
     ${requestScope['places']}
 </div>
+
+
 
 <div id="map"></div>
 

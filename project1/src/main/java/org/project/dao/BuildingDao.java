@@ -5,7 +5,6 @@ import java.io.StringWriter;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -17,20 +16,19 @@ import javax.xml.transform.stream.StreamResult;
 import static org.project.util.DBController.*;
 
 import org.project.bean.BuildingBean;
-import org.project.bean.HouseBean;
 import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
 public class BuildingDao {
 
+    private static final double[] center = {45.474687, 9.187337};
     private static final String SELECT = "SELECT * FROM building WHERE 1=1";
-    private static final String SELECT_BUILDING = "SELECT * FROM building";
     private static final String SELECT_BY_RANGE =
-            "SELECT * FROM building WHERE (POW ( ( 69.1 * ( longitude - 9.187337 ) * cos( 45.474687 / 57.3 ) ) , 2 ) " +
-                    "+ POW( ( 69.1 * ( latitude - 45.474687 ) ) , 2 ) ) < ?";
+            "and (POW ( ( 69.1 * ( longitude - " + center[1] + " ) * cos( " + center[0] + " / 57.3 ) ) , 2 ) " +
+                    "+ POW( ( 69.1 * ( latitude - " + center[0] + " ) ) , 2 ) ) < ?";
+    private static final String SELECT_BUILDING = "SELECT * FROM building";
     private static final String XML_PATH = "/Users/Gianmarco/Desktop/DigitalGarage/First-Project/markers.xml";
-    private static final double[] center = {45.464271, 9.191926};
 
 
 
@@ -43,7 +41,7 @@ public class BuildingDao {
 
          */
         try {
-            if(connectDB(SELECT_BY_RANGE)) {
+            if(connectDB(SELECT + " " + SELECT_BY_RANGE)) {
                 stmt.setString(1, range + ""); //setting up the query String...
                 rs = stmt.executeQuery();
 
@@ -56,7 +54,7 @@ public class BuildingDao {
                     place.setLatitude(Double.parseDouble(rs.getObject(5).toString()));
                     place.setLongitude(Double.parseDouble(rs.getObject(6).toString()));
                     place.setType(rs.getObject(7).toString());
-                    place.setPrice(Integer.parseInt(rs.getObject(8).toString()));
+                    place.setPrice(Double.parseDouble(rs.getObject(8).toString()));
                     place.setArea(Integer.parseInt(rs.getObject(9).toString()));
                     place.seteClass(rs.getObject(10).toString());
 
@@ -73,55 +71,78 @@ public class BuildingDao {
     }
 
 
-    public List<BuildingBean> find(Map<String, String> parameters) {
-        List<BuildingBean> houses = new ArrayList<>();
+    public ArrayList<BuildingBean> find(Map<String, String> parameters){
+        ArrayList<BuildingBean> houses = new ArrayList<>();
 
-        String minPrice, maxPrice, minSize, maxSize, minLatitude, maxLatitude, minLongitude, maxLongitude;
+        String minPrice, maxPrice, minArea, maxArea,
+			/*minLatitude, maxLatitude, minLongitude,
+			maxLongitude,*/ type, city, E_class;
+
+        String range;
 
         System.out.println(parameters);
 
         minPrice = parameters.get("minPrice");
         maxPrice = parameters.get("maxPrice");
-        minSize = parameters.get("minSize");
-        maxSize = parameters.get("maxSize");
-        /*
-        minLatitude = parameters.get("minLatitude");
-        maxLatitude = parameters.get("maxLatitude");
-        minLongitude = parameters.get("minLongitude");
-        maxLongitude = parameters.get("maxLongitude");
-        */
+        minArea = parameters.get("minArea");
+        maxArea = parameters.get("maxArea");
+		/*
+		minLatitude = parameters.get("minLatitude");
+		maxLatitude = parameters.get("maxLatitude");
+		minLongitude = parameters.get("minLongitude");
+		maxLongitude = parameters.get("maxLongitude");
+		*/
+        type = parameters.get("type");
+        city = parameters.get("city");
+        E_class = parameters.get("E_class");
+        range = parameters.get("range");
+
         StringBuilder query = new StringBuilder();
 
         query.append(SELECT);
 
         if(minPrice != null && maxPrice != null && !minPrice.equals("") && !maxPrice.equals("")) {
             query.append(" and");
-            query.append(" Price>" + minPrice);
+            query.append(" price>" + minPrice);
             query.append(" and");
-            query.append(" Price<" + maxPrice);
+            query.append(" price<" + maxPrice);
         }
 
-        if(minSize != null && maxSize != null && !minSize.equals("") && !maxSize.equals("")) {
+        if(minArea != null && maxArea != null && !minArea.equals("") && !maxArea.equals("")) {
             query.append(" and");
-            query.append(" Size>" + minSize);
+            query.append(" area>" + minArea);
             query.append(" and");
-            query.append(" Size<" + maxSize);
-        }
-        /*
-        if(minLatitude != null && maxLatitude != null && !minLatitude.equals("") && !maxLatitude.equals("")) {
-            query.append(" and");
-            query.append(" Latitude>" + minLatitude);
-            query.append(" and");
-            query.append(" Latitude<" + maxLatitude);
+            query.append(" area<" + maxArea);
         }
 
-        if(minLongitude != null && maxLongitude != null && !minLongitude.equals("") && !maxLongitude.equals("")) {
-            query.append(" and");
-            query.append(" Longitude>" + minLongitude);
-            query.append(" and");
-            query.append(" Longitude<" + maxLongitude);
-        }
-        */
+		/*
+		if(minLatitude != null && maxLatitude != null && minLatitude != "" && maxLatitude != "") {
+			query.append(" and");
+			query.append(" latitude>" + minLatitude);
+			query.append(" and");
+			query.append(" latitude<" + maxLatitude);
+		}
+
+		if(minLongitude != null && maxLongitude != null && minLongitude != "" && maxLongitude != "") {
+			query.append(" and");
+			query.append(" longitude>" + minLongitude);
+			query.append(" and");
+			query.append(" longitude<" + maxLongitude);
+		}
+		*/
+
+        if(type != null && !type.equals(""))
+            query.append(" and type='" + type + "'");
+
+        if(city != null && !city.equals(""))
+            query.append(" and city='" + city + "'");
+
+        if(E_class != null && !E_class.equals(""))
+            query.append(" and E_class='" + E_class + "'");
+
+        if(range != null && !range.equals(""))
+            query.append(SELECT_BY_RANGE + range);
+
         System.out.println(query.toString());
 
         try {
@@ -130,19 +151,19 @@ public class BuildingDao {
                 rs = stmt.executeQuery();
 
                 while(rs.next()){
-                    BuildingBean place = new BuildingBean();
-                    place.setId(Integer.parseInt(rs.getObject(1).toString()));
-                    place.setName(rs.getObject(2).toString());
-                    place.setAddress(rs.getObject(3).toString());
-                    place.setCity(rs.getObject(4).toString());
-                    place.setLatitude(Double.parseDouble(rs.getObject(5).toString()));
-                    place.setLongitude(Double.parseDouble(rs.getObject(6).toString()));
-                    place.setType(rs.getObject(7).toString());
-                    place.setPrice(Integer.parseInt(rs.getObject(8).toString()));
-                    place.setArea(Integer.parseInt(rs.getObject(9).toString()));
-                    place.seteClass(rs.getObject(10).toString());
+                    BuildingBean house = new BuildingBean();
 
-                    houses.add(place);
+                    house.setId(rs.getInt("id"));
+                    house.setName(rs.getString("name"));
+                    house.setAddress(rs.getString("address"));
+                    house.setCity(rs.getString("city"));
+                    house.setLatitude(rs.getDouble("latitude"));
+                    house.setLongitude(rs.getDouble("longitude"));
+                    house.setType(rs.getString("type"));
+                    house.setPrice(rs.getDouble("price"));
+                    house.seteClass(rs.getString("E_class"));
+
+                    houses.add(house);
                 }
             }
 

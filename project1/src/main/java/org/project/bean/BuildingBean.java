@@ -9,7 +9,7 @@ public class BuildingBean {
     private double latitude;
     private double longitude;
     private String type;
-    private int price;
+    private double price;
     private int area;
     private String eClass;
 
@@ -21,12 +21,12 @@ public class BuildingBean {
         latitude = 0.0;
         longitude = 0.0;
         type = "";
-        price = 0;
+        price = 0.0;
         area = 0;
         eClass = "a";
     }
 
-    public BuildingBean(int id, String n, String ad, String city, double lat, double lng, String type, int price, int area, String ch) {
+    public BuildingBean(int id, String n, String ad, String city, double lat, double lng, String type, double price, int area, String ch) {
         this.id = id;
         this.name = n;
         this.address = ad;
@@ -47,11 +47,11 @@ public class BuildingBean {
         this.city = city;
     }
 
-    public long getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
