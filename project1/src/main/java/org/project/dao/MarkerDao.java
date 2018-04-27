@@ -26,7 +26,51 @@ import org.w3c.dom.Element;
 public class MarkerDao {
 
     private static final String SELECT_MARKERS = "SELECT * FROM marker";
+    private static final String SELECT_BY_RANGE =
+            "SELECT * FROM marker WHERE (POW ( ( 69.1 * ( longitude - 9.187337 ) * cos( 45.474687 / 57.3 ) ) , 2 ) " +
+                    "+ POW( ( 69.1 * ( latitude - 45.474687 ) ) , 2 ) ) < ?";
     private static final String XML_PATH = "/Users/Gianmarco/Desktop/DigitalGarage/First-Project/markers.xml";
+    private static final double[] center = {45.474687, 9.187337};
+
+
+
+    public ArrayList<MarkerBean> getPlacesByRange(int range) {
+        ArrayList<MarkerBean> result = new ArrayList<>();
+
+        /*
+
+        Gianmarco: trying to retrieve data given a range on map;
+
+         */
+        try {
+            if(connectDB(SELECT_BY_RANGE)) {
+                stmt.setString(1, range + ""); //setting up the query String...
+                rs = stmt.executeQuery();
+
+                while(rs.next()) {
+                    MarkerBean place = new MarkerBean();
+                    place.setId(Integer.parseInt(rs.getObject(1).toString()));
+                    place.setName(rs.getObject(2).toString());
+                    place.setAddress(rs.getObject(3).toString());
+                    place.setLatitude(Double.parseDouble(rs.getObject(4).toString()));
+                    place.setLongitude(Double.parseDouble(rs.getObject(5).toString()));
+                    place.setType(rs.getObject(6).toString());
+
+                    result.add(place);
+                }
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            disconnectDB();
+        }
+
+        return result;
+    }
+
+
+
+
 
 
     //method grabMarkerData()
@@ -127,5 +171,4 @@ public class MarkerDao {
 
         return xmlString;
     }
-
 }

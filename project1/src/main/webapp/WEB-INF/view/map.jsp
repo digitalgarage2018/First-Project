@@ -19,6 +19,36 @@
         #map {
             height: 100%;
         }
+
+        .slider {
+            -webkit-appearance: none;
+            width: 500px;
+            height: 15px;
+            border-radius: 5px;
+            background: #d3d3d3;
+            outline: none;
+            opacity: 0.7;
+            -webkit-transition: .2s;
+            transition: opacity .2s;
+        }
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: #4CAF50;
+            cursor: pointer;
+        }
+
+        .slider::-moz-range-thumb {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: #4CAF50;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -33,6 +63,25 @@
     String json = new Gson().toJson(markerList);
 
 %>
+
+
+<div class="slidecontainer">
+    <form action="MarkerController" method="get">
+        <input type="range" min="1" max="10" value="5" class="slider" id="myRange">
+        <p>Distance: <span id="demo"></span></p>
+        <script>
+            var slider = document.getElementById("myRange");
+            var output = document.getElementById("demo");
+            output.innerHTML = slider.value;
+
+            slider.oninput = function() {
+                output.innerHTML = this.value;
+            }
+        </script>
+        <input type="submit" />
+    </form>
+</div>
+
 <div id="map"></div>
 <script>
 
@@ -42,17 +91,20 @@
             zoom: 14
         });
 
-        var list1 = '<%=json%>';
-        var places = JSON.parse(list1);
+        //filtered places:
+        var filteredPlaces = JSON.parse(${requestScope['places']});
+        //all places:
+       <%-- var list1 = '<%=json%>';--%>
+       // var filteredPlaces = JSON.parse(list1);
 
-        for (var i = 0; i < places.length; i++) {
+        for (var i = 0; i < filteredPlaces.length; i++) {
             (function () {
-                var id = places[i].id;
-                var name = places[i].name;
-                var address = places[i].address;
-                var type = places[i].type;
-                var lat = places[i].latitude;
-                var lng = places[i].longitude;
+                var id = filteredPlaces[i].id;
+                var name = filteredPlaces[i].name;
+                var address = filteredPlaces[i].address;
+                var type = filteredPlaces[i].type;
+                var lat = filteredPlaces[i].latitude;
+                var lng = filteredPlaces[i].longitude;
                 var point = new google.maps.LatLng(lat, lng);
 
                 /*
