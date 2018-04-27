@@ -34,19 +34,19 @@
 	</tr>
 	<tr>
     <td >Matricola:</td>
-    <td>${requestScope['profUser'].badgeNumber</td>
+    <td>${requestScope['professor'].badgeNumber</td>
 	</tr>
 	<tr>
     <td>Nome:</td>
-    <td>${requestScope['profUser'].name</td>
+    <td>${requestScope['professor'].name</td>
 	</tr>
 	<tr>
     <td>Cognome:</td>
-    <td>${requestScope['profUser'].surname</td>
+    <td>${requestScope['professor'].surname</td>
 	</tr>
 	<tr>
     <td>Email:</td>
-    <td>${requestScope['profUser'].email</td>
+    <td>${requestScope['professor'].email</td>
     </tr>
 </table> 
 </div>
