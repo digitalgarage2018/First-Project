@@ -1,8 +1,3 @@
-
-<%@ page import="org.project.controller.BuildingController"%>
-<%@ page import="org.project.bean.BuildingBean"%>
-<%@ page import="java.util.ArrayList"%>
-<%@ page import="com.google.gson.Gson"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%--
    Created by IntelliJ IDEA.
@@ -17,60 +12,43 @@
 <head>
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
-<title>Interactive Map</title>
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css" type="text/css"  />
+	<script src="assets/jquery-1.11.3-jquery.min.js"></script>
+	<script src="assets/js/bootstrap.min.js"></script>
+	<title>WebImmobiliare&reg;</title>
 <style>
 #map {
-	height: 100%;
+	height: 550px;
+	width: 550px;
+	float: none;
 }
 
-.slider {
-	-webkit-appearance: none;
-	width: 500px;
-	height: 15px;
-	border-radius: 5px;
-	background: #d3d3d3;
-	outline: none;
-	opacity: 0.7;
-	-webkit-transition: .2s;
-	transition: opacity .2s;
-}
-
-.slider::-webkit-slider-thumb {
-	-webkit-appearance: none;
-	appearance: none;
-	width: 25px;
-	height: 25px;
-	border-radius: 50%;
-	background: #4CAF50;
-	cursor: pointer;
-}
-
-.slider::-moz-range-thumb {
-	width: 25px;
-	height: 25px;
-	border-radius: 50%;
-	background: #4CAF50;
-	cursor: pointer;
-}
 </style>
 </head>
 <body>
-	<div id="filters">
+<div class="container"><br><br></div>
+<div class="container">
+	<img src="assets/images/logo_immobiliare.png" style="height: 20%" />
+</div>
+<div class="container"><br><br></div>
+<div class="container">
+	<div id="filters" class="form-group" style="width: 550px; float: right">
 		<form action="BuildingController" method="get">
 
-
-			<input type="text" name="minPrice" placeholder="minPrice"> <input
-				type="text" name="maxPrice" placeholder="maxPrice"> <input
-				type="text" name="minArea" placeholder="minArea"> <input
-				type="text" name="maxArea" placeholder="maxArea"> <select
-				name="type">
+			<div class="col-md-12">
+				<input type="text" name="minPrice" placeholder="minPrice">
+				<input type="text" name="maxPrice" placeholder="maxPrice"><br>
+				<input type="text" name="minArea" placeholder="minArea">
+				<input type="text" name="maxArea" placeholder="maxArea"><br>
+				<select name="type"><br>
 				<option value="">Tipo</option>
 				<option value="Bilocale">Bilocale</option>
 				<option value="Trilocale">Trilocale</option>
 				<option value="Quadrilocale">Quadrilocale</option>
 				<option value="Plurilocale">Plurilocale</option>
 				<option value="Loft">Loft</option>
-			</select> <select name="E_class">
+				</select>
+				<select name="E_class"><br>
 				<option value="">Classe Energetica</option>
 				<option value="A">A</option>
 				<option value="B">B</option>
@@ -79,63 +57,50 @@
 				<option value="E">E</option>
 				<option value="F">F</option>
 				<option value="G">G</option>
-			</select> <input type="text" name="city" placeholder="city">
+				</select>
+				<input type="text" name="city" placeholder="city">
+				<br>
 			<%--	<input type="text" name="minLatitude" placeholder="minLatitude">
             <input type="text" name="maxLatitude" placeholder="maxLatitude">
             <input type="text" name="minLongitude" placeholder="minLongitude">
             <input type="text" name="maxLongitude" placeholder="maxLongitude">--%>
+			</div>
 
+			<div class="container">
+				<br>
+			</div>
 
-			<br>
+			<div class="col-md-12">
 
-			<input
-				type="range" min="0" max="10" value="5" class="slider" id="myRange"
-				name="myRange">
-			<p>
+				<input type="range" min="1" max="10" value="5" id="myRange" name="myRange">
+				<br>
+				<p>
 				Distance (km): <span id="demo"></span>
-			</p>
-			<script>
-            var slider = document.getElementById("myRange");
-            var output = document.getElementById("demo");
-            output.innerHTML = slider.value;
+				</p>
+				<script>
+            		var slider = document.getElementById("myRange");
+            		var output = document.getElementById("demo");
+            		output.innerHTML = slider.value;
 
-            slider.oninput = function() {
-                output.innerHTML = this.value;
-            }
-        </script>
+            		slider.oninput = function() {
+                	output.innerHTML = this.value;
+            		}
+				</script>
 
-			<input type="submit" value="cerca" />
+			</div>
+			<br>
+			<input type="submit" class="btn btn-block btn-primary" value="Search" />
 		</form>
 	</div>
-
-	<!-- Merged con il primo form, cancellabile tranquillamente
-<div class="slidecontainer">
-    <form action="BuildingController" method="get">
-        <input type="hidden" name="choice" value="Range">
-        <input type="range" min="0" max="10" value="5" class="slider" id="myRange" name="myRange">
-        <p>Distance (km): <span id="demo"></span></p>
-        <script>
-            var slider = document.getElementById("myRange");
-            var output = document.getElementById("demo");
-            output.innerHTML = slider.value;
-
-            slider.oninput = function() {
-                output.innerHTML = this.value;
-            }
-        </script>
-        <input type="submit" />
-    </form>
-</div>
--->
-
-	<div style="display: none;" id="places">
-		${requestScope['places']}</div>
-
 
 
 	<div id="map"></div>
 
-	<br>
+</div>
+	<div style="display: none;" id="places">
+		${requestScope['places']}
+	</div>
+<br>
 
 	<table>
 		<c:forEach items="${houses}" var="house">
@@ -153,13 +118,13 @@
 
 		</c:forEach>
 	</table>
-
+</div>
 	<script>
 
     function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
             center: new google.maps.LatLng(45.474687, 9.187337),
-            zoom: 14
+            zoom: 12
         });
 
         //filtered places:
