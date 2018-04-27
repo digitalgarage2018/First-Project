@@ -14,8 +14,8 @@ public class RegisterDao {
     private final static String INSERT_STUDENT = "INSERT INTO Student (?,?,?,?,?)";
     private final static String INSERT_LOGIN = "INSERT INTO Login (?,?,?,S)";
 
-    public String authenticateStudent(StudentBean studente){
-        String ret="";
+    public boolean authenticateStudent(StudentBean studente){
+        boolean ret=false;
         try {
             if(connectDB(CHECK_STUDENT))
             {
@@ -26,8 +26,9 @@ public class RegisterDao {
                 rs = stmt.executeQuery();
 
                 if (rs.next()) {
-
+                	ret=true;
                 }
+                
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -36,4 +37,7 @@ public class RegisterDao {
         }
         return ret;
     }
+
+
+    
 }

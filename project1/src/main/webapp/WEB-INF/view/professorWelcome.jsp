@@ -47,7 +47,7 @@
 	<tr>
     <td>Email:</td>
     <td>${requestScope['profUser'].email</td>
-	</tr>
+    </tr>
 </table> 
 </div>
 <div id="courses">

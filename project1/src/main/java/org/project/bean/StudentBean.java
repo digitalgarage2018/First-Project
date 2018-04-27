@@ -9,12 +9,16 @@ public class StudentBean {
 	private String email;
 	private Date dataNascita;
 	private long pianoId;
-	
-	public StudentBean(String nome, String cognome, String email, Date dataNascita) {
+
+	public StudentBean(){}
+
+	public StudentBean(long nMatricola, String nome, String cognome, String email, Date dataNascita, long pianoId) {
+		this.nMatricola = nMatricola;
 		this.nome = nome;
 		this.cognome = cognome;
 		this.email = email;
 		this.dataNascita = dataNascita;
+		this.pianoId = pianoId;
 	}
 	
 	public long getnMatricola() {

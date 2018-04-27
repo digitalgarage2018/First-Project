@@ -1,5 +1,6 @@
 package org.project.controller;
 
+import org.project.bean.ResultStateBean;
 import org.project.bean.StudentBean;
 import org.project.dao.RegisterDao;
 
@@ -27,7 +28,14 @@ public class RegisterController extends HttpServlet {
         StudentBean studente = new StudentBean(nome, cognome, email, dataNascita);
 
         RegisterDao registerDao = new RegisterDao();
-
+   //   if(registerDao.authenticateStudent(studente)==true) {
+   //   	//mandiamo alla jsp
+   //   }
+   //   else {
+   //   	//ResultStateBean insert=new ResultStateBean();
+   //   	registerDao.insertNewStudent();
+   //   }
+   //
     }
 
 }

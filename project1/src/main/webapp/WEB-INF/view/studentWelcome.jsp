@@ -15,14 +15,21 @@
 </head>
 <body>
 <h1 style="color: SlateBlue; text-align: center; font-size:300%"> UniMarina </h1>
-<p> Benvenuto ${requestScope['user'].username}. </p>
-<ul>
-    <li>Matricola: </li>
-    <li>Nome: </li>
-    <li>Cognome: </li>
-    <li>Email: </li>
-    <li>Data di Nascita: </li>
-    <li>Piano di Studi: </li>
+<ul style="position: absolute;top: 100px; right: 100px;">
+    <li>Matricola: ${requestScope['StudentBean'].nMatricola}</li>
+   	<li>Nome: ${requestScope['StudentBean'].nome}</li>
+   	<li>Cognome: ${requestScope['StudentBean'].cognome}</li>
+   	<li>Email: ${requestScope['StudentBean'].email}</li>
+   	<li>Data di Nascita: ${requestScope['StudentBean'].dataNascita}</li>    	
+   	<li>Piano di Studi: ${requestScope['StudentBean'].pianoId}</li>
 </ul>
+<table style="position: absolute;top: 100px; left: 20px;">
+	<tr><td>Menu</td></tr>
+    <tr><td> <button>Compila Piano di Studi</button></td></tr>
+    <tr><td><button>Visualizza Libretto</button></td></tr>
+    <tr><td><button>Segui Lezione Online</button></td></tr>
+    <tr><td><button>Logout</button></td></tr>
+</table>
+<p style="color: SlateBlue;position: absolute; bottom:100px; right: 50px; font-size:260%"> Benvenuto ${requestScope['StudentBean'].name}. </p>
 </body>
 </html>

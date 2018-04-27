@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.project.bean.LoginBean;
 import org.project.bean.ResultStateBean;
+import org.project.bean.StudentBean;
 import org.project.dao.LoginDao;
 import org.project.util.UtilityController.ResponseState;
 
@@ -29,20 +30,25 @@ public class LoginController extends HttpServlet {
 
 		LoginBean loginBean = new LoginBean(username,password);
 
-		LoginDao loginDao = new LoginDao() ;
+		LoginDao loginDao = new LoginDao();
 
 		RequestDispatcher rd = null;
 
 		ResultStateBean resultSet = loginDao.authenticateUser(loginBean);
 
-		//String result = loginDao.authenticateUser(loginBean);
+		LoginBean user1 = (LoginBean) resultSet.getResultSet();
+
+		StudentBean student = loginDao.getStudentInfo(loginBean);
 
 		System.out.println("valore ritornato: " +resultSet.getMessage());
 
-		if (resultSet.getErrorState() == ResponseState.SUCCESS.getCode()) {
+		if (resultSet.getErrorState() == ResponseState.SUCCESS.getCode() && user1.getType().equals("S")) {
 			rd = request.getRequestDispatcher("/WEB-INF/view/studentWelcome.jsp");
-			LoginBean user = new LoginBean(username, password);
-			request.setAttribute("user", user);
+			request.setAttribute("student", student);
+			request.setAttribute("resultSet", resultSet);
+		} else if(resultSet.getErrorState() == ResponseState.SUCCESS.getCode() && user1.getType().equals("D")){
+			rd = request.getRequestDispatcher("/WEB-INF/view/professorWelcome.jsp");
+			//request.setAttribute("student", student);
 			request.setAttribute("resultSet", resultSet);
 		} else {
 			rd = request.getRequestDispatcher("/WEB-INF/view/error.jsp");

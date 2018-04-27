@@ -1,10 +1,11 @@
 package org.project.bean;
 
-public class LoginBean {
+public class LoginBean{
 	private String nMatricola;
 	private String password;
 	private String email;
 	private String username;
+	private String type;
 
 
 	public LoginBean(String username, String password){
@@ -44,5 +45,13 @@ public class LoginBean {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
 	}
 }
