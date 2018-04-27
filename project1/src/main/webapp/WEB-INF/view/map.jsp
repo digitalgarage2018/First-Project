@@ -68,7 +68,7 @@
 <div class="slidecontainer">
     <form action="MarkerController" method="get">
         <input type="range" min="0" max="10" value="5" class="slider" id="myRange" name="myRange">
-        <p>Distance: <span id="demo"></span></p>
+        <p>Distance (km): <span id="demo"></span></p>
         <script>
             var slider = document.getElementById("myRange");
             var output = document.getElementById("demo");
