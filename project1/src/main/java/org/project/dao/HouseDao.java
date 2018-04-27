@@ -13,16 +13,20 @@ import java.util.Map;
 import org.project.bean.HouseBean;
 
 public class HouseDao {
-	
+	private static final double[] center = {45.474687, 9.187337};
 	private static final String SELECT = "SELECT * FROM house WHERE 1=1";
-	
+    private static final String RANGE =
+            " and (POW ( ( 69.1 * ( longitude - " + center[1] + " ) * cos( " + center[0] + " / 57.3 ) ) , 2 ) " +
+                    "+ POW( ( 69.1 * ( latitude - " + center[0] + " ) ) , 2 ) ) < ";
 
 	public List<HouseBean> find(Map<String, String> parameters){
 		List<HouseBean> houses = new ArrayList<>();
 		
 		String minPrice, maxPrice, minArea, maxArea, 
-			minLatitude, maxLatitude, minLongitude, 
-			maxLongitude, type, city, E_class;
+			/*minLatitude, maxLatitude, minLongitude, 
+			maxLongitude,*/ type, city, E_class;
+
+		String range;
 		
 		System.out.println(parameters);
 		
@@ -30,13 +34,16 @@ public class HouseDao {
 		maxPrice = parameters.get("maxPrice");
 		minArea = parameters.get("minArea");
 		maxArea = parameters.get("maxArea");
+		/*
 		minLatitude = parameters.get("minLatitude");
 		maxLatitude = parameters.get("maxLatitude");
 		minLongitude = parameters.get("minLongitude");
 		maxLongitude = parameters.get("maxLongitude");
+		*/
 		type = parameters.get("type");
 		city = parameters.get("city");
 		E_class = parameters.get("E_class");
+		range = parameters.get("range");
 		
 		StringBuilder query = new StringBuilder();
 
@@ -56,6 +63,7 @@ public class HouseDao {
 			query.append(" area<" + maxArea);
 		}
 		
+		/*
 		if(minLatitude != null && maxLatitude != null && minLatitude != "" && maxLatitude != "") {
 			query.append(" and");
 			query.append(" latitude>" + minLatitude);
@@ -69,6 +77,7 @@ public class HouseDao {
 			query.append(" and");
 			query.append(" longitude<" + maxLongitude);						
 		}
+		*/
 		
 		if(type != null && type != "")
 			query.append(" and type='" + type + "'");
@@ -79,6 +88,8 @@ public class HouseDao {
 		if(E_class != null && E_class != "")
 			query.append(" and E_class='" + E_class + "'");
 
+		if(range != null && !range.equals(""))
+			query.append(RANGE + range);
 			
 		System.out.println(query.toString());
 		
@@ -89,6 +100,7 @@ public class HouseDao {
 
 				while(rs.next()){
 					HouseBean house = new HouseBean();
+					
 					house.setId(rs.getInt("id"));
 					house.setName(rs.getString("name"));
 					house.setAddress(rs.getString("address"));

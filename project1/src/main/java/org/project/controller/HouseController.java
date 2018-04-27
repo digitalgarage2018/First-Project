@@ -26,14 +26,16 @@ public class HouseController extends HttpServlet{
 		String maxPrice = req.getParameter("maxPrice");
 		String minArea = req.getParameter("minArea");
 		String maxArea = req.getParameter("maxArea");
+		/*
 		String minLatitude = req.getParameter("minLatitude");
 		String maxLatitude = req.getParameter("maxLatitude");
 		String minLongitude = req.getParameter("minLongitude");
 		String maxLongitude = req.getParameter("maxLongitude");
+		*/
 		String type = req.getParameter("type");
 		String city = req.getParameter("city");
 		String E_class = req.getParameter("E_class");
-		
+		String range = req.getParameter("myRange");
 		
 		Map<String, String> parameters = new HashMap<>();
 		
@@ -41,13 +43,16 @@ public class HouseController extends HttpServlet{
 		parameters.put("maxPrice", maxPrice);
 		parameters.put("minArea", minArea);
 		parameters.put("maxArea", maxArea);
+		/*
 		parameters.put("minLatitude", minLatitude);
 		parameters.put("maxLatitude", maxLatitude);
 		parameters.put("minLongitude", minLongitude);
 		parameters.put("maxLongitude", maxLongitude);
+		*/
 		parameters.put("type", type);
 		parameters.put("city", city);
 		parameters.put("E_class", E_class);
+		parameters.put("range", range);
 		
 		List<HouseBean> houses;
 		
