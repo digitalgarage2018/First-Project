@@ -19,6 +19,12 @@
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 	
+	<servlet>
+		<servlet-name>MarkerController</servlet-name>
+		<servlet-class>org.project.controller.MarkerController</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	
 	<servlet-mapping>
 		<servlet-name>LoginController</servlet-name>
 		<url-pattern>/LoginController</url-pattern>
@@ -27,6 +33,22 @@
 	<servlet-mapping>
 		<servlet-name>SignUpController</servlet-name>
 		<url-pattern>/SignUpController</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>MarkerController</servlet-name>
+		<url-pattern>/MarkerController</url-pattern>
+	</servlet-mapping>
+	
+		<servlet>
+		<servlet-name>HouseController</servlet-name>
+		<servlet-class>org.project.controller.HouseController</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>HouseController</servlet-name>
+		<url-pattern>/houses</url-pattern>
 	</servlet-mapping>
 
 

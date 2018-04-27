@@ -26,7 +26,7 @@ public class MarkerController extends HttpServlet {
     protected void doGet(HttpServletRequest request,
                           HttpServletResponse response) throws ServletException, IOException {
 
-        int range = Integer.parseInt(request.getParameter("range"));
+        int range = Integer.parseInt(request.getParameter("myRange"));
 
         MarkerDao markerDao = new MarkerDao();
         ArrayList<MarkerBean> listOfPlaces = markerDao.getPlacesByRange(range);

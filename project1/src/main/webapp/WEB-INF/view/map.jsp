@@ -67,7 +67,7 @@
 
 <div class="slidecontainer">
     <form action="MarkerController" method="get">
-        <input type="range" min="1" max="10" value="5" class="slider" id="myRange">
+        <input type="range" min="0" max="10" value="5" class="slider" id="myRange" name="myRange">
         <p>Distance: <span id="demo"></span></p>
         <script>
             var slider = document.getElementById("myRange");
@@ -81,7 +81,9 @@
         <input type="submit" />
     </form>
 </div>
-
+<div style="display: none;" id="places">
+    ${requestScope['places']}
+</div>
 <div id="map"></div>
 <script>
 
@@ -92,10 +94,12 @@
         });
 
         //filtered places:
-        var filteredPlaces = JSON.parse(${requestScope['places']});
+        var filteredPlaces = JSON.parse(document.getElementById('places').innerHTML);
+
+        console.log(filteredPlaces);
         //all places:
-       <%-- var list1 = '<%=json%>';--%>
-       // var filteredPlaces = JSON.parse(list1);
+       <%--var list1 = '<%=json%>';--%>
+       // var places = JSON.parse(list1);
 
         for (var i = 0; i < filteredPlaces.length; i++) {
             (function () {
