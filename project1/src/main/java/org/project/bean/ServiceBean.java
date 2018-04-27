@@ -5,8 +5,10 @@ public class ServiceBean {
 	private String sr_type;
 	private String sr_description;
 	private int    sr_price;
+	private int    sr_time;
 	private String sr_wellness_center;
 	private int    sr_serviceID;
+	private String sr_image;
 	/*
 	public ServiceBean(String name, String type, String description,int price, String center,int  id) {
 		this.sr_name		    = name;
@@ -64,6 +66,22 @@ public class ServiceBean {
 
 	public void setSr_serviceID(int sr_serviceID) {
 		this.sr_serviceID = sr_serviceID;
+	}
+
+	public String getSr_image() {
+		return sr_image;
+	}
+
+	public void setSr_image(String sr_image) {
+		this.sr_image = sr_image;
+	}
+
+	public int getSr_time() {
+		return sr_time;
+	}
+
+	public void setSr_time(int sr_time) {
+		this.sr_time = sr_time;
 	}
 	
 }
