@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,7 +41,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <div class="grow">
     <div class="container">
-        <h1 align="center"> Welcome in SuperRelax </h1>
+        <h1 align="center"> Benvenuto in SuperRelax </h1>
     </div>
 </div>
 
@@ -54,7 +55,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
             <div class="col-md-8 account-top">
 
-                <h3> Login </h3>
+                <h3> Accedi </h3>
                 <form action="LoginController" method="post">
 
                     <div>
@@ -66,14 +67,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <span align="left">Password</span>
                         <input type="password" name="password" id="inputPassword" class="login_box" required>
                     </div>
-                    <input type="submit" value="Login">
+                    <input type="submit" value="Accedi">
                 </form>
 
                 <br> <br>
                 Non sei ancora registrato? <br>
 
                 <form action="sign_up.jsp">
-                    <input type="submit" value="Sign Up">
+                    <input type="submit" value="Registrati">
                 </form>
 
             </div>

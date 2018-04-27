@@ -34,7 +34,7 @@ public class LoginController extends HttpServlet {
 		String result = loginDao.authenticateUser(loginBean);
 		System.out.println("valore ritornato: " +result);
 		if (result.equals("success")) {
-			rd = request.getRequestDispatcher("/WEB-INF/view/success.jsp");
+			rd = request.getRequestDispatcher("/index.jsp");
 			LoginBean user = new LoginBean(username, password, isLogged);
 
 			HttpSession session=request.getSession();  

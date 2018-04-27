@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.project.bean.SignUpBean;
 import org.project.dao.SignUpDao;
@@ -37,9 +38,15 @@ public class SignUpController extends HttpServlet {
 		String result = signUpDao.registerUser(signUpBean);
 		System.out.println("valore ritornato: " +result);
 		if (result.equals("success")) {
-			rd = request.getRequestDispatcher("/WEB-INF/view/signup_success.jsp");
+			rd = request.getRequestDispatcher("index.jsp");
 			SignUpBean user = new SignUpBean(username,password,email,name,surname,born_date,born_place);
 			request.setAttribute("user", user);
+			
+			//open session for user
+			HttpSession session=request.getSession();  
+			session.setAttribute("user", user.getUsername());
+			//
+			
 		} else {
 			rd = request.getRequestDispatcher("/WEB-INF/view/signup_error.jsp");
 		}

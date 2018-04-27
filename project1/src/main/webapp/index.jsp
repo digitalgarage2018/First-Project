@@ -82,7 +82,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 			<div class=" h_menu4">
 				<ul class="memenu skyblue">
-					<li><a class="color8" href="Wallet.jsp">Wallet</a></li>
+				
 					<li><a class="color1" href="#">Prodotti</a>
 
 					</li>
@@ -94,7 +94,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						if ((session.getAttribute("user") == null) || (session.getAttribute("user") == "")) {
 					%>
 
-					<li><a class="color4" href="login.jsp">Login</a></li>
+					<li><a class="color4" href="login.jsp">Accedi</a></li>
+					<li><a class="color4" href="sign_up.jsp">Registrati</a></li>
+					
 
 					<%}
 
@@ -102,11 +104,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					%>
 					<li><a class="color4" href="LogoutController" onclick="if (!confirm('Sei sicuro di voler uscire? ')) return false"
 						   action="">Logout</a></li>
+						   
+						   <li><a class="color8" href="Wallet.jsp">Wallet</a></li>
 
 					<%
 						}
 					%>
-					<li><a class="color4" href="sign_up.jsp">Sign Up</a></li>
 
 					</div>
 				</ul>

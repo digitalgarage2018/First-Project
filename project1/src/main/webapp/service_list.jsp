@@ -159,6 +159,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </div>
 </div>
 
+<table>
+    <c:forEach items="${services}" var="service">
+        <tr>            
+            <td><c:out value="${service.sr_name}" /></td>
+            <td><c:out value="${service.sr_type}" /></td>
+            <td><c:out value="${service.sr_description}" /></td>
+            <td><c:out value="${service.sr_price}" /></td>
+            <td><c:out value="${service.sr_time}" /></td>
+            <td><c:out value="${service.sr_wellness_center}" /></td>
+            <td><c:out value="${service.sr_serviceID}" /></td>     
+            <img src="${service.sr_image}" alt="">    
+        </tr>
+    </c:forEach>
+</table>
 
 </body>
 </html>

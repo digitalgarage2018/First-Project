@@ -29,8 +29,10 @@ public class ServiceDao {
             	service.setSr_type(rs.getString("sr_type")); 
             	service.setSr_description(rs.getString("sr_description"));
             	service.setSr_price(rs.getInt("sr_price"));
+            	service.setSr_time(rs.getInt("sr_time"));
             	service.setSr_wellness_center(rs.getString("sr_wellness_center"));
             	service.setSr_serviceID(rs.getInt("sr_serviceID"));
+            	service.setSr_image(rs.getString("sr_image"));
             	serviceList.add(service);
             }            
         	}            

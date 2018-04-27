@@ -1,6 +1,9 @@
 
 <!DOCTYPE html>
-<html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
 <head>
 	<title> Sign Up </title>
 	<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
@@ -54,21 +57,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 		<form action="SignUpController" method="post">
 			<div class="col-md-6 register-top-grid">
-				<h3>Personal infomation</h3>
+				<h3>Informazioni personali</h3>
 				<div>
-					<span>First Name</span>
+					<span>Nome</span>
 					<input type="text" name="name" required>
 				</div>
 				<div>
-					<span>Last Name</span>
+					<span>Cognome</span>
 					<input type="text" name="surname" required>
 				</div>
 				<div>
-					<span> Born date </span>
-					<input type="text" name="born_date" required>
+					<span>Data di nascita </span>
+					
+					<input type="text" name="born_date" id="born_date" required>
 				</div>
 				<div>
-					<span> Born place </span>
+					<span>Luogo di nascita </span>
 					<input type="text" name="born_place" required>
 				</div>
 
@@ -79,10 +83,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</a>
 			</div>
 			<div class="col-md-6 register-top-grid">
-				<h3> Login information </h3>
+				<h3> Informazioni d'accesso </h3>
 
 				<div>
-					<span> Username</span>
+					<span> Nome utente</span>
 					<input type="text" name="username" required>
 				</div>
 				<div>
@@ -96,7 +100,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<input type="password" name="password" required>
 				</div>
 				<div>
-					<span> Confirm Password </span>
+					<span> Conferma Password </span>
 					<input type="password" name="confirmpassword" required>
 				</div>
 
