@@ -23,10 +23,10 @@ import org.w3c.dom.Element;
 public class BuildingDao {
 
     private static final double[] center = {45.474687, 9.187337};
-    private static final String SELECT = "SELECT * FROM building WHERE 1=1";
+    private static final String SELECT = "SELECT * FROM building WHERE 1=1 ";
     private static final String SELECT_BY_RANGE =
             "and (POW ( ( 69.1 * ( longitude - " + center[1] + " ) * cos( " + center[0] + " / 57.3 ) ) , 2 ) " +
-                    "+ POW( ( 69.1 * ( latitude - " + center[0] + " ) ) , 2 ) ) < ?";
+                    "+ POW( ( 69.1 * ( latitude - " + center[0] + " ) ) , 2 ) ) < ";
     private static final String SELECT_BUILDING = "SELECT * FROM building";
     private static final String XML_PATH = "/Users/Gianmarco/Desktop/DigitalGarage/First-Project/markers.xml";
 
@@ -161,6 +161,7 @@ public class BuildingDao {
                     house.setLongitude(rs.getDouble("longitude"));
                     house.setType(rs.getString("type"));
                     house.setPrice(rs.getDouble("price"));
+                    house.setArea(rs.getInt("area"));
                     house.seteClass(rs.getString("E_class"));
 
                     houses.add(house);
@@ -168,6 +169,7 @@ public class BuildingDao {
             }
 
         } catch (SQLException e) {
+        	System.out.println(query);
             throw new RuntimeException(e);
         } finally {
             disconnectDB();
