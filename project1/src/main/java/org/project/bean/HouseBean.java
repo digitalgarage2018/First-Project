@@ -19,6 +19,8 @@ public class HouseBean implements Serializable {
 	 */
 	
 
+	public HouseBean() {}
+	
 	public HouseBean(String indirizzo, double costo) {
 		super();
 		this.indirizzo = indirizzo;

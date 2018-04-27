@@ -1,3 +1,13 @@
+/*
+ ============================================================================
+ Name        : UserDao.java
+ Author      : Alessio Onori
+ Version     : 1.0
+ Copyright   : Your copyright notice
+ Description : Dao per il bean User
+ ============================================================================
+ */
+
 package org.project.dao;
 
 import org.project.bean.UserBean;
