@@ -82,10 +82,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 			<div class=" h_menu4">
 				<ul class="memenu skyblue">
-				
+
+						<%
+						if ((session.getAttribute("user") == null) || (session.getAttribute("user") == "")) {
+					%>
+
+								<%}
+								else {
+					%>
 					<li><a class="color1" href="#">Prodotti</a>
 
 					</li>
+						<%
+						}
+					%>
+
+
 					<li class="grid"><a class="color2" href="ServiceController">Servizi</a>
 
 					</li>
