@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title> Login </title>
+    <title> Accedi </title>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -62,6 +62,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
             <div class="col-md-8 account-top login-card">
 
+
+				<h2><%
+				    if(null!=request.getAttribute("errorMessage"))
+				    {
+				        out.println(request.getAttribute("errorMessage"));
+				    }
+				%></h2>
+				
                 <h3> Accedi </h3>
                 <form action="LoginController" method="post">
 
@@ -76,7 +84,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </div>
                     <input type="submit" value="Accedi">
                 </form>
-
+				
+				
                 <br> <br>
                 Non sei ancora registrato? <br>
 

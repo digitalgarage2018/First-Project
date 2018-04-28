@@ -84,7 +84,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
             <div class=" h_menu4">
                 <ul class="memenu skyblue">
-                    <li><a class="color8" href="Wallet.jsp">Wallet</a></li>
                     <li><a class="color1" href="#">Prodotti</a> </li>
                     <li class="grid"><a class="color2" href="ServiceController">Servizi</a> </li>
 
@@ -93,7 +92,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						if ((session.getAttribute("user") == null) || (session.getAttribute("user") == "")) {
 					%>
 
-                    <li><a class="color4" href="login.jsp">Login</a></li>
+                    <li><a class="color4" href="login.jsp">Accedi</a></li>
+                    <li><a class="color4" href="sign_up.jsp">Registrati</a></li>
 
                         <%}
 
@@ -101,11 +101,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					%>
                     <li><a class="color4" href="LogoutController" onclick="if (!confirm('Sei sicuro di voler uscire? ')) return false"
                            action="">Logout</a></li>
-
-                        <%
+					<li><a class="color8" href="EthereumController">Wallet</a></li>
+                    <%
 						}
 					%>
-                    <li><a class="color4" href="sign_up.jsp">Sign Up</a></li>
+                    
 
             </div>
             </ul>
@@ -134,7 +134,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <c:forEach items="${services}" var="service">
                     <div class="col-md-3 bottom-cd simpleCart_shelfItem product-card">
                         <div class="product-at ">
-                            <a href="detail.jsp"><img class="img-responsive" src="${service.sr_image}" alt="">
+                            <a href=""><img class="img-responsive" src="${service.sr_image}" alt="">
                                 <div class="pro-grid">
                                     <span class="buy-in">Buy Now</span>
                                 </div>

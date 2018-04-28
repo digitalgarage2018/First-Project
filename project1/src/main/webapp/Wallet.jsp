@@ -75,7 +75,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <div class="container">
         <div class="head-top">
             <div class="logo">
-                <h1><a href="index.jsp">Welness Madness</a></h1>
+                <h1><a href="index.jsp">Super Relax</a></h1>
             </div>
             <div class=" h_menu4">
                 <ul class="memenu skyblue">
@@ -87,8 +87,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </li>
 
 
-                    <li class="grid"><a class="color2" href="LogoutController">Logout</a>
-
+                    <li class="grid"><a class="color2" href="LogoutController" onclick="if (!confirm('Sei sicuro di voler uscire? ')) return false" action="">Logout</a>
+					
+					<li class="grid"><a class="color2" href="EthereumController">Wallet</a>
                 </ul>
             </div>
 
