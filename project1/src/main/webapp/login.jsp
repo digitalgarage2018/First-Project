@@ -4,6 +4,9 @@
 <html>
 <head>
     <title> Login </title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="js/jquery.min.js"></script>
@@ -29,10 +32,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <body>
 
 <div class="header">
+
     <div class="header-top">
+
         <div class="container">
             <div class="header-top">
+<<<<<<< HEAD
+            <a href="index.jsp"> <i class="glyphicon glyphicon-home" style="font-size:20px;color:white"></i>  </a>
+
+=======
                 <a href="index.jsp">Torna alla home </a>
+>>>>>>> 4868f44c28c8ec496dd88055a4c1b102786e3e05
             </div>
 
         </div>
