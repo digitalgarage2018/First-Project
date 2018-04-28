@@ -32,20 +32,28 @@ public class LoginController extends HttpServlet {
 		//System.out.println("valore prima: " +result);
 		
 		String result = loginDao.authenticateUser(loginBean);
+		HttpSession session=request.getSession();
 		System.out.println("valore ritornato: " +result);
-		if (result.equals("success")) {
-			rd = request.getRequestDispatcher("/index.jsp");
-			LoginBean user = new LoginBean(username, password, isLogged);
-
-			HttpSession session=request.getSession();  
-			session.setAttribute("user", user.getUsername());
-			//request.setAttribute("user", user);
-			
-			//response.sendRedirect("/WEB-INF/view/success.jsp");
-		} else {
-			rd = request.getRequestDispatcher("/WEB-INF/view/error.jsp");
-		}
+		try {
+			if (result.equals("success")) {
+				rd = request.getRequestDispatcher("/index.jsp");
+				LoginBean user = new LoginBean(username, password, isLogged);
+	
+				//HttpSession session=request.getSession();  
+				session.setAttribute("user", user.getUsername());
+				//request.setAttribute("user", user);
+				
+				//response.sendRedirect("/WEB-INF/view/success.jsp");
+			} else {
+				session.invalidate();
+	            request.setAttribute("errorMessage", "Invalid user or password");
+	            rd = request.getRequestDispatcher("/login.jsp");
+				//rd = request.getRequestDispatcher("/WEB-INF/view/error.jsp");
+			}
+		} 
+		finally{
 		rd.forward(request, response);
+		}
 	}
  
 }
