@@ -44,9 +44,15 @@ public class LoginController extends HttpServlet {
 				//request.setAttribute("user", user);
 				
 				//response.sendRedirect("/WEB-INF/view/success.jsp");
-			} else {
+			} 
+			else if(result.equals("errorDB")){
 				session.invalidate();
-	            request.setAttribute("errorMessage", "Invalid user or password");
+	            request.setAttribute("errorMessage", "Errore connessione database");
+	            rd = request.getRequestDispatcher("/login.jsp");
+			}
+			else {
+				session.invalidate();
+	            request.setAttribute("errorMessage", "Nome utente e/o password non validi");
 	            rd = request.getRequestDispatcher("/login.jsp");
 				//rd = request.getRequestDispatcher("/WEB-INF/view/error.jsp");
 			}

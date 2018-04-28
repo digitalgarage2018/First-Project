@@ -39,7 +39,7 @@ public class LoginDao {
 		} finally {
 			disconnectDB();
 		}
-		return "failure";
+		return "errorDB";
 	}
 
 }
