@@ -72,8 +72,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 				<div>
 					<span>Data di nascita </span>
-					
-					<input type="text" name="born_date" id="born_date" required>
+				 <input type="text" name="born_date" id="born_date" pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))" title="FORMATO: YYYY-MM-DD" placeholder="YYYY-MM-DD"required> 
 				</div>
 				<div>
 					<span>Luogo di nascita </span>
@@ -95,21 +94,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 				<div>
 					<span> Email </span>
-					<input type="text" name="email" required>
+					  <input type="text" name="email" pattern="([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})" title=" pincopallo@mail.wut" placeholder="guybrush@threepwood.com"required>
+					<!--  <input type="email" name="email" value="" required />-->
 				</div>
 			</div>
 			<div class="col-md-6 register-bottom-grid">
 				<div>
 					<span> Password </span>
-					<input type="password" name="password" required>
+					<input id="password" name="password" type="password" pattern="^\S{6,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Inserisci almeno 6 caratteri' : ''); if(this.checkValidity()) form.password_two.pattern = this.value;" placeholder="Password" required>
 				</div>
 				<div>
 					<span> Conferma Password </span>
-					<input type="password" name="confirmpassword" required>
+					
+					<input id="password_two" name="password_two" type="password" pattern="^\S{6,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Inserisci la stessa password di sopra' : '');" placeholder="Verifica Password" required>
 				</div>
 
 				<input type="submit" value="submit">
-				<!-- <button type="submit" class="signup">Sign Up</button> -->
 
 			</div>
 			<div class="clearfix"> </div>
