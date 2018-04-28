@@ -21,6 +21,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link href='//fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'><!--//fonts-->
     <!-- start menu -->
     <link href="css/memenu.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="css/login.css" rel="stylesheet" type="text/css" media="all" />
     <script type="text/javascript" src="js/memenu.js"></script>
     <script>$(document).ready(function(){$(".memenu").memenu();});</script>
     <script src="js/simpleCart.min.js"> </script>
@@ -53,7 +54,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="col-md-2 left-account">
                 <!-- colonna sinistra vuota-->
             </div>
-            <div class="col-md-8 account-top">
+            <div class="col-md-8 account-top login-card">
 
                 <h3> Accedi </h3>
                 <form action="LoginController" method="post">

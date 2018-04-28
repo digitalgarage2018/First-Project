@@ -1,0 +1,14 @@
+.product-card {
+	margin-bottom: 20px;
+	margin-top: 20px;
+	margin-left: 30px;
+	margin-right: 30px;
+	background-color: #c4b7a6;
+	padding:15px;
+}
+
+
+body {
+	background-repeat: no-repeat;
+	background: #e6e2d3;
+}

@@ -8,7 +8,7 @@
 
 
 <head>
-	<title>Massaggi e saune</title>
+	<title> Super Relax </title>
 	<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script src="js/jquery.min.js" ></script>

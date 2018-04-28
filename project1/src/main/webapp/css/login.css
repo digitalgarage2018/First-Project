@@ -1,15 +1,15 @@
+/*
+.login-card {
 
-body, html {
-    height: 100%;
-    background-repeat: no-repeat;
-    background: rgb(185,210,224); /* Old browsers */
-    background: -moz-radial-gradient(center, ellipse cover,  rgba(185,210,224,1) 0%, rgba(187,214,228,1) 0%, rgba(186,211,225,1) 15%, rgba(186,211,225,1) 38%, rgba(169,199,215,1) 68%, rgba(169,199,215,1) 68%, rgba(169,199,215,1) 82%, rgba(158,191,208,1) 100%); /* FF3.6-15 */
-    background: -webkit-radial-gradient(center, ellipse cover,  rgba(185,210,224,1) 0%,rgba(187,214,228,1) 0%,rgba(186,211,225,1) 15%,rgba(186,211,225,1) 38%,rgba(169,199,215,1) 68%,rgba(169,199,215,1) 68%,rgba(169,199,215,1) 82%,rgba(158,191,208,1) 100%); /* Chrome10-25,Safari5.1-6 */
-    background: radial-gradient(ellipse at center,  rgba(185,210,224,1) 0%,rgba(187,214,228,1) 0%,rgba(186,211,225,1) 15%,rgba(186,211,225,1) 38%,rgba(169,199,215,1) 68%,rgba(169,199,215,1) 68%,rgba(169,199,215,1) 82%,rgba(158,191,208,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b9d2e0', endColorstr='#9ebfd0',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+    background: #c4b7a6;
+    border: 20px;
+    padding: 20px;
+    margin-left: 100px;
+    margin-right: 100px;
 
 }
-
+*/
+/*
 .login_box{
     background:#f7f7f7;
     border:3px solid #F4F4F4;
@@ -30,7 +30,7 @@ hr{
     font-family: "myriad-pro",sans-serif;
     font-style: normal;
     font-weight: 100;
-    color:#FFFFFF;
+    color: #2d2d2d;
     margin-bottom:25px;
     margin-top:50px;
 
@@ -40,9 +40,10 @@ hr{
     font-family: "myriad-pro",sans-serif;
     font-style: normal;
     font-weight: 100;
-    color:rgba(164, 164, 164, 0.44);
+    color: #245269;
 }
-
+*/
+/*
 .card-container.card {
     max-width: 350px;
 
@@ -61,16 +62,12 @@ hr{
     margin-bottom:10px;
 }
 
-/*
- * Card component
- */
+
 .card {
-    background-color: #FFFFFF;
-    /* just in case there no content*/
+    background-color: #ada397;
     padding: 1px 25px 30px;
     margin: 0 auto 25px;
     margin-top: 15%x;
-    /* shadows and rounded borders */
     -moz-border-radius: 2px;
     -webkit-border-radius: 2px;
     border-radius: 2px;
@@ -78,7 +75,8 @@ hr{
     -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
 }
-
+*/
+/*
 .profile-img-card {
     width: 96px;
     height: 96px;
@@ -89,9 +87,8 @@ hr{
     border-radius: 50%;
 }
 
+*/
 /*
- * Form styles
- */
 .profile-name-card {
     font-size: 16px;
     font-weight: bold;
@@ -142,11 +139,10 @@ hr{
     -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(104, 145, 162);
     box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(104, 145, 162);
 }
-
+*/
+/*
 .btn.btn-signin {
-    /*background-color: #4d90fe; */
     background-color: rgb(104, 145, 162);
-    /* background-color: linear-gradient(rgb(104, 145, 162), rgb(12, 97, 33));*/
     padding: 0px;
     font-weight: 700;
     font-size: 14px;
@@ -164,7 +160,8 @@ hr{
 .btn.btn-signin:hover,
 .btn.btn-signin:active,
 .btn.btn-signin:focus {
-    background-color: rgb(12, 97, 33);
+    background-color: paleturquoise;
+
 }
 
 .forgot-password {
@@ -174,5 +171,16 @@ hr{
 .forgot-password:hover,
 .forgot-password:active,
 .forgot-password:focus{
-    color: rgb(12, 97, 33);
+    color: darkcyan;
+
 }
+
+*/
+/*
+
+.account-top {
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+*/

@@ -24,6 +24,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link href='//fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'><!--//fonts-->
     <!-- start menu -->
     <link href="css/memenu.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="css/services.css" rel="stylesheet" type="text/css" media="all" />
+
     <script type="text/javascript" src="js/memenu.js"></script>
     <script>$(document).ready(function(){$(".memenu").memenu();});</script>
     <script src="js/simpleCart.min.js"> </script>
@@ -125,12 +127,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <div class="pro-du">
     <div class="container">
-        <div class="col-md-9 product1">
+        <div class="col-md-15 product1">
             <div class=" bottom-product">
 
 
                 <c:forEach items="${services}" var="service">
-                    <div class="col-md-6 bottom-cd simpleCart_shelfItem">
+                    <div class="col-md-3 bottom-cd simpleCart_shelfItem product-card">
                         <div class="product-at ">
                             <a href="detail.jsp"><img class="img-responsive" src="${service.sr_image}" alt="">
                                 <div class="pro-grid">
@@ -147,13 +149,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <div class="ca-rt">
                             <a href="#" class="item_add"><p class="number item_price"><i> </i>$ <c:out value="${service.sr_price}" /> </p></a>
                         </div>
-                        <div class="clearfix"></div>
+                        <!-- <div class="clearfix"></div> -->
 
 
                     </div>
                 </c:forEach>
 
-                <div class="clearfix"></div>
+                <!-- <div class="clearfix"></div> -->
             </div>
         </div>
     </div>

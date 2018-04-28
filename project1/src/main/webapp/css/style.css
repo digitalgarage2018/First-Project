@@ -1,11 +1,6 @@
-/*--A Design by W3layouts 
-Author: W3layout
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
---*/
 body{
-	background:#fff;
+	/*background:#fff;*/
+	background: #e6e2d3;;
 	font-family: 'Roboto', sans-serif;
 }
  a{
@@ -134,7 +129,7 @@ a.item_add {
 	left: 1px;
 	border: none;
 	outline: none;
-	background:#8CE78A;
+	background: #c4b7a6;
 	width: 100%;
 	height: 40px;
 	margin: 0;
@@ -389,12 +384,12 @@ height: 35px;
 	text-decoration: none;
 	color:#fff;
 	font-size:1.2em;
-	background: #8ce78a;
+	background: #c4b7a6;
 	padding: 0.4em 1em;
 	border-radius:5px;
 }
 .banner-text a:hover{
-	color: #8ce78a;
+	color: #c4b7a6;
 	background: #fff;
 }
 /*--content-top--*/
@@ -434,7 +429,7 @@ height: 35px;
   text-decoration: none;
 }
 .grid-top p a:hover{
-	  color: #8ce78a;
+	  color: #c4b7a6;
 }
 .grid-in {
   padding: 2em 0 0;
@@ -649,7 +644,7 @@ ul.nav-bottom li  a{
 	  margin: 0.2em 0;
 }
 ul.nav-bottom li  a:hover{
-	color:#8ce78a;
+	color:#c4b7a6;
 }
 .amet-sed p{
 	color:#989696;
@@ -664,7 +659,7 @@ ul.nav-bottom li  a:hover{
 }
 /*-- agileits --*/
 .footer-class  p a{
-	color:#8ce78a;
+	color:#c4b7a6;
 	text-decoration:none;
 }
 .footer-class  p a:hover{
@@ -691,14 +686,14 @@ padding:1em 0 0;
   width: 36%;
   color: #FFF;
   font-size: 1em;
-  background:#8ce78a;
+  background:#c4b7a6;
   border: none;
   outline:none;
   padding: 0.5em;
 }
 .amet-sed input[type="submit"]:hover {
 background: #fff;
-color:#8ce78a;
+color:#c4b7a6;
 }
 ul.social{
 	padding:1em 0 0;
@@ -772,7 +767,7 @@ ul.social li i:hover{
 .send input[type="submit"]{
 	width: 14%;
 	font-size: 1.1em;
-	background:#8ce78a;
+	background:#c4b7a6;
 	padding: 0.4em 0.8em;
 	text-align: center;
 	color: #fff;
@@ -807,7 +802,7 @@ ul.social li i:hover{
 	color: #626262;
 }
 .address-more p a:hover{
-	color: #8ce78a;
+	color: #c4b7a6;
 }
 /*-- w3layouts --*/
 /*--//contact--*/
@@ -1179,6 +1174,7 @@ p.tun {
 }
 .product-at img {
     width:100%;
+	height: 220px;
 }
 .product-at{
 	position: relative;
@@ -1203,13 +1199,13 @@ p.tun {
 	color:#fff;
 	font-size:1.1em;
 	font-weight:600;
-	background:#8CE78A;
+	background:#c4b7a6;
 	padding: 0.5em 1.5em;
 	text-transform: uppercase;
 }
 .pro-grid span:hover{
 	background:#fff;
-	color:#8CE78A;
+	color:#c4b7a6;
 }
 /*--//product--*/
 .pl-lft {
@@ -1229,7 +1225,7 @@ p.tun {
 	text-decoration:none;
 }
 .pro-tp p a:hover{
-color:#8ce78a;
+color:#c4b7a6;
 }
 .pro-tp h6 a{
     color: #000;
@@ -1239,7 +1235,7 @@ color:#8ce78a;
 	text-decoration:none;
 }
 .pro-tp h6 a:hover{
-color:#8ce78a;
+color:#c4b7a6;
 }
 .pro-tp {
     margin: 0 0 2em;
@@ -1272,11 +1268,9 @@ color:#8ce78a;
     border-radius: 50%;
     margin: 0 auto;
 }
-.bottom-cd.simpleCart_shelfItem {
-    padding-right: 5em;
-}
+
 .grow {
-    background-color: #8ce78a;
+    background-color: #c4b7a6;
     padding: 1.3em 0;
 }
 .grow h2 {
@@ -1320,7 +1314,7 @@ color:#8ce78a;
     margin: 1em 0;
 }
 .single-para h5 {
-  color:#8ce78a;
+  color:#c4b7a6;
   font-size: 1.7em;
   border-bottom: 1px solid #C4C3C3;
   padding: 0.3em 0;
@@ -1372,7 +1366,7 @@ ul.tag-men li span.women1{
 a.add-cart {
   text-decoration: none;
   color: #fff;
-  background: #8ce78a;
+  background: #c4b7a6;
   padding: 0.4em 0.8em;
   font-size:0.9em;
   text-transform: uppercase;
@@ -1411,7 +1405,7 @@ h3.real{
 	color:#000;
 }
 .star-on a:hover{
-	color:#8ce78a;
+	color:#c4b7a6;
 }
 /*----*/
 .cd-tabs-navigation {
@@ -1574,7 +1568,7 @@ a.add-re:hover{
 	position: relative;
 }
 .news-letter {
-	color: #8ce78a;
+	color: #c4b7a6;
 	font-size: 1em;
 	margin-bottom: 1em;
 	display:inline-block;
@@ -1593,7 +1587,7 @@ a.add-re:hover{
 	width:20px;
 	height:20px;
 	outline: none;
-	border: 2px solid #8ce78a;
+	border: 2px solid #c4b7a6;
 }
 .checkbox input + i:after {
 	content: '';
@@ -1625,7 +1619,7 @@ a.add-re:hover{
 	color:#000;
 }
 .register-bottom-grid input[type="submit"] {
-	background: #8ce78a;
+	background: #c4b7a6;
 	padding: 0.4em 1em;
 	color: #fff;
 	font-size:1.2em;
@@ -1680,7 +1674,7 @@ a.add-re:hover{
 	padding:7px 20px;
 	color:#FFF;
 	cursor:pointer;
-	background:#8ce78a;
+	background:#c4b7a6;
 	border:none;
 	width:20%;
    margin:1em auto 0;
@@ -1701,7 +1695,7 @@ a.add-re:hover{
 .five {
   background: #fff;
   border-radius: 100px;
-  border: 2px solid #8ce78a;
+  border: 2px solid #c4b7a6;
   width: 100px;
   height: 100px;
   position: absolute;
@@ -1712,7 +1706,7 @@ a.add-re:hover{
 }
 .five span {
   font-size: 1em;
-  color:#8ce78a;
+  color:#c4b7a6;
 }
 .five h2 {
   font-size: 1.5em;
@@ -1723,7 +1717,7 @@ a.create {
   text-decoration: none;
   color: #fff;
   padding: 7px 20px;
-  background:#8ce78a;
+  background:#c4b7a6;
   text-align: center;
   display: block;
  }
@@ -1857,7 +1851,7 @@ a.create {
   position: relative;  
 }
 a.order {
-  background:#8ce78a;
+  background:#c4b7a6;
   padding: 10px 20px;
    font-family: 'Lato', sans-serif;
   font-size: 1em;
@@ -1889,7 +1883,7 @@ a.order:hover{
 	margin-right:6em;
 }
 a.cpns{
-	background:#8ce78a;
+	background:#c4b7a6;
 	color:#fff;
 	 font-family: 'Lato', sans-serif;
 	padding: 10px;
@@ -1912,7 +1906,7 @@ a.cpns:hover{
 	text-decoration:underline;
 }
 a.continue{
-	background:#8ce78a;
+	background:#c4b7a6;
 	padding:10px 20px;
 	  font-family: 'Lato', sans-serif;
 	font-size:1em;
@@ -2721,7 +2715,8 @@ a.item_add p.number {
   padding: 8.5em 0 0;
 }
 .bottom-product {
-  margin-bottom: 1em;
+  margin: 1em;
+
 }
 .pagination {
   margin: 10px 0 0;
