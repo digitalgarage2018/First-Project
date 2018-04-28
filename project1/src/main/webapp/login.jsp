@@ -62,16 +62,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
             <div class="col-md-8 account-top login-card">
 
+                <h2> Accedi </h2>
 
-				<h2><%
-				    if(null!=request.getAttribute("errorMessage"))
-				    {
-				        out.println(request.getAttribute("errorMessage"));
-				    }
-				%></h2>
-				
-                <h3> Accedi </h3>
                 <form action="LoginController" method="post">
+                    <br>
+                    <h4 style="color:red;"><%
+                        if(null!=request.getAttribute("errorMessage"))
+                        {
+                            out.println(request.getAttribute("errorMessage"));
+                        }
+                    %></h4>
 
                     <div>
                         <span align="left" id="reauth-email" class="reauth-email">Username</span>

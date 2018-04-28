@@ -47,7 +47,7 @@ public class LoginController extends HttpServlet {
 			} 
 			else if(result.equals("errorDB")){
 				session.invalidate();
-	            request.setAttribute("errorMessage", "Errore connessione database");
+	            request.setAttribute("errorMessage", "Errore connessione database. Riprova più tardi");
 	            rd = request.getRequestDispatcher("/login.jsp");
 			}
 			else {

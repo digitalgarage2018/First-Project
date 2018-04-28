@@ -103,7 +103,7 @@ a.item_add {
   padding: 1em 0;
 }
 .logo h1 a {
-    color: #6c7886;
+    color: #555;
     font-size: 1.4em;
     text-decoration: none;
 }
@@ -405,7 +405,7 @@ height: 35px;
     padding: 2em;
 }
 .content-top h1{
-	color:#6e7786;
+	color:#555;
 	font-size: 1.7em;
   font-family: 'Lato', sans-serif;
   font-weight: 600;
@@ -425,7 +425,7 @@ height: 35px;
   text-transform: uppercase;
 }
 .grid-top p a{
-	  color: #6e7786;
+	  color: #555;
   text-decoration: none;
 }
 .grid-top p a:hover{
@@ -483,7 +483,7 @@ height: 35px;
 	padding: 0 0px 0 15px;
 }
 .content-top-bottom h2{
-	  color: #6e7786;
+	  color: #555;
   font-size: 1.7em;
   font-family: 'Lato', sans-serif;
   font-weight: 600;
@@ -739,7 +739,7 @@ ul.social li i:hover{
 .contact h1 {
     font-size: 2.5em;
     font-family: 'Lato', sans-serif;
-    color: #6c7886;
+    color: #555;
     text-align: center;
     font-weight: 600;
 }
@@ -791,7 +791,7 @@ ul.social li i:hover{
 	line-height: 1.7em;	
 }
 .address-more h4{
-	color:#6c7886;
+	color:#555;
 	font-size:1.4em;
 	  font-family: 'Lato', sans-serif;
 	margin: 0 0 0.3em;
@@ -1138,7 +1138,7 @@ font-weight: 100;
 
 a.item_add p.number {
     font-size: 1.1em;
-    color: #6e7786;
+    color: #555;
     text-align: center;
     padding: 0em 1em;
 }
@@ -1160,7 +1160,7 @@ a.item_add p.number i {
 }
 p.tun {
     font-size: 1em;
-    color: #6e7786;
+    color: #555;
     text-align: left;
     line-height: 1.8em;
     padding: 1em 0;
@@ -1218,7 +1218,7 @@ p.tun {
     padding: 1.6em 0em 1.6em 1em;
 }
 .pro-tp p a{
-    color: #6e7786;
+    color: #555;
     font-size: 1em;
     margin: 1em 0;
     line-height: 1.8em;
@@ -1241,7 +1241,7 @@ color:#c4b7a6;
     margin: 0 0 2em;
 }
 .pr-btm h4 {
-    color: #6e7786;
+    color: #555;
     font-size: 1.4em;
     font-weight: 700;
     margin: 0 0 1em;
@@ -1253,7 +1253,7 @@ color:#c4b7a6;
     color: #000;
 }
 .pr-btm p {
-    color: #6e7786;
+    color: #555;
     font-size: 1em;
     margin: 1em 0;
     line-height: 1.8em;
@@ -1532,7 +1532,7 @@ a.add-re:hover{
 .register h1 {
     font-size: 2.5em;
     font-family: 'Lato', sans-serif;
-    color: #6c7886;
+    color: #555;
     text-align: center;
     font-weight: 600;
     margin-bottom: 1em;
@@ -1540,7 +1540,7 @@ a.add-re:hover{
 .register-top-grid h3, .register-bottom-grid h3 {
 	font-size: 1.5em;
   font-family: 'Lato', sans-serif;
-  color: #6c7886;
+  color: #555;
   margin-bottom: 0.5em;
   text-transform: uppercase;
   font-weight: 600;
@@ -1640,7 +1640,7 @@ a.add-re:hover{
 .account h1 {
     font-size: 2.5em;
     font-family: 'Lato', sans-serif;
-    color: #6c7886;
+    color: #555;
     text-align: center;
     font-weight: 600;
     margin-bottom: 1em;
