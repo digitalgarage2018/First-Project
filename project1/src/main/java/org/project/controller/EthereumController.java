@@ -32,7 +32,6 @@ public class EthereumController extends HttpServlet{
 
     BigInteger wei;
 
-
     public BigInteger getWei() {
         return wei;
     }

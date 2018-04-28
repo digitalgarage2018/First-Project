@@ -147,7 +147,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <c:out value="${service.sr_type}" />
                         </p>
                         <div class="ca-rt">
-                            <a href="#" class="item_add"><p class="number item_price"><i> </i>$ <c:out value="${service.sr_price}" /> </p></a>
+                            <a href="#" class="item_add"><p class="number item_price"><i> </i>
+                                <%
+                                    if ((session.getAttribute("user") == null) || (session.getAttribute("user") == "")) {
+                                %>
+                                <p></p>
+                                <%}
+
+                                else {
+                                %>
+
+
+
+                                $ <c:out value="${service.sr_price}" /> </p></a>
+                            <%
+                                }
+                            %>
                         </div>
                         <!-- <div class="clearfix"></div> -->
 
