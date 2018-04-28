@@ -72,7 +72,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 				<div>
 					<span>Data di nascita </span>
-				 <input type="text" name="born_date" id="born_date" pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))" title="FORMATO: YYYY-MM-DD" placeholder="YYYY-MM-DD"required> 
+				 <input
+						 type="text"
+						 name="born_date"
+						 id="born_date"
+						 pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))"
+						 onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Data inserita non valida: ripetta il formato richiesto (YYYY-MM-DD) ed inserisci una data di nascita valida' : '');"
+						 placeholder="YYYY-MM-DD"
+						 required>
 				</div>
 				<div>
 					<span>Luogo di nascita </span>
@@ -94,19 +101,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 				<div>
 					<span> Email </span>
-					  <input type="text" name="email" pattern="([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})" title=" pincopallo@mail.wut" placeholder="guybrush@threepwood.com"required>
+					  <input type="text" name="email" pattern="([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})" title="example@gmail.com" placeholder="example@gmail.com" required>
 					<!--  <input type="email" name="email" value="" required />-->
 				</div>
 			</div>
 			<div class="col-md-6 register-bottom-grid">
 				<div>
 					<span> Password </span>
-					<input id="password" name="password" type="password" pattern="^\S{6,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Inserisci almeno 6 caratteri' : ''); if(this.checkValidity()) form.password_two.pattern = this.value;" placeholder="Password" required>
+					<input id="password" name="password" type="password" pattern="^\S{6,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Inserisci almeno 6 caratteri' : ''); if(this.checkValidity()) form.password_two.pattern = this.value;" required>
 				</div>
 				<div>
 					<span> Conferma Password </span>
 					
-					<input id="password_two" name="password_two" type="password" pattern="^\S{6,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Inserisci la stessa password di sopra' : '');" placeholder="Verifica Password" required>
+					<input id="password_two" name="password_two" type="password" pattern="^\S{6,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Le password inserite non corrispondono. Riprova' : '');" required>
 				</div>
 
 				<input type="submit" value="submit">
