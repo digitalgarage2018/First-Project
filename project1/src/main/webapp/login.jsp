@@ -32,7 +32,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <div class="header-top">
         <div class="container">
             <div class="header-top">
-                <a href="index.jsp">Torna alla home
+                <a href="index.jsp">Torna alla home </a>
             </div>
 
         </div>
