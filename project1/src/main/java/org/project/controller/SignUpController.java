@@ -1,6 +1,6 @@
 /*
  ============================================================================
- Name        : SignInController.java
+ Name        : SignUpController.java
  Author      : Alessio Onori
  Version     : 1.0
  Copyright   : Your copyright notice
@@ -35,13 +35,13 @@ public class SignUpController extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
  
 		String username = request.getParameter("username");
+		String email = request.getParameter("email");
 		String password = request.getParameter("password");
-		
 		
 		/*
 		 * creazione user
 		 */
-		UserBean userBean = new UserBean(username,password);
+		UserBean userBean = new UserBean(username, email, password);
 		UserDao userDao = new UserDao();
 		//id gestito da auto increment
 		userDao.createUser(userBean);
@@ -51,9 +51,13 @@ public class SignUpController extends HttpServlet {
 		 */
 		WalletBean walletBean = new WalletBean(userBean.getId(),1000);
 		WalletDao walletDao = new WalletDao();
+		//id gestito da auto increment
 		walletDao.createWallet(walletBean);
-		userBean.setWallet(walletBean);
 		
+		/*
+		 * associazione del wallet allo user
+		 */
+		userBean.setWallet(walletBean);
 		
 		RequestDispatcher rd = null;
 		rd = request.getRequestDispatcher("/index.jsp");

@@ -26,7 +26,7 @@
 					<div class="form-group">
 						<div class="input-group">
 							<span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-							<input type="text" name="username" class="form-control" palceholder="Enter Name"  maxlength="50"/>
+							<input type="text" name="username" class="form-control" placeholder="Enter Name or Email"  maxlength="50"/>
 						</div>
 						<span class="text-danger"></span>
 					</div>
@@ -52,7 +52,7 @@
 					</div>
 
 					<div class="form-group">
-						<button type="submit" class="btn btn-block btn-primary" name="signup">Sign Up</button>
+						<button type="submit" class="btn btn-block btn-primary" name="login">Log In</button>
 					</div>
 
 
@@ -80,23 +80,23 @@
 					<div class="form-group">
 						<div class="input-group">
 							<span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-							<input type="text" name="username" class="form-control" palceholder="Enter Name"  maxlength="50"/>
+							<input type="text" name="username" class="form-control" placeholder="Enter Name"  maxlength="50" required/>
 						</div>
 						<span class="text-danger"></span>
 					</div>
 
-					<%--<div class="form-group">
+					<div class="form-group">
 						<div class="input-group">
 							<span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
-							<input type="email" name="email" class="form-control" placeholder="Enter Your Email" maxlength="40"/>
+							<input type="email" name="email" class="form-control" placeholder="Enter Your Email" maxlength="40" required/>
 						</div>
 						<span class="text-danger"></span>
-					</div>--%>
+					</div>
 
 					<div class="form-group">
 						<div class="input-group">
 							<span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-							<input type="password" name="password" class="form-control" placeholder="Enter Password" maxlength="15" />
+							<input type="password" name="password" id="password" class="form-control" placeholder="Enter Password" maxlength="15" required />
 						</div>
 						<span class="text-danger"></span>
 					</div>

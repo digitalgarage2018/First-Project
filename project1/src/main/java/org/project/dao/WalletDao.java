@@ -59,16 +59,15 @@ public class WalletDao {
 	 * se passato un corretto user crea una nuova tupla
 	 * di user nel db
 	 */
-	public void createWallet(WalletBean wallet)
+	public boolean createWallet(WalletBean wallet)
 	{
 		// --- 1. Dichiarazione della variabile per il risultato ---
 
 		// --- 2. Controlli preliminari sui dati in ingresso ---
 		if ( wallet == null )  {
 			System.out.println("create(): failed to insert a null entry");
-			return;
+			return false;
 		}
-
 
 		try {
 			// --- 3. connessione gia aperta da DB controller
@@ -79,10 +78,9 @@ public class WalletDao {
 				//id impostato da auto increment
 				stmt.setInt(1, wallet.getIdUser());
 				stmt.setDouble(2, wallet.getCredit());
-				
+
 				// --- Esegui l'azione sul database ed estrai il risultato (se atteso)
 				stmt.executeUpdate();
-
 			}
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
@@ -90,13 +88,14 @@ public class WalletDao {
 			//--- gestione del rilascio delle risorse
 			disconnectDB();
 		}
-		return;
+
+		return true;
 	}
 
 	// ==================================================================================
 
 
-	
+
 	public WalletBean readByIdUser(int idUser){
 		// --- 1. Dichiarazione della variabile per il risultato ---
 		WalletBean result=null;
@@ -125,13 +124,12 @@ public class WalletDao {
 							rs.getInt(ID_USER),
 							rs.getDouble(CREDIT)
 							);
-					
+
 					result = entry;
-					
-					disconnectDB();
+
 				} 
 				else {
-					disconnectDB();
+					disconnectDB(); //superfluo, il finally verrebbe chiamato anche nel caso di return
 					return null;
 				}
 			}
@@ -140,11 +138,11 @@ public class WalletDao {
 		} finally {
 			disconnectDB();
 		}
-		
+
 		return result;
 	}
-	
-	
-	
-	
+
+
+
+
 }

@@ -24,9 +24,9 @@ public class UserDao {
 
 	// -------------------------------------------------------------------------------------
 
-	//	static final String ID = "id"; per ora non la uso	
 	static final String ID = "id";
 	static final String USERNAME = "username";
+	static final String EMAIL = "email";
 	static final String PASSWORD = "password";
 
 
@@ -48,20 +48,28 @@ public class UserDao {
 					"WHERE " + USERNAME + " = ? "
 					;
 
+	//query di ricerca
+	static String SELECT_BY_USERNAME_OR_EMAIL = 
+			"SELECT * " +
+					"FROM " + TABLE + " " +
+					"WHERE " + USERNAME + " = ? "+
+					"OR " + EMAIL + " = ?"
+					;
+
 	//query di insierimento
 	// INSERT INTO table (...) VALUES ( ?,?, ... );
 	private	static final String INSERT = 
 			"INSERT " +
 					"INTO " + TABLE + " ( " + 
 					USERNAME +", "+
+					EMAIL +", "+
 					PASSWORD +""+
 					") " +
-					"VALUES (?,?) "
+					"VALUES (?,?,?) "
 					;//insert
 	/*
 	 * id è autogestito
 	 */
-
 
 
 	// == Metodi CRUD ====================================================================
@@ -71,14 +79,14 @@ public class UserDao {
 	 * se passato un corretto user crea una nuova tupla
 	 * di user nel db
 	 */
-	public void createUser(UserBean userBean)
+	public boolean createUser(UserBean userBean)
 	{
 		// --- 1. Dichiarazione della variabile per il risultato ---
 
 		// --- 2. Controlli preliminari sui dati in ingresso ---
 		if ( userBean == null )  {
 			System.out.println("create(): failed to insert a null entry");
-			return;
+			return false;
 		}
 
 
@@ -90,11 +98,11 @@ public class UserDao {
 				stmt.clearParameters();
 				//id impostato da auto increment
 				stmt.setString(1, userBean.getUsername());
-				stmt.setString(2, userBean.getPassword());
+				stmt.setString(2, userBean.getEmail());
+				stmt.setString(3, userBean.getPassword());
 
 				// --- Esegui l'azione sul database ed estrai il risultato (se atteso)
 				stmt.executeUpdate();
-
 			}
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
@@ -102,10 +110,12 @@ public class UserDao {
 			//--- gestione del rilascio delle risorse
 			disconnectDB();
 		}
-		
-		
+
+
 		/*
-		 * prima soluzione abbozzata: mi serve ottenere l'id appena auto generato
+		 * per ottenere l'id appena generato è necessario effettuare un 
+		 * nuovo accesso al DB. Se non mi sta bene devo utilizzare per forza
+		 * la tecnica dell'IDBroker
 		 */
 		try {
 			// --- 3. connessione gia aperta da DB controller
@@ -117,6 +127,7 @@ public class UserDao {
 
 				// --- Esegui l'azione sul database ed estrai il risultato (se atteso)
 				rs = stmt.executeQuery();
+
 				// --- Cicla sul risultato (se presente) pe accedere ai valori di ogni sua tupla
 				// if in quanto mi aspetto username chiave per ora
 				if (rs.next()) {
@@ -124,7 +135,7 @@ public class UserDao {
 				} 
 				else {
 					disconnectDB();
-					return;
+					return false;
 				}
 			}
 		} catch (SQLException e) {
@@ -132,8 +143,9 @@ public class UserDao {
 		} finally {
 			disconnectDB();
 		}
-		
-		return;
+
+
+		return true;
 	}
 
 	// ==================================================================================
@@ -157,10 +169,11 @@ public class UserDao {
 		try {
 			// --- 3. connessione gia aperta da DB controller
 			// --- 4. Tentativo di accesso al db e impostazione del risultato ---
-			if(connectDB(SELECT_BY_USERNAME)) {
+			if(connectDB(SELECT_BY_USERNAME_OR_EMAIL)) {
 				// --- Pulizia e impostazione dei parametri (se ve ne sono)
 				stmt.clearParameters();
 				stmt.setString(1, username);
+				stmt.setString(2, username);
 
 				// --- Esegui l'azione sul database ed estrai il risultato (se atteso)
 				rs = stmt.executeQuery();
@@ -170,32 +183,26 @@ public class UserDao {
 					/*
 					 * meccanismo di autenticazione gia all atto dell interrogazione DB, non a carico del controller 
 					 */
-					if(username.equals(rs.getString(USERNAME)) && password.equals(rs.getString(PASSWORD))){
-						//ret= "success"; ////If the user entered values are already present in database, which means user has already registered so I will return SUCCESS message.
+					if(username.equals(rs.getString(USERNAME)) && password.equals(rs.getString(PASSWORD)) ||
+							username.equals(rs.getString(EMAIL)) && password.equals(rs.getString(PASSWORD)) ){
 						result = new UserBean(
 								rs.getInt(ID),
 								rs.getString(USERNAME),
+								rs.getString(EMAIL),
 								rs.getString(PASSWORD)
 								);	
 					}
-					
-					disconnectDB();
-					return result;
-				} 
-				else {
-					disconnectDB();
-					return null;
-				}
-			}
+
+				}//rs.next
+			}//connect
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		} finally {
 			disconnectDB();
 		}
-		
+
 		return result;
 	}
 
-	
-	
+
 }
