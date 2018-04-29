@@ -31,16 +31,44 @@
 </body>
 <script>
     let totalCredits = 0;
+    const CREDITS_THRESHOLD = 60;
 
     function addEventHandlerCheckboxer( index, credits )
     {
+        function changeBoxStatus( index, disable )
+        {
+            let checkBoxes = document.getElementsByClassName( "checkBoxClass" );
+            for (let i = 0; i < checkBoxes.length; i++) {
+                if (i != index) {
+                    let cb = checkBoxes[i];
+                    if (!cb['checked']) {
+                        if (disable) {
+                            cb['disabled'] = true;
+                        } else {
+                            cb['disabled'] = false;
+                        }
+                    }
+                }
+            }
+        }
+
         return function() {
-            // This will contain a reference to the checkbox.
             if (this.checked) {
                 totalCredits += credits;
                 console.log( "PREMUTO: " + index + ", CREDITS: " + credits + ", TOTAL_CREDITS: " + totalCredits );
+                
+                if (totalCredits == CREDITS_THRESHOLD) {
+                    // Disables all the enabled checkboxes.
+                    changeBoxStatus( index - 1, true );
+                }
             } else {
+                if (totalCredits == CREDITS_THRESHOLD) {
+                    // Re-enables all the disabled checkboxes.
+                    changeBoxStatus( index - 1, false );
+                }
+
                 totalCredits -= credits;
+                this.setAttribute( "checked", "false" );
                 console.log( "NON PREMUTO: " + index + ", CREDITS: " + credits + ", TOTAL_CREDITS: " + totalCredits );
             }
         }
@@ -69,6 +97,7 @@
         let checkBox = document.createElement( 'input' );
         checkBox.type = "checkbox";
         checkBox.id = "examCheck";
+        checkBox.classList.add( "checkBoxClass" );
         checkBox.name = "exam";
         checkBox.value = exam['idExam'];
         checkBox.addEventListener( 'click', addEventHandlerCheckboxer( index++, credits ) );

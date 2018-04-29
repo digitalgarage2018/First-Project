@@ -26,7 +26,7 @@ public class RegisterController extends HttpServlet {
     @Override
     public void init() throws ServletException
     {
-        newBadgeNumber = RegisterDao.getMaxBadgeNumber();
+        newBadgeNumber = RegisterDao.getMaxBadgeNumber() + 1;
         
         super.init();
     }
