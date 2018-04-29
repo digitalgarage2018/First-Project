@@ -32,13 +32,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head>
 <body>
 
+
 <div class="header">
-
     <div class="header-top">
-
         <div class="container">
             <div class="header-top">
-            <!-- <a href="index.jsp"> <i class="glyphicon glyphicon-home" style="font-size:20px;color:white"></i>  </a> -->
+                <a href="index.jsp"> <i class="glyphicon glyphicon-home" style="font-size:20px;color:white"></i>  </a>
 
             </div>
 
