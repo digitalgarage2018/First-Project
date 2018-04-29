@@ -106,7 +106,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <h3><p class="text-center" id="address">Indirizzo: 0xE08aa75AAE695c4622Cd430FbeBF4B97689d4Ee3</p></h3>
 <h3><p class="text-center" id="balance">
-    Saldo: ${requestScope['wei']} wei
+    Saldo: ${requestScope['wei']} eth
 
 
 
