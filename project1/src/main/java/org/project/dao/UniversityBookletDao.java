@@ -15,22 +15,22 @@ import org.project.util.UtilityController.ResponseState;
 
 public class UniversityBookletDao
 {
-    private static final String UNIVERSITY_BOOKLET_STATEMENT = "SELECT ExamID, Mark FROM UniversityBooklet WHERE StudentID = ?";
-    private static final String EXAM_STATEMENT = "SELECT Name, Credits, ProfessorID FROM Exam WHERE ExamID = ?";
-    private static final String PROFESSOR_STATEMENT = "SELECT Name, Surname FROM Professor WHERE ProfessorID = ?";
+    private static final String UNIVERSITY_BOOKLET_STATEMENT = "SELECT idExam, mark FROM plainofstudy WHERE idPlainOfStudy = ?";
+    private static final String EXAM_STATEMENT = "SELECT name, credits, badgeNumber FROM exam INNER JOIN professor WHERE professor.idExam = idExam AND idExam = ?";
+    //private static final String PROFESSOR_STATEMENT = "SELECT name, surname FROM professor WHERE badgeNu = ?";
 
     public UniversityBookletDao() {
         // Empty body.
     }
 
-    public ResultStateBean getUniversityBooklet( Long studentID )
+    public ResultStateBean getUniversityBooklet( Long studyPlanID )
     {
         ResultStateBean ret = new ResultStateBean( null, null, ResponseState.NOCHANGE.getCode(), null );
         UniversityBookletBean pds = new UniversityBookletBean();
 
         try {
             if (connectDB( UNIVERSITY_BOOKLET_STATEMENT )) {
-                stmt.setString( 1, "" + studentID );
+                stmt.setString( 1, "" + studyPlanID );
                 ResultSet rs = stmt.executeQuery();
 
                 while (rs.next()) {
@@ -45,10 +45,17 @@ public class UniversityBookletDao
                     if (examRS.next()) {
                         String name      = examRS.getString( "name" );
                         int credits      = examRS.getInt( "credits" );
-                        long professorID = examRS.getLong( "professorBadgeNumber" );
+                        //long professorID = examRS.getLong( "professorBadgeNumber" );
+                        
+                        String profName    = examRS.getString( "Name" );
+                        String profSurname = examRS.getString( "Surname" );
+                        String professor   = profName + " " + profSurname;
 
+                        pds.addExam( name, professor, credits, mark );
+                        
+                        
                         // Retrieve the name of the professor.
-                        stmt = conn.prepareStatement( PROFESSOR_STATEMENT );
+                        /*stmt = conn.prepareStatement( PROFESSOR_STATEMENT );
                         stmt.setString( 1, "" + professorID );
                         ResultSet professorRS = stmt.executeQuery();
                         if (professorRS.next()) {
@@ -59,7 +66,7 @@ public class UniversityBookletDao
                             pds.addExam( name, professor, credits, mark );
                         } else {
                             setErrorResult( ret, "Professor '" + professorID + "' not found." );
-                        }
+                        }*/
                     } else {
                         setErrorResult( ret, "Exam '" + examID + "' not found." );
                     }

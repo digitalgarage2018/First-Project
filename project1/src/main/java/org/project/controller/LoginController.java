@@ -9,9 +9,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import jdk.nashorn.internal.parser.JSONParser;
-import jdk.nashorn.internal.runtime.JSONListAdapter;
-import org.project.bean.*;
+import org.json.JSONArray;
+import org.project.bean.ExamBean;
+import org.project.bean.LoginBean;
+import org.project.bean.ProfessorBean;
+import org.project.bean.ResultStateBean;
+import org.project.bean.StudentBean;
 import org.project.dao.ExamDao;
 import org.project.dao.LoginDao;
 import org.project.util.UtilityController.ResponseState;
@@ -44,12 +47,12 @@ public class LoginController extends HttpServlet {
 		ProfessorBean professor = loginDao.getProfessorInfo(user1);
 
 		if (resultSet.getState() == ResponseState.SUCCESS.getCode() && user1.getFlagType().equals("S")) {
-			if(student.getIdPlainOfStudy()!=0){
+			if(student.getIdPlainOfStudy()==0){
 				ExamDao examDao = new ExamDao();
 				ArrayList<ExamBean> allExams = examDao.getAllExams();
 
 				rd = request.getRequestDispatcher("/WEB-INF/view/plainOfStudy.jsp");
-				request.setAttribute("allExams", allExams);
+				request.setAttribute("allExams", new JSONArray(allExams));
 			}else {
 				rd = request.getRequestDispatcher("/WEB-INF/view/studentWelcome.jsp");
 				request.setAttribute("student", student);

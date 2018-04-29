@@ -5,7 +5,7 @@ public class ExamBean {
 	private String name;
 	private int credits;
 	private String description;
-	private long professorBadgeNumber;
+	private String professor;
 
 	public ExamBean() {
 
@@ -50,11 +50,11 @@ public class ExamBean {
 		this.description = description;
 	}
 
-	public long getProfessorBadgeNumber() {
-		return professorBadgeNumber;
+	public String getProfessor() {
+		return professor;
 	}
 
-	public void setProfessorBadgeNumber(long professorBadgeNumber) {
-		this.professorBadgeNumber = professorBadgeNumber;
+	public void setProfessor(String professor) {
+		this.professor = professor;
 	}
 }

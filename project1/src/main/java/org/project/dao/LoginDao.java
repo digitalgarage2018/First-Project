@@ -16,7 +16,7 @@ public class LoginDao {
 	//private static final String SELECT_USER = "SELECT * FROM Login WHERE (badgeNumber=? OR istitutionalEmail=?) AND password=?";
 	private static final String SELECT_USER_BY_USERNAME = "SELECT * FROM login WHERE istitutionalEmail=? AND password=?";
 
-	private static final String SELECT_STUDENT_INFO = "SELECT * FROM student INNER JOIN login ON login.badgeNumber=student.badgeNumber WHERE Student.badgeNumber=? ";
+	private static final String SELECT_STUDENT_INFO = "SELECT * FROM student INNER JOIN login ON login.badgeNumber=student.badgeNumber WHERE student.badgeNumber=? ";
 
 	private static final String SELECT_DOCENT_INFO = "SELECT * FROM professor INNER JOIN login ON login.badgeNumber=professor.badgeNumber WHERE professor.badgeNumber=? ";
 

@@ -33,6 +33,17 @@
 		<servlet-name>RegisterController</servlet-name>
 		<url-pattern>/RegisterController</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>PlainOfStudyController</servlet-name>
+		<servlet-class>org.project.controller.PlainOfStudyController</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>PlainOfStudyController</servlet-name>
+		<url-pattern>/PlainOfStudyController</url-pattern>
+	</servlet-mapping>
 
 	<servlet>
 		<servlet-name>ExamController</servlet-name>

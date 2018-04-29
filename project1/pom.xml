@@ -36,6 +36,13 @@
 			<scope>provided</scope>
 		</dependency>
 		
+		<!-- Json -->
+		<dependency>
+		    <groupId>org.json</groupId>
+		    <artifactId>json</artifactId>
+		    <version>20180130</version>
+		</dependency>
+		
 		<!-- MySQL -->
         <dependency>
             <groupId>mysql</groupId>

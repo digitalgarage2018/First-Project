@@ -13,7 +13,7 @@ import org.project.bean.ResultStateBean;
 import org.project.util.UtilityController.ResponseState;
 
 public class ExamDao {
-    private static final String SELECT_BY_EXAM = "SELECT * FROM Exam";
+    private static final String SELECT_BY_EXAM = "SELECT exam.idExam AS iExam, exam.name AS eName, credits, description, professor.name AS pName, surname FROM exam INNER JOIN professor ON professor.idExam = exam.idExam";
 
     public ArrayList<ExamBean> getAllExams() {
 
@@ -25,10 +25,11 @@ public class ExamDao {
             }
             while (rs.next()) {
                 ExamBean e = new ExamBean();
-                e.setIdExam(rs.getInt("idExam"));
-                e.setName(rs.getString("name"));
+                e.setIdExam(rs.getInt("iExam"));
+                e.setName(rs.getString("eName"));
                 e.setCredits(rs.getInt("credits"));
                 e.setDescription(rs.getString("description"));
+                e.setProfessor( rs.getString( "pName" ) + " " + rs.getString( "surname" ) );
                 res.add(e);
             }
             /*result.setResultSet(res);

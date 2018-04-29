@@ -16,43 +16,62 @@
 <!-- Student name. -->
 <p>${requestScope['user'].username}</p>
 <!-- List of exams to chose. -->
-<table id="examTable", border="1">
-    <tr>
-        <th>Name</th>
-        <th>Professor</th>
-        <th>Credits</th>
-        <th>Mark</th>
-    </tr>
-</table>
+<form id="formTable", action="PlainOfStudyController", method="POST">
+    <table id="examTable", border="1">
+        <tr>
+            <th>Name</th>
+            <th>Professor</th>
+            <th>Credits</th>
+            <th></th>
+        </tr>
+    </table>
+    <input type="submit">
+</form>
 
 </body>
 <script>
+    let totalCredits = 0;
+
+    function addEventHandlerCheckboxer( index, credits )
+    {
+        return function() {
+            // This will contain a reference to the checkbox.
+            if (this.checked) {
+                totalCredits += credits;
+                console.log( "PREMUTO: " + index + ", CREDITS: " + credits + ", TOTAL_CREDITS: " + selectedCredits );
+            } else {
+                totalCredits -= credits;
+                console.log( "NON PREMUTO: " + index + ", CREDITS: " + credits + ", TOTAL_CREDITS: " + selectedCredits );
+            }
+        }
+    }
+
     let table = document.getElementById( "examTable" );
 
-    let exams = JSON.parse(${requestScope['allExams']});
+    let jsonExams = '<%= request.getAttribute( "allExams" ) %>';
     console.log( "JSON_EXAMS: " + jsonExams );
-    let totalCredits = 0.0;
-    let totalMarks   = 0.0;
+    let exams = JSON.parse( jsonExams );
     let index = 1;
     for (let i in exams) {
         exam = exams[i];
-        let row  = table.insertRow( index++ );
+        let row  = table.insertRow( index );
         let nameRow      = row.insertCell( 0 );
         let professorRow = row.insertCell( 1 );
         let creditsRow   = row.insertCell( 2 );
-        let markRow      = row.insertCell( 3 );
+        let checkBoxRow  = row.insertCell( 3 );
 
         let credits = exam['credits'];
-        let mark    = exam['mark'];
 
         nameRow.innerHTML      = exam['name'];
         professorRow.innerHTML = exam['professor'];
         creditsRow.innerHTML   = credits;
-        if (mark > 0) {
-            markRow.innerHTML  = mark;
-            totalCredits += credits;
-            totalMarks   += mark * credits;
-        }
+        
+        let checkBox = document.createElement( 'input' );
+        checkBox.type = "checkbox";
+        checkBox.id = "examCheck";
+        checkBox.value = exam['examID'];
+        checkBox.addEventListener( 'click', addEventHandlerCheckboxer( index++, credits ) );
+        checkBoxRow.appendChild( checkBox );
     }
 </script>
 </html>

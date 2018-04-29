@@ -8,11 +8,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.json.JSONObject;
 import org.project.bean.ResultStateBean;
 import org.project.dao.ExamDao;
 import org.project.util.UtilityController.ResponseState;
 
 public class PlainOfStudyController extends HttpServlet {
+
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 87296426396152806L;
 
     public PlainOfStudyController() {
         super();
@@ -29,7 +35,7 @@ public class PlainOfStudyController extends HttpServlet {
 
         if(ResponseState.SUCCESS.getCode() == rsb.getState()){
             rd = request.getRequestDispatcher("/WEB-INF/view/plainOfStudy.jsp");
-            request.setAttribute("allExams", rsb);
+            request.setAttribute("allExams", new JSONObject(rsb.getResultSet()));
         } else {
             rd = request.getRequestDispatcher("/WEB-INF/view/error.jsp");
         }

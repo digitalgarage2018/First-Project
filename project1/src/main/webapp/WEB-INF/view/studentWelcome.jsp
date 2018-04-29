@@ -28,7 +28,7 @@
 	<tr><td>Menu</td></tr>
     <tr><td><button>Compila Piano di Studi</button></td></tr>
     <tr><td><form action="UniversityBookletController" method="post">
-        <input style="visibility:hidden" name="badgeNumber">
+        <input style="visibility:hidden" name="studyPlanID" value="${requestScope['student'].idPlainOfStudy}">
         <input type="submit" value="Visualizza Libretto" />
     </form></td></tr>
     <tr><td><button>Segui Lezione Online</button></td></tr>
