@@ -47,7 +47,13 @@ public class SignUpController extends HttpServlet {
 			session.setAttribute("user", user.getUsername());
 			//
 			
-		} else {
+		} else if(result.equals("errorDB")){
+			//session.invalidate();
+            request.setAttribute("errorMessage", "Errore connessione database. Riprova più tardi");
+            rd = request.getRequestDispatcher("/sign_up.jsp");
+		}
+		
+		else {
 			rd = request.getRequestDispatcher("/WEB-INF/view/signup_error.jsp");
 		}
 		rd.forward(request, response);

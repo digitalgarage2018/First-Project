@@ -25,12 +25,13 @@ public class SignUpDao {
 				stmt.setString(6, signUpBean.getBorn_date());
 				stmt.setString(7, signUpBean.getBorn_place());
 				stmt.execute();
+				return "success";
 			}
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		} finally {
 			disconnectDB();
 		}
-		return "success";
+		return "errorDB";
 	}
 }

@@ -34,8 +34,11 @@ public class ServiceDao {
             	service.setSr_serviceID(rs.getInt("sr_serviceID"));
             	service.setSr_image(rs.getString("sr_image"));
             	serviceList.add(service);
-            }            
-        	}            
+            	}            
+        	}      
+        	else {
+        		return null;
+        	}
         }catch(SQLException e){
         	throw new RuntimeException(e);        	
         }

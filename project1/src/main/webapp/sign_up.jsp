@@ -52,7 +52,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 </div>
 
-
+ <br>
+ <h4 style="color:red;"><%
+   if(null!=request.getAttribute("errorMessage"))
+   {
+       out.println(request.getAttribute("errorMessage"));
+   }
+%></h4>
 
 <!--content-->
 <div class=" container">

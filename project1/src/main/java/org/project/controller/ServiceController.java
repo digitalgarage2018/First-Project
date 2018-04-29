@@ -26,10 +26,15 @@ public class ServiceController extends HttpServlet{
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             List<ServiceBean> serviceList = ServiceDao.getServices();
-            request.setAttribute("services", serviceList); // Will be available as ${products} in JSP
+            if(serviceList != null){
+            	request.setAttribute("services", serviceList); // Will be available as ${products} in JSP
+            }
+            else {
+            	request.setAttribute("errorMessage", "Errore connessione database. Riprova più tardi");
+            }
             request.getRequestDispatcher("/service_list.jsp").forward(request, response);
         } catch (SQLException e) {
-            throw new ServletException("Cannot obtain products from DB", e);
+            throw new ServletException("Cannot obtain services from DB", e);
         }
     }
 	
