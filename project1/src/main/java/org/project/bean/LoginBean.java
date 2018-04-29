@@ -1,34 +1,27 @@
 package org.project.bean;
 
 public class LoginBean{
-	private String nMatricola;
+	private String badgeNumber;
 	private String password;
-	private String email;
+	private String istitutionalEmail;
 	private String username;
-	private String type;
+	private String flagType;
 
+
+	public LoginBean() {
+	}
 
 	public LoginBean(String username, String password){
-		//if(username.contains("unimarina.it")) {this.email=username;}
-		//else {this.nMatricola = username;}
-		this.username=username;
+		this.username = username;
 		this.password = password;
 	}
 
-	public String getUsername() {
-		return username;
+	public String getBadgeNumber() {
+		return badgeNumber;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
-	}
-
-	public String getnMatricola() {
-		return nMatricola;
-	}
-
-	public void setnMatricola(String nMatricola) {
-		this.nMatricola = nMatricola;
+	public void setBadgeNumber(String badgeNumber) {
+		this.badgeNumber = badgeNumber;
 	}
 
 	public String getPassword() {
@@ -39,19 +32,27 @@ public class LoginBean{
 		this.password = password;
 	}
 
-	public String getEmail() {
-		return email;
+	public String getIstitutionalEmail() {
+		return istitutionalEmail;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setIstitutionalEmail(String istitutionalEmail) {
+		this.istitutionalEmail = istitutionalEmail;
 	}
 
-	public String getType() {
-		return type;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setType(String type) {
-		this.type = type;
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getFlagType() {
+		return flagType;
+	}
+
+	public void setFlagType(String flagType) {
+		this.flagType = flagType;
 	}
 }

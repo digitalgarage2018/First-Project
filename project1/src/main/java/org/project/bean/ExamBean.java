@@ -1,53 +1,60 @@
 package org.project.bean;
 
 public class ExamBean {
-	private long id;
-	private String nome;
-	private int crediti;
-	private String descrizione;
-	private long matricolaProfessor;
+	private long idExam;
+	private String name;
+	private int credits;
+	private String description;
+	private long professorBadgeNumber;
 
-	public ExamBean(){
+	public ExamBean() {
 
-	};
-
-	public ExamBean (String nome, int crediti, String descrizione, long matricolaProfessor) {
-		this.nome = nome;
-		this.crediti = crediti;
-		this.descrizione = descrizione;
-		this.matricolaProfessor = matricolaProfessor;
 	}
 
-	public long getId() {
-		return id;
-	}
-	public void setId(long id) {
-		this.id = id;
-	}
-
-	public String getNome() {
-		return nome;
-	}
-	public void setNome(String nome) {
-		this.nome = nome;
+	public ExamBean(long idExam, String name, int credits, String description) {
+		this.idExam = idExam;
+		this.name = name;
+		this.credits = credits;
+		this.description = description;
 	}
 
-	public int getCrediti() {
-		return crediti;
+	public long getIdExam() {
+		return idExam;
 	}
-	public void setCrediti(int crediti) {
-		this.crediti = crediti;
+
+	public void setIdExam(long idExam) {
+		this.idExam = idExam;
 	}
-	public String getDescrizione() {
-		return descrizione;
+
+	public String getName() {
+		return name;
 	}
-	public void setDescrizione(String descrizione) {
-		this.descrizione = descrizione;
+
+	public void setName(String name) {
+		this.name = name;
 	}
-	public long getMatricolaProfessor() {
-		return matricolaProfessor;
+
+	public int getCredits() {
+		return credits;
 	}
-	public void setMatricolaProfessor(long matricolaProfessor) {
-		this.matricolaProfessor = matricolaProfessor;
+
+	public void setCredits(int credits) {
+		this.credits = credits;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public long getProfessorBadgeNumber() {
+		return professorBadgeNumber;
+	}
+
+	public void setProfessorBadgeNumber(long professorBadgeNumber) {
+		this.professorBadgeNumber = professorBadgeNumber;
 	}
 }

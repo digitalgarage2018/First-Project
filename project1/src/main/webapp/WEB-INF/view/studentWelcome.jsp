@@ -11,25 +11,29 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <title>Insert title here</title>
+    <title>HOME PAGE - Studente</title>
 </head>
 <body>
 <h1 style="color: SlateBlue; text-align: center; font-size:300%"> UniMarina </h1>
 <ul style="position: absolute;top: 100px; right: 100px;">
-    <li>Matricola: ${requestScope['StudentBean'].nMatricola}</li>
-   	<li>Nome: ${requestScope['StudentBean'].nome}</li>
-   	<li>Cognome: ${requestScope['StudentBean'].cognome}</li>
-   	<li>Email: ${requestScope['StudentBean'].email}</li>
-   	<li>Data di Nascita: ${requestScope['StudentBean'].dataNascita}</li>    	
-   	<li>Piano di Studi: ${requestScope['StudentBean'].pianoId}</li>
+    <li>Matricola: ${requestScope['student'].badgeNumber}</li>
+   	<li>Nome: ${requestScope['student'].name}</li>
+   	<li>Cognome: ${requestScope['student'].surname}</li>
+   	<li>Email Istituzionale: ${requestScope['student'].istitutionalEmail}</li>
+    <li>Email Personale: ${requestScope['student'].personalEmail}</li>
+    <li>Data di Nascita: ${requestScope['student'].dateOfBirth}</li>
+   	<li>Piano di Studi: ${requestScope['student'].idPlainOfStudy}</li>
 </ul>
 <table style="position: absolute;top: 100px; left: 20px;">
 	<tr><td>Menu</td></tr>
-    <tr><td> <button>Compila Piano di Studi</button></td></tr>
-    <tr><td><button>Visualizza Libretto</button></td></tr>
+    <tr><td><button>Compila Piano di Studi</button></td></tr>
+    <tr><td><form action="UniversityBookletController" method="post">
+        <input style="visibility:hidden" name="badgeNumber">
+        <input type="submit" value="Visualizza Libretto" />
+    </form></td></tr>
     <tr><td><button>Segui Lezione Online</button></td></tr>
     <tr><td><button>Logout</button></td></tr>
 </table>
-<p style="color: SlateBlue;position: absolute; bottom:100px; right: 50px; font-size:260%"> Benvenuto ${requestScope['StudentBean'].name}. </p>
+<p style="color: SlateBlue;position: absolute; bottom:100px; right: 50px; font-size:260%"> Benvenuto ${requestScope['student'].name}. </p>
 </body>
 </html>

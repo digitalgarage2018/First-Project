@@ -3,63 +3,82 @@ package org.project.bean;
 import java.util.Date;
 
 public class StudentBean {
-	private long nMatricola;
-	private String nome;
-	private String cognome;
-	private String email;
-	private Date dataNascita;
-	private long pianoId;
+	private long badgeNumber;
+	private String name;
+	private String surname;
+	private String personalEmail;
+	private String istitutionalEmail;
+	private Date dateOfBirth;
+	private long idPlainOfStudy;
 
-	public StudentBean(){}
+	public StudentBean(){
 
-	public StudentBean(long nMatricola, String nome, String cognome, String email, Date dataNascita, long pianoId) {
-		this.nMatricola = nMatricola;
-		this.nome = nome;
-		this.cognome = cognome;
-		this.email = email;
-		this.dataNascita = dataNascita;
-		this.pianoId = pianoId;
-	}
-	
-	public long getnMatricola() {
-		return nMatricola;
-	}
-	public void setnMatricola(long nMatricola) {
-		this.nMatricola = nMatricola;
-	}
-	public String getNome() {
-		return nome;
-	}
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-	public String getCognome() {
-		return cognome;
-	}
-	public void setCognome(String cognome) {
-		this.cognome = cognome;
-	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	public Date getDataNascita() {
-		return dataNascita;
-	}
-	public void setDataNascita(Date dataNascita) {
-		this.dataNascita = dataNascita;
 	}
 
-	public long getPianoId() {
-		return pianoId;
+	public StudentBean(long badgeNumber, String name, String surname, String personalEmail, String istitutionalEmail, Date dateOfBirth) {
+		this.badgeNumber = badgeNumber;
+		this.name = name;
+		this.surname = surname;
+		this.personalEmail = personalEmail;
+		this.istitutionalEmail = istitutionalEmail;
+		this.dateOfBirth = dateOfBirth;
 	}
 
-	public void setPianoId(long pianoId) {
-		this.pianoId = pianoId;
+	public long getBadgeNumber() {
+		return badgeNumber;
 	}
-	
+
+	public void setBadgeNumber(long badgeNumber) {
+		this.badgeNumber = badgeNumber;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getSurname() {
+		return surname;
+	}
+
+	public void setSurname(String surname) {
+		this.surname = surname;
+	}
+
+	public String getPersonalEmail() {
+		return personalEmail;
+	}
+
+	public void setPersonalEmail(String personalEmail) {
+		this.personalEmail = personalEmail;
+	}
+
+	public String getIstitutionalEmail() {
+		return istitutionalEmail;
+	}
+
+	public void setIstitutionalEmail(String istitutionalEmail) {
+		this.istitutionalEmail = istitutionalEmail;
+	}
+
+	public Date getDateOfBirth() {
+		return dateOfBirth;
+	}
+
+	public void setDateOfBirth(Date dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
+	}
+
+	public long getIdPlainOfStudy() {
+		return idPlainOfStudy;
+	}
+
+	public void setIdPlainOfStudy(long idPlainOfStudy) {
+		this.idPlainOfStudy = idPlainOfStudy;
+	}
 }
 	
 	

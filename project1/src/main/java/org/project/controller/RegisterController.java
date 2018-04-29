@@ -1,43 +1,82 @@
 package org.project.controller;
 
-import org.project.bean.ResultStateBean;
 import org.project.bean.StudentBean;
 import org.project.dao.RegisterDao;
+import org.project.util.UtilityController;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
-
 
 public class RegisterController extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    public RegisterController (){ super(); }
-
-    protected void doPost(HttpServletRequest request,
-                          HttpServletResponse response) throws ServletException, IOException {
-        String nome = request.getParameter("nome");
-        String nMatricola=request.getParameter("nMatricola");
-        String cognome = request.getParameter("cognome");
-        String pianoId=request.getParameter("pianoId");
-        Date dataNascita = new Date();
-                //request.getParameter("dataDiNascita"));
-        String email = request.getParameter("email");
-
-        StudentBean studente = new StudentBean(Long.parseLong(nMatricola),nome, cognome, email, dataNascita,Long.parseLong(pianoId));
-
-        RegisterDao registerDao = new RegisterDao();
-   //   if(registerDao.authenticateStudent(studente)==true) {
-   //   	//mandiamo alla jsp
-   //   }
-   //   else {
-   //   	//ResultStateBean insert=new ResultStateBean();
-   //   	registerDao.insertNewStudent();
-   //   }
-   //
+    public RegisterController() {
+        super();
     }
 
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String name = request.getParameter("name");
+        String surname = request.getParameter("surname");
+        String personalEmail = request.getParameter("personalEmail");
+        String password = request.getParameter("password");
+
+        Date dateOfBirthFormat = new Date();
+        String dateOfBirth = request.getParameter("dateOfBirth");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
+        try {
+            dateOfBirthFormat = sdf.parse(dateOfBirth);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        StudentBean student = new StudentBean(0, name, surname, personalEmail, "", dateOfBirthFormat);
+
+        RegisterDao registerDao = new RegisterDao();
+
+        RequestDispatcher rd = null;
+
+        if (registerDao.authenticateStudent(student)) {
+            // inserire avviso per giustificare il login
+            rd = request.getRequestDispatcher("/WEB-INF/index.jsp");
+
+        } else {
+            String istitutionalEmail = generateIstEmail(name, surname);
+            
+            long newBadgeNumber = registerDao.getMaxBadgeNumber();
+
+            student.setBadgeNumber(++newBadgeNumber);
+
+            student.setIstitutionalEmail(istitutionalEmail);
+
+            boolean inserito = registerDao.insertNewStudent(student);
+
+            if(!inserito) {
+                registerDao.insertLogin(student,password);
+                rd = request.getRequestDispatcher("/WEB-INF/view/success.jsp");
+                request.setAttribute("newStudent", student);
+            }
+        }
+
+        rd.forward(request, response);
+
+    }
+
+    private String generateIstEmail(String nome, String cognome) {
+        String sm = "";
+        if (nome.length() < 3) {
+            sm = nome + "." + cognome + "@studenti.unimarina.it";
+        } else {
+            sm = nome.substring(0, 2) + "." + cognome + "@studenti.unimarina.it";
+        }
+        return sm;
+    }
 }

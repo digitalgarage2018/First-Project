@@ -8,9 +8,17 @@
 	</head>
 	<body>
 
-		Welcome : ${requestScope['user'].username} .
+		Benvenuto : <b>${requestScope['newStudent'].surname} ${requestScope['newStudent'].name} </b>
 		<br>
-		Message: ${requestScope['resultSet'].message}.
+		Le credenziali per l'accesso alla piattaforma sono le seguenti:
+		<br>
+		<ul>
+			<li>Email Istituzionale: ${requestScope['newStudent'].istitutionalEmail}</li>
+			<li>Matricola: ${requestScope['newStudent'].badgeNumber}</li>
+		</ul>
+		<br>
+		<p> <a href="index.jsp">Effettua il Login</a> </p>
+
 
 	</body>
 </html>

@@ -4,14 +4,17 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-		<title>Servlet + JSP</title>
+		<title>UniMarina Economia - Log in</title>
 	</head>
 	<body>
 		<form action="LoginController" method="post">
 			Enter Email : <input type="text" name="username"> <BR>
 			Enter Password : <input type="password" name="password"> <BR>
-			<input type="submit" />
+			<input type="submit" value="Accedi"/>
 		</form>
-		<p><a href="register.jsp">Registrati</a></p>
+
+		<form action="LoginController" method="get">
+			<input type="submit" value="Registrati"/>
+		</form>
 	</body>
 </html>

@@ -1,21 +1,16 @@
 package org.project.bean;
 
-import sun.net.www.content.text.Generic;
-
-import java.util.ArrayList;
 
 public class ResultStateBean {
     //message send to caller
     private String message;
     private String result;
-
-    //0 for OK and 1 for ERROR
-    private int errorState;
+    private int State; //Refer to a Response State on utility controller
     private Object resultSet;
 
-    public ResultStateBean(String message, String result, int errorState, Object resultSet){
+    public ResultStateBean(String message, String result, int State, Object resultSet){
         this.message = message;
-        this.errorState = errorState;
+        this.State = State;
         this.result = result;
         this.resultSet = resultSet;
     }
@@ -36,12 +31,12 @@ public class ResultStateBean {
         this.result = result;
     }
 
-    public int getErrorState() {
-        return errorState;
+    public int getState() {
+        return State;
     }
 
-    public void setErrorState(int errorState) {
-        this.errorState = errorState;
+    public void setState(int errorState) {
+        this.State = errorState;
     }
 
     public Object getResultSet() {
