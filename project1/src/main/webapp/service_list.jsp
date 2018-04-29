@@ -156,7 +156,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <div class="product-at ">
                             <a href=""><img class="img-responsive" src="${service.sr_image}" alt="">
                                 <div class="pro-grid">
-                                    <span class="buy-in">Buy Now</span>
+                                    <span class="buy-in">Acquista ora</span>
                                 </div>
                             </a>
                         </div>
