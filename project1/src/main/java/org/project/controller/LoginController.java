@@ -42,16 +42,18 @@ public class LoginController extends HttpServlet {
 
 		LoginBean user1 = (LoginBean) resultSet.getResultSet();
 
-		StudentBean student = loginDao.getStudentInfo(user1);
+		
 
 		ProfessorBean professor = loginDao.getProfessorInfo(user1);
 
 		if (resultSet.getState() == ResponseState.SUCCESS.getCode() && user1.getFlagType().equals("S")) {
+			StudentBean student = loginDao.getStudentInfo(user1);
 			if(student.getIdPlainOfStudy()==0){
 				ExamDao examDao = new ExamDao();
 				ArrayList<ExamBean> allExams = examDao.getAllExams();
 
 				rd = request.getRequestDispatcher("/WEB-INF/view/plainOfStudy.jsp");
+				request.getSession().setAttribute( "studentID", student.getBadgeNumber() );
 				request.setAttribute("allExams", new JSONArray(allExams));
 			}else {
 				rd = request.getRequestDispatcher("/WEB-INF/view/studentWelcome.jsp");

@@ -22,14 +22,13 @@
    	<li>Email Istituzionale: ${requestScope['student'].istitutionalEmail}</li>
     <li>Email Personale: ${requestScope['student'].personalEmail}</li>
     <li>Data di Nascita: ${requestScope['student'].dateOfBirth}</li>
-   	<li>Piano di Studi: ${requestScope['student'].idPlainOfStudy}</li>
 </ul>
 <table style="position: absolute;top: 100px; left: 20px;">
 	<tr><td>Menu</td></tr>
-    <tr><td><button>Compila Piano di Studi</button></td></tr>
+    <tr><td><button>Modifica Piano di Studi</button></td></tr>
     <tr><td><form action="UniversityBookletController" method="post">
-        <input style="visibility:hidden" name="studyPlanID" value="${requestScope['student'].idPlainOfStudy}">
         <input type="submit" value="Visualizza Libretto" />
+        <input style="visibility:hidden" name="studyPlanID" value="${requestScope['student'].idPlainOfStudy}">
     </form></td></tr>
     <tr><td><button>Segui Lezione Online</button></td></tr>
     <tr><td><button>Logout</button></td></tr>

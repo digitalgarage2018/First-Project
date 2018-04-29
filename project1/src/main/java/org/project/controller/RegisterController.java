@@ -1,24 +1,34 @@
 package org.project.controller;
 
-import org.project.bean.StudentBean;
-import org.project.dao.RegisterDao;
-import org.project.util.UtilityController;
+import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+
+import org.project.bean.StudentBean;
+import org.project.dao.RegisterDao;
 
 public class RegisterController extends HttpServlet {
     private static final long serialVersionUID = 1L;
+    
+    private static Long newBadgeNumber;
 
     public RegisterController() {
         super();
+    }
+    
+    @Override
+    public void init() throws ServletException
+    {
+        newBadgeNumber = RegisterDao.getMaxBadgeNumber();
+        
+        super.init();
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -50,10 +60,12 @@ public class RegisterController extends HttpServlet {
 
         } else {
             String istitutionalEmail = generateIstEmail(name, surname);
-            
-            long newBadgeNumber = registerDao.getMaxBadgeNumber();
 
-            student.setBadgeNumber(++newBadgeNumber);
+            long studentID;
+            synchronized (newBadgeNumber) {
+                studentID = newBadgeNumber++;
+            }
+            student.setBadgeNumber(studentID);
 
             student.setIstitutionalEmail(istitutionalEmail);
 

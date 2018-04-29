@@ -10,10 +10,11 @@ import static org.project.util.DBController.stmt;
 
 public class RegisterDao {
 
-    private final static String CHECK_STUDENT = "SELECT * FROM Student WHERE name=? AND surname=? AND personalEmail=? AND dateOfBirth=?";
-    private final static String INSERT_STUDENT = "INSERT INTO Student VALUES (?, ?, ?, ?, ?, ?, 0)";
-    private final static String INSERT_LOGIN = "INSERT INTO Login VALUES (?, ?, ?, ?)";
+    private final static String CHECK_STUDENT = "SELECT * FROM student WHERE name=? AND surname=? AND personalEmail=? AND dateOfBirth=?";
+    private final static String INSERT_STUDENT = "INSERT INTO student VALUES (?, ?, ?, ?, ?, ?, 0)";
+    private final static String INSERT_LOGIN = "INSERT INTO login VALUES (?, ?, ?, ?)";
     private final static String SELECT_BADGE_NUMBER_MAX = "SELECT MAX(badgeNumber) FROM student ";
+    private static final String INSERT_STUDY_PLAN_ID = "UPDATE student SET idPlainOfStudy = ? WHERE badgeNumber = ?";
 
 
     public boolean authenticateStudent(StudentBean student) {
@@ -60,6 +61,23 @@ public class RegisterDao {
         }
         return insert;
     }
+    
+    public boolean insertStudyPlanId( long studentID, long planID )
+    {
+        boolean insert = true;
+        try {
+            if (connectDB(INSERT_STUDY_PLAN_ID)) {
+                stmt.setLong(1, planID);
+                stmt.setLong(2, studentID);
+                insert = stmt.execute();
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            disconnectDB();
+        }
+        return insert;
+    }
 
     public boolean insertLogin(StudentBean student, String password) {
         boolean insert = true;
@@ -79,7 +97,7 @@ public class RegisterDao {
         return insert;
     }
 
-    public long getMaxBadgeNumber(){
+    public static long getMaxBadgeNumber(){
         long ret = 10000;
         try{
             if (connectDB(SELECT_BADGE_NUMBER_MAX)) {

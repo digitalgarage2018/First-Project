@@ -74,9 +74,11 @@ public class LoginDao {
 
 					student.setName(rs.getString("name"));
 					student.setSurname(rs.getString("surname"));
+					student.setIstitutionalEmail(rs.getString("istitutionalEmail"));
 					student.setPersonalEmail(rs.getString("personalEmail"));
 					student.setDateOfBirth(rs.getDate("dateOfBirth"));
 					student.setBadgeNumber(rs.getLong("badgeNumber"));
+					student.setIdPlainOfStudy( rs.getLong( "idPlainOfStudy" ) );
 				}
 				return student;
 			}
@@ -88,6 +90,34 @@ public class LoginDao {
 		}
 		return student;
 	}
+	
+	public StudentBean getStudentInfo( long studentID ){
+        StudentBean student = new StudentBean();
+        try {
+
+            if(connectDB(SELECT_STUDENT_INFO)) {
+                stmt.setLong(1, studentID);
+                rs = stmt.executeQuery();
+                if(rs.next()){
+
+                    student.setName(rs.getString("name"));
+                    student.setSurname(rs.getString("surname"));
+                    student.setIstitutionalEmail(rs.getString("istitutionalEmail"));
+                    student.setPersonalEmail(rs.getString("personalEmail"));
+                    student.setDateOfBirth(rs.getDate("dateOfBirth"));
+                    student.setBadgeNumber(rs.getLong("badgeNumber"));
+                    student.setIdPlainOfStudy( rs.getLong( "idPlainOfStudy" ) );
+                }
+                return student;
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            disconnectDB();
+        }
+        return student;
+    }
 
 	public ProfessorBean getProfessorInfo(LoginBean loginBean){
 		ProfessorBean professor = new ProfessorBean();

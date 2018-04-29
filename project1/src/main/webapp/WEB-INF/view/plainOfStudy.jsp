@@ -16,7 +16,7 @@
 <!-- Student name. -->
 <p>${requestScope['user'].username}</p>
 <!-- List of exams to chose. -->
-<form id="formTable", action="PlainOfStudyController", method="POST">
+<form id="formTable", action="PlainOfStudyController", method="post">
     <table id="examTable", border="1">
         <tr>
             <th>Name</th>
@@ -38,10 +38,10 @@
             // This will contain a reference to the checkbox.
             if (this.checked) {
                 totalCredits += credits;
-                console.log( "PREMUTO: " + index + ", CREDITS: " + credits + ", TOTAL_CREDITS: " + selectedCredits );
+                console.log( "PREMUTO: " + index + ", CREDITS: " + credits + ", TOTAL_CREDITS: " + totalCredits );
             } else {
                 totalCredits -= credits;
-                console.log( "NON PREMUTO: " + index + ", CREDITS: " + credits + ", TOTAL_CREDITS: " + selectedCredits );
+                console.log( "NON PREMUTO: " + index + ", CREDITS: " + credits + ", TOTAL_CREDITS: " + totalCredits );
             }
         }
     }
@@ -69,7 +69,8 @@
         let checkBox = document.createElement( 'input' );
         checkBox.type = "checkbox";
         checkBox.id = "examCheck";
-        checkBox.value = exam['examID'];
+        checkBox.name = "exam";
+        checkBox.value = exam['idExam'];
         checkBox.addEventListener( 'click', addEventHandlerCheckboxer( index++, credits ) );
         checkBoxRow.appendChild( checkBox );
     }

@@ -14,7 +14,9 @@ import org.project.util.UtilityController.ResponseState;
 
 public class ExamDao {
     private static final String SELECT_BY_EXAM = "SELECT exam.idExam AS iExam, exam.name AS eName, credits, description, professor.name AS pName, surname FROM exam INNER JOIN professor ON professor.idExam = exam.idExam";
-
+    
+    private static final String SAVE_EXAM = "INSERT INTO plainofstudy VALUES (?,?,?)";
+    
     public ArrayList<ExamBean> getAllExams() {
 
         ResultStateBean result = new ResultStateBean("", "", ResponseState.NOCHANGE.getCode(), null);
@@ -46,5 +48,32 @@ public class ExamDao {
             disconnectDB();
         }
         return res;
+    }
+    
+    public void saveExams( long studyPlan, long examID )
+    {
+        try {
+            if (connectDB( SAVE_EXAM )) {
+                stmt.setLong( 1, studyPlan );
+                stmt.setLong( 2, examID );
+                stmt.setInt( 3, 0 );
+                stmt.execute();
+            }
+            
+            
+            
+            /*result.setResultSet(res);
+            result.setState(ResponseState.SUCCESS.getCode());
+            result.setMessage("while success");
+            result.setResult("OK");*/
+
+        } catch (SQLException e) {
+            /*result.setState(ResponseState.FAILURE.getCode());
+            result.setMessage("Error while try catch");
+            result.setResult("KO");*/
+            throw new RuntimeException(e);
+        } finally {
+            disconnectDB();
+        }
     }
 }
