@@ -2,6 +2,7 @@ package org.project.controller;
 
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
@@ -25,18 +26,19 @@ import javax.servlet.http.HttpServlet;
 import java.math.BigInteger;
 import java.util.concurrent.ExecutionException;
 import org.project.dao.EthereumDao;
+import org.web3j.utils.Convert;
 
 
 public class EthereumController extends HttpServlet{
     // connect to node<
 
-    BigInteger wei;
+    BigDecimal wei;
 
-    public BigInteger getWei() {
+    public BigDecimal getWei() {
         return wei;
     }
 
-    public void setWei(BigInteger wei) {
+    public void setWei(BigDecimal wei) {
         this.wei = wei;
     }
 
