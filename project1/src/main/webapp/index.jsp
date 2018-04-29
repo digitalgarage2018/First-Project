@@ -11,7 +11,7 @@
 	<title> Super Relax </title>
 	<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-	<script src="js/jquery.min.js" ></script>
+	<!-- <script src="js/jquery.min.js" ></script> -->
 	<!-- Custom Theme files -->
 	<!--theme-style-->
 	<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
@@ -20,7 +20,9 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="keywords" content="Mattress Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+	<!--
 	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+	-->
 	<!--fonts-->
 	<link href='//fonts.googleapis.com/css?family=Lato:100,300,400,700,900' rel='stylesheet' type='text/css'>
 	<link href='//fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'><!--//fonts-->
@@ -108,10 +110,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 					<li><a class="color4" href="login.jsp">Accedi</a></li>
 					<li><a class="color4" href="sign_up.jsp">Registrati</a></li>
-					
 
-					<%}
-
+					<%
+					}
 					else {
 					%>
 					<li><a class="color4" href="LogoutController" onclick="if (!confirm('Sei sicuro di voler uscire? ')) return false"
@@ -133,8 +134,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </div>
 <div class="banner">
 	<div class="container">
-		<script src="js/responsiveslides.min.js"></script>
-		<script type="">
+		<!-- <script src="js/responsiveslides.min.js"></script> -->
+		<!--  <script type="">
             $(function () {
                 $("#slider").responsiveSlides({
                     auto: true,
@@ -145,6 +146,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 });
             });
 		</script>
+		--> 
 		<div  id="top" class="callbacks_container">
 			<ul class="rslides" id="slider">
 				<li>

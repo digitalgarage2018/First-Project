@@ -9,7 +9,7 @@
     <title>Servizi</title>
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="js/jquery.min.js"></script>
+    <!-- <script src="js/jquery.min.js"></script> -->
     <!-- Custom Theme files -->
     <!--theme-style-->
     <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
@@ -25,10 +25,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!-- start menu -->
     <link href="css/memenu.css" rel="stylesheet" type="text/css" media="all" />
     <link href="css/services.css" rel="stylesheet" type="text/css" media="all" />
-
+    <!--
     <script type="text/javascript" src="js/memenu.js"></script>
     <script>$(document).ready(function(){$(".memenu").memenu();});</script>
-    <script src="js/simpleCart.min.js"> </script>
+    <script src="js/simpleCart.min.js"> </script> -->
 </head>
 <body>
 <!--header-->
