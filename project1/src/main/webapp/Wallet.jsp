@@ -7,7 +7,6 @@
 <head>
     <title>Massaggi e saune</title>
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
-    <link href="css/wallet.css" rel="stylesheet" type="text/css" media="all" />
 
     <!-- Custom Theme files -->
     <!--theme-style-->
@@ -22,6 +21,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link href='//fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'><!--//fonts-->
     <!-- start menu -->
     <link href="css/memenu.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="css/wallet.css" rel="stylesheet" type="text/css" media="all" />
 
 </head>
 <body>
@@ -104,20 +104,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <img src="images/ethereum.png" alt="" class="ethereum"/>
 
-<h3><p class="text-center" id="address">Indirizzo: 0xE08aa75AAE695c4622Cd430FbeBF4B97689d4Ee3</p></h3>
-<h3><p class="text-center" id="balance">
-    Saldo: ${requestScope['wei']} eth
+<h3 class="text-center" id="address"> <div class="wallets">Indirizzo</div> 0xE08aa75AAE695c4622Cd430FbeBF4B97689d4Ee3</h3>
+<h3 class="text-center" id="balance"> <div class="wallets">Saldo</div> ${requestScope['wei']} eth</h3>
 
 
-
-</p></h3>
-
-
-</div>
-
-
-
-    </div>
 
 </body>
 </html>

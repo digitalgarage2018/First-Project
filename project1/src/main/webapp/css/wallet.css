@@ -1,3 +1,11 @@
+.wallets {
+
+    font-weight: bold;
+    text-shadow: 1px 100px #278017;
+
+
+}
+
 .ethereum {
 
 
@@ -20,3 +28,7 @@
 
     padding-top: 10px;
 }
+
+
+
+
