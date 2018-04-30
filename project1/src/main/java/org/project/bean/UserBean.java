@@ -20,6 +20,7 @@ public class UserBean implements Serializable {
 	private int id = -1; //gestito da AutoIncrement
 	private String username;
 	private String password;
+	private String email;
 	private String name, surname;
 	private Date birth;
 	private WalletBean wallet=null;
@@ -28,30 +29,34 @@ public class UserBean implements Serializable {
 	 * questo metodo mi è utile per inizializzare l'user bean
 	 * dato che nel db il campo id è auto increment
 	 */
-	public UserBean(String user, String pass) {
+	public UserBean(String user, String email, String pass) {
 		this.username=user;
+		this.email=email;
 		this.password=pass;
 	}
 	
 	
-	public UserBean(int id, String user, String pass) {
+	public UserBean(int id, String user, String email, String pass) {
 		this.id=id;
 		this.username=user;
+		this.email=email;
 		this.password=pass;
 	}
 	
-	public UserBean(int id, String user, String pass, WalletBean wallet) {
+	public UserBean(int id, String user, String email, String pass, WalletBean wallet) {
 		this.id=id;
 		this.username=user;
+		this.email=email;
 		this.password=pass;
 		this.wallet=wallet;
 	}
 	
 	
-	public UserBean(int id, String user, String pass, String name, String surname, Date birth, WalletBean wallet) {
+	public UserBean(int id, String user, String email, String pass, String name, String surname, Date birth, WalletBean wallet) {
 		this.id=id;
 		this.username = user;
 		this.password = pass;
+		this.email=email;
 		this.name = name;
 		this.surname = surname;
 		this.birth = birth;
@@ -70,6 +75,10 @@ public class UserBean implements Serializable {
 
 	public String getPassword() {
 		return password;
+	}
+	
+	public String getEmail() {
+		return email;
 	}
 
 	public String getName() {
@@ -98,6 +107,10 @@ public class UserBean implements Serializable {
 
 	public void setPass(String pass) {
 		this.password = pass;
+	}
+	
+	public void setEmail(String email) {
+		this.password = email;
 	}
 
 	public void setName(String name) {
