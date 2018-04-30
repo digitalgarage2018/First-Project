@@ -7,14 +7,13 @@ import org.web3j.protocol.core.methods.response.EthGetBalance;
 import org.web3j.protocol.http.HttpService;
 import org.web3j.utils.Convert;
 
-import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.concurrent.ExecutionException;
 
 public class EthereumDao {
 
 
-    public static BigDecimal getEth() throws ExecutionException, InterruptedException {
+    public BigInteger getEth() throws ExecutionException, InterruptedException {
         Web3j web3 = Web3j.build(new HttpService("https://mainnet.infura.io/7p5VH9KwAQa4dGwllyZ0"));  // defaults to http://localhost:8545/
 
         // send asynchronous requests to get balance
@@ -24,10 +23,11 @@ public class EthereumDao {
                 .get();
 
 
-        BigDecimal wei2= Convert.fromWei(ethGetBalance.getBalance().toString(), Convert.Unit.ETHER);
+        BigInteger wei = ethGetBalance.getBalance();
+        //BigDecimal wei2= Convert.fromWei(ethGetBalance.getBalance().toString(), Convert.Unit.ETHER);
         /* System.out.println(wei);*/
 
-        return wei2;
+        return wei;
 
 
     }

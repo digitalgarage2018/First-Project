@@ -14,6 +14,7 @@ import org.project.bean.Product;
 import org.project.bean.ServiceBean;
 import org.project.dao.ProductDao;
 import org.project.dao.ServiceDao;
+import org.project.service.ServiceService;
 
 public class ServiceController extends HttpServlet{
 
@@ -24,7 +25,8 @@ public class ServiceController extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            List<ServiceBean> serviceList = ServiceDao.getServices();
+        	ServiceService serviceService = new ServiceService();
+            List<ServiceBean> serviceList = serviceService.getServiceService();
             if(serviceList != null){
             	request.setAttribute("services", serviceList); // Will be available as ${products} in JSP
             }
