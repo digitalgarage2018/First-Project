@@ -12,7 +12,7 @@ public class ServiceDao {
 	private static final String SELECT_ALL = "select * from SERVICES order by sr_name";
 	private static final String SEARCH_BY_NAME = "select * from SERVICES where lower(sr_name) like ? ";
 	
-	public static List<ServiceBean> getServices() throws SQLException {
+	public  List<ServiceBean> getServices() throws SQLException {
 
         List<ServiceBean> serviceList = new ArrayList<>();       
 
