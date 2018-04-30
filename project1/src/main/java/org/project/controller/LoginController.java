@@ -10,7 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.project.bean.LoginBean;
-import org.project.dao.LoginDao;
+//import org.project.dao.LoginDao;
+import org.project.service.LoginService;
 
  
 public class LoginController extends HttpServlet {
@@ -27,11 +28,13 @@ public class LoginController extends HttpServlet {
 		String password = request.getParameter("password");
 		boolean isLogged	= false;
 		LoginBean loginBean = new LoginBean(username,password, isLogged);
-		LoginDao loginDao = new LoginDao() ;
+		//LoginDao loginDao = new LoginDao() ;
+		LoginService loginService = new LoginService();
 		RequestDispatcher rd = null;
 		//System.out.println("valore prima: " +result);
 		
-		String result = loginDao.authenticateUser(loginBean);
+		//String result = loginDao.authenticateUser(loginBean);
+		String result = loginService.authenticateUserService(loginBean);
 		HttpSession session=request.getSession();
 		System.out.println("valore ritornato: " +result);
 		try {
