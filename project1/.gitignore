@@ -27,4 +27,4 @@ nbdist/
 .LSOverride
 
 ###
-project1/src/main/java/org/project/util/DBController.java
+/src/main/java/org/project/util/DBController.java
