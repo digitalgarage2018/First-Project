@@ -20,7 +20,7 @@ public class UserDao {
 
 	// === Costanti letterali per non sbagliarsi a scrivere !!! ============================
 
-	static final String TABLE = "User";
+	static final String TABLE = "user";
 
 	// -------------------------------------------------------------------------------------
 

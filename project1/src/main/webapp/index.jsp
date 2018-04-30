@@ -102,6 +102,14 @@
 					</div>
 
 					<div class="form-group">
+						<div class="input-group">
+							<span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+							<input type="password" name="Confirm-password" id="Confirm-password" class="form-control" placeholder="Confirm Password" maxlength="15" required />
+						</div>
+						<span class="text-danger"></span>
+					</div>
+
+					<div class="form-group">
 						<hr />
 					</div>
 
