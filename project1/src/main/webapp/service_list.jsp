@@ -154,11 +154,37 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <c:forEach items="${services}" var="service">
                     <div class="col-md-3 bottom-cd simpleCart_shelfItem product-card">
                         <div class="product-at ">
+                            <%
+							if ((session.getAttribute("user") == null) || (session.getAttribute("user") == "")) {
+							%>
+								<a href="login.jsp"><img class="img-responsive" src="${service.sr_image}" alt="">
+                                <div class="pro-grid">
+                                    <span class="buy-in">Acquista ora</span>
+                                </div>
+                           		</a>
+                        	<%}
+							else {
+							%>
+	                    		<a href=""><img class="img-responsive" src="${service.sr_image}" alt="">
+	                                <div class="pro-grid">
+	                                    <span class="buy-in">Acquista ora</span>
+	                                </div>
+	                            </a>
+                        	<%
+							}
+							%>
+                            
+                            
+                            
+                            
+                            
+                            
+                            <!--
                             <a href=""><img class="img-responsive" src="${service.sr_image}" alt="">
                                 <div class="pro-grid">
                                     <span class="buy-in">Acquista ora</span>
                                 </div>
-                            </a>
+                            </a> -->
                         </div>
                         <p class="tun">
                             <span>
