@@ -104,7 +104,17 @@
 					<div class="form-group">
 						<div class="input-group">
 							<span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-							<input type="password" name="Confirm-password" id="Confirm-password" class="form-control" placeholder="Confirm Password" maxlength="15" required />
+							<input type="password" name="Confirm-password" id="Confirm-password" class="form-control" placeholder="Confirm Password" maxlength="15" required="required" oninput="check(this)"/>
+							<script language='javascript' type='text/javascript'>
+                                function check(input) {
+                                    if (input.value != document.getElementById('password').value) {
+                                        input.setCustomValidity('Password Must be Matching.');
+                                    } else {
+                                        // input is valid -- reset the error message
+                                        input.setCustomValidity('');
+                                    }
+                                }
+							</script>
 						</div>
 						<span class="text-danger"></span>
 					</div>
