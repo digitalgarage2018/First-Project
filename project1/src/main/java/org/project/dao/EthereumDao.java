@@ -23,9 +23,7 @@ public class EthereumDao {
                 .sendAsync()
                 .get();
 
-        Convert.fromWei(ethGetBalance.getBalance().toString(), Convert.Unit.ETHER);
 
-        BigInteger wei = ethGetBalance.getBalance();
         BigDecimal wei2= Convert.fromWei(ethGetBalance.getBalance().toString(), Convert.Unit.ETHER);
         /* System.out.println(wei);*/
 

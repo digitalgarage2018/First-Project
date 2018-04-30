@@ -16,8 +16,7 @@ import org.project.dao.ProductDao;
 import org.project.dao.ServiceDao;
 
 public class ServiceController extends HttpServlet{
-	
-	
+
     public ServiceController() {
     	super();
     }
