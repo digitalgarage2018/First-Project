@@ -3,10 +3,6 @@ package org.project.controller;
 
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.sql.SQLException;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 
 import javax.servlet.ServletException;
@@ -14,12 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.project.service.EthereumService;
 
-import javax.servlet.http.HttpServlet;
-import java.math.BigInteger;
-import java.util.concurrent.ExecutionException;
-import org.project.dao.EthereumDao;
-import org.web3j.utils.Convert;
 
 
 public class EthereumController extends HttpServlet{
@@ -27,16 +19,15 @@ public class EthereumController extends HttpServlet{
 
     BigDecimal wei;
 
-    public BigDecimal getWei() {
+    /*public BigDecimal getWei() {
         return wei;
     }
 
     public void setWei(BigDecimal wei) {
         this.wei = wei;
-    }
+    }*/
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        try {
 
             /* Web3j web3 = Web3j.build(new HttpService("https://mainnet.infura.io/7p5VH9KwAQa4dGwllyZ0"));  // defaults to http://localhost:8545/
 
@@ -49,22 +40,15 @@ public class EthereumController extends HttpServlet{
             this.wei = ethGetBalance.getBalance();*/
 
 
-            wei = EthereumDao.getEth();
+            //wei = EthereumDao.getEth();
+        	EthereumService ethereumService = new EthereumService();
+        	wei = ethereumService.getEthValue();
             System.out.println(wei);
 
             request.setAttribute("wei", wei); // Will be available as ${products} in JSP
             request.getRequestDispatcher("/Wallet.jsp").forward(request, response);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        } finally {
 
-        }
     }
-
-
-
 
 }
 
