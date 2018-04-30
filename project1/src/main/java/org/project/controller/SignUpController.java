@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 
 import org.project.bean.SignUpBean;
 import org.project.dao.SignUpDao;
+import org.project.service.SignUpService;
 
 
 public class SignUpController extends HttpServlet {
@@ -35,7 +36,8 @@ public class SignUpController extends HttpServlet {
 		RequestDispatcher rd = null;
 		//System.out.println("valore prima: " +result);
 		
-		String result = signUpDao.registerUser(signUpBean);
+		SignUpService signUpService = new SignUpService();
+		String result = signUpService.registrationUserService(signUpBean);
 		System.out.println("valore ritornato: " +result);
 		if (result.equals("success")) {
 			rd = request.getRequestDispatcher("index.jsp");
