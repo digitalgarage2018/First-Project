@@ -136,6 +136,16 @@
 			</form>
 		</div>
 	</div>
+	
+	<%
+	if( request.getAttribute("authenticated") != null && (boolean)request.getAttribute("authenticated") == true){
+	%>
+	<script type="text/javascript">
+		alert("utente correttamente registrato!");
+	</script>	
+	<%	
+	}
+	%>
 		
 	</body>
 </html>

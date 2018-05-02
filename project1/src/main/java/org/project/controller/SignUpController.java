@@ -59,8 +59,16 @@ public class SignUpController extends HttpServlet {
 		 */
 		userBean.setWallet(walletBean);
 		
+		/*
+		 * Invio della mail di conferma all'indirizzo specificato
+		 */
+		new EmailSMTP().sendMail(email);
+		
 		RequestDispatcher rd = null;
 		rd = request.getRequestDispatcher("/index.jsp");
+		
+		// attributo per attivare un alert lato view... migliorabile
+		request.setAttribute("authenticated", true);
 		
 		rd.forward(request, response);
 	}
