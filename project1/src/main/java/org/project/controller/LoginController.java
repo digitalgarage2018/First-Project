@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.json.JSONArray;
+import org.json.JSONObject;
 import org.project.bean.ExamBean;
 import org.project.bean.LoginBean;
 import org.project.bean.ProfessorBean;
@@ -32,7 +33,8 @@ public class LoginController extends HttpServlet {
 
 		LoginDao loginDao = new LoginDao();
 		RequestDispatcher rd = null;
-
+		
+		ExamDao examDao = new ExamDao();
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 
@@ -42,14 +44,14 @@ public class LoginController extends HttpServlet {
 
 		LoginBean user1 = (LoginBean) resultSet.getResultSet();
 
-		
+	
 
 		ProfessorBean professor = loginDao.getProfessorInfo(user1);
 
 		if (resultSet.getState() == ResponseState.SUCCESS.getCode() && user1.getFlagType().equals("S")) {
 			StudentBean student = loginDao.getStudentInfo(user1);
 			if(student.getIdPlainOfStudy()==0){
-				ExamDao examDao = new ExamDao();
+				
 				ArrayList<ExamBean> allExams = examDao.getAllExams();
 
 				rd = request.getRequestDispatcher("/WEB-INF/view/plainOfStudy.jsp");
@@ -62,8 +64,12 @@ public class LoginController extends HttpServlet {
 			}
 		} else if(resultSet.getState() == ResponseState.SUCCESS.getCode() && user1.getFlagType().equals("D")){
 			rd = request.getRequestDispatcher("/WEB-INF/view/professorWelcome.jsp");
+			ArrayList<ExamBean> allProfExams=examDao.getProfExams(professor.getBadgeNumber());
 			request.setAttribute("professor", professor);
 			request.setAttribute("resultSet", resultSet);
+			request.setAttribute("examsList", new JSONArray(allProfExams));
+			
+			
 		} else {
 			rd = request.getRequestDispatcher("/WEB-INF/view/error.jsp");
 		}

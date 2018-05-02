@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: maestro
-  Date: 28/04/18
-  Time: 00:09
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -25,16 +18,17 @@
             <th></th>
         </tr>
     </table>
-    <input type="submit">
+    <input id="submitButton" type="submit">
 </form>
 
 </body>
 <script>
+	document.getElementById("submitButton").disabled = true;
     let totalCredits = 0;
     const CREDITS_THRESHOLD = 60;
-
     function addEventHandlerCheckboxer( index, credits )
     {
+    	var pianoCompleto=false;
         function changeBoxStatus( index, disable )
         {
             let checkBoxes = document.getElementsByClassName( "checkBoxClass" );
@@ -53,6 +47,7 @@
         }
 
         return function() {
+        	
             if (this.checked) {
                 totalCredits += credits;
                 console.log( "PREMUTO: " + index + ", CREDITS: " + credits + ", TOTAL_CREDITS: " + totalCredits );
@@ -60,11 +55,13 @@
                 if (totalCredits == CREDITS_THRESHOLD) {
                     // Disables all the enabled checkboxes.
                     changeBoxStatus( index - 1, true );
+                    document.getElementById("submitButton").disabled = false;
                 }
             } else {
                 if (totalCredits == CREDITS_THRESHOLD) {
                     // Re-enables all the disabled checkboxes.
                     changeBoxStatus( index - 1, false );
+                    document.getElementById("submitButton").disabled = true;
                 }
 
                 totalCredits -= credits;
@@ -103,5 +100,5 @@
         checkBox.addEventListener( 'click', addEventHandlerCheckboxer( index++, credits ) );
         checkBoxRow.appendChild( checkBox );
     }
-</script>
+  </script>
 </html>

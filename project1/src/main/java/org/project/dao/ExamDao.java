@@ -16,6 +16,7 @@ public class ExamDao {
     private static final String SELECT_BY_EXAM = "SELECT exam.idExam AS iExam, exam.name AS eName, credits, description, professor.name AS pName, surname FROM exam INNER JOIN professor ON professor.idExam = exam.idExam";
     
     private static final String SAVE_EXAM = "INSERT INTO plainofstudy VALUES (?,?,?)";
+    private static final String GET_PROFESSOR_EXAMS="SELECT * FROM exam, professor WHERE badgeNumber=? AND exam.idExam=professor.idExam";
     
     public ArrayList<ExamBean> getAllExams() {
 
@@ -75,5 +76,38 @@ public class ExamDao {
         } finally {
             disconnectDB();
         }
+    }
+    //ritorna l'array degli esami insegnati dal prof
+    public ArrayList<ExamBean> getProfExams(long badgeNumber) {
+
+        ResultStateBean result = new ResultStateBean("", "", ResponseState.NOCHANGE.getCode(), null);
+        ArrayList<ExamBean> res = new ArrayList<ExamBean>();
+        try {
+            if (connectDB(GET_PROFESSOR_EXAMS)) {
+            	 stmt.setLong( 1, badgeNumber );
+                rs = stmt.executeQuery();
+            }
+            while (rs.next()) {
+                ExamBean e = new ExamBean();
+                e.setIdExam(rs.getInt("idExam"));
+                e.setName(rs.getString("name"));
+                e.setCredits(rs.getInt("credits"));
+                e.setDescription(rs.getString("description"));
+                res.add(e);
+            }
+            /*result.setResultSet(res);
+            result.setState(ResponseState.SUCCESS.getCode());
+            result.setMessage("while success");
+            result.setResult("OK");*/
+
+        } catch (SQLException e) {
+            /*result.setState(ResponseState.FAILURE.getCode());
+            result.setMessage("Error while try catch");
+            result.setResult("KO");*/
+            throw new RuntimeException(e);
+        } finally {
+            disconnectDB();
+        }
+        return res;
     }
 }

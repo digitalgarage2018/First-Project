@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: maestro
-  Date: 26/04/18
-  Time: 12:10
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -30,8 +23,11 @@
         <input type="submit" value="Visualizza Libretto" />
         <input style="visibility:hidden" name="studyPlanID" value="${requestScope['student'].idPlainOfStudy}">
     </form></td></tr>
-    <tr><td><button>Segui Lezione Online</button></td></tr>
-    <tr><td><button>Logout</button></td></tr>
+ <tr><td>
+ <form method="get" action="LogoutController">
+    <button type="submit">Logout</button>
+</form>
+</td></tr>
 </table>
 <p style="color: SlateBlue;position: absolute; bottom:100px; right: 50px; font-size:260%"> Benvenuto ${requestScope['student'].name}. </p>
 </body>
