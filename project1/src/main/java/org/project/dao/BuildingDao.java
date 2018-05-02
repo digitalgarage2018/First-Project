@@ -25,7 +25,7 @@ public class BuildingDao {
     private static final double[] center = {45.474687, 9.187337};
     private static final String SELECT = "SELECT * FROM building WHERE 1=1 ";
     private static final String SELECT_BY_RANGE =
-            "and (POW ( ( 69.1 * ( longitude - " + center[1] + " ) * cos( " + center[0] + " / 57.3 ) ) , 2 ) " +
+            " and (POW ( ( 69.1 * ( longitude - " + center[1] + " ) * cos( " + center[0] + " / 57.3 ) ) , 2 ) " +
                     "+ POW( ( 69.1 * ( latitude - " + center[0] + " ) ) , 2 ) ) < ";
     private static final String SELECT_BUILDING = "SELECT * FROM building";
     private static final String XML_PATH = "/Users/Gianmarco/Desktop/DigitalGarage/First-Project/markers.xml";
