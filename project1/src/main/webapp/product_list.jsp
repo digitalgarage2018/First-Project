@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Servizi</title>
+    <title>Prodotti</title>
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="js/jquery.min.js"></script>
@@ -49,7 +49,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <div class="search-box">
                     <div id="sb-search" class="sb-search">
                         <form action="SearchController" method="post">
-                            <input class="sb-search-input" name="keyword" placeholder="Inserisci il nome del servizio che stai cercando..." type="search"  id="search">
+                            <input class="sb-search-input" placeholder="Inserisci il nome del prodotto che stai cercando..." type="search"  id="search">
                             <input class="sb-search-submit" type="submit" value="Cerca">
                             <span class="sb-icon-search"> </span>
                         </form>
