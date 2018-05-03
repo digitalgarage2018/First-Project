@@ -44,6 +44,12 @@
 	</servlet>
 
 	<servlet>
+		<servlet-name>SearchController</servlet-name>
+		<servlet-class>org.project.controller.SearchController</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet>
 		<servlet-name>EthereumController</servlet-name>
 		<servlet-class>org.project.controller.EthereumController</servlet-class>
 		<load-on-startup>1</load-on-startup>
@@ -54,6 +60,11 @@
 		<url-pattern>/EthereumController</url-pattern>
 	</servlet-mapping>
 
+
+	<servlet-mapping>
+		<servlet-name>SearchController</servlet-name>
+		<url-pattern>/SearchController</url-pattern>
+	</servlet-mapping>
 
 	<servlet-mapping>
 		<servlet-name>LoginController</servlet-name>

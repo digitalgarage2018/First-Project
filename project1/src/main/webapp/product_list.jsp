@@ -6,17 +6,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Servizi</title>
+    <title>Prodotti</title>
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="js/jquery.min.js"></script>
-<<<<<<< HEAD
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-=======
->>>>>>> 7b74e3387413a7880c7f62ab549f3cd6b991f513
     <!-- Custom Theme files -->
     <!--theme-style-->
     <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
@@ -38,9 +31,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <script src="js/simpleCart.min.js"> </script> -->
 </head>
 <body>
-
-
-
 <!--header-->
 <div class="header">
     <div class="header-top">
@@ -59,7 +49,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <div class="search-box">
                     <div id="sb-search" class="sb-search">
                         <form action="SearchController" method="post">
-                            <input class="sb-search-input" name="keyword" placeholder="Inserisci il nome del servizio che stai cercando..." type="search"  id="search">
+                            <input class="sb-search-input" placeholder="Inserisci il nome del prodotto che stai cercando..." type="search"  id="search">
                             <input class="sb-search-submit" type="submit" value="Cerca">
                             <span class="sb-icon-search"> </span>
                         </form>
@@ -167,46 +157,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class=" bottom-product">
 
 
-                <c:forEach items="${services}" var="service" varStatus="vs">
-
-
-                    </div>
+                <c:forEach items="${services}" var="service">
                     <div class="col-md-3 bottom-cd simpleCart_shelfItem product-card">
                         <div class="product-at ">
                             <%
 							if ((session.getAttribute("user") == null) || (session.getAttribute("user") == "")) {
 							%>
-								<img class="img-responsive" src="${service.sr_image}" alt="">
+								<a href="login.jsp"><img class="img-responsive" src="${service.sr_image}" alt="">
                                 <div class="pro-grid">
-                                    <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal${vs.index} ">ACQUISTA</button>
-                                    <!-- Modal -->
-
-
+                                    <span class="buy-in">Acquista ora</span>
                                 </div>
-                            <div class="modal fade" id="myModal${vs.index}" role="dialog">
-                                <div class="modal-dialog">
-
-                                    <!-- Modal content-->
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                            <h4 class="modal-title"><c:out value="${service.sr_name}" /></h4>
-                                        </div>
-                                        <div class="modal-body">
-                                            <p> <c:out value="${service.sr_description}" /></p>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-default" data-dismiss="modal">Acquista</button>
-
-                                        </div>
-                                    </div>
-
-                                </div>
+                           		</a>
                         	<%}
 							else {
 							%>
 	                    		<a href=""><img class="img-responsive" src="${service.sr_image}" alt="">
 	                                <div class="pro-grid">
+	                                    <span class="buy-in">Acquista ora</span>
 	                                </div>
 	                            </a>
                         	<%
