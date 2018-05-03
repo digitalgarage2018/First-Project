@@ -9,7 +9,11 @@
     <title>Servizi</title>
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <!-- <script src="js/jquery.min.js"></script> -->
+    <script src="js/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
     <!-- Custom Theme files -->
     <!--theme-style-->
     <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
@@ -31,6 +35,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <script src="js/simpleCart.min.js"> </script> -->
 </head>
 <body>
+
+
+
 <!--header-->
 <div class="header">
     <div class="header-top">
@@ -151,23 +158,46 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class=" bottom-product">
 
 
-                <c:forEach items="${services}" var="service">
+                <c:forEach items="${services}" var="service" varStatus="vs">
+
+
+                    </div>
                     <div class="col-md-3 bottom-cd simpleCart_shelfItem product-card">
                         <div class="product-at ">
                             <%
 							if ((session.getAttribute("user") == null) || (session.getAttribute("user") == "")) {
 							%>
-								<a href="login.jsp"><img class="img-responsive" src="${service.sr_image}" alt="">
+								<img class="img-responsive" src="${service.sr_image}" alt="">
                                 <div class="pro-grid">
-                                    <span class="buy-in">Acquista ora</span>
+                                    <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal${vs.index} ">ACQUISTA</button>
+                                    <!-- Modal -->
+
+
                                 </div>
-                           		</a>
+                            <div class="modal fade" id="myModal${vs.index}" role="dialog">
+                                <div class="modal-dialog">
+
+                                    <!-- Modal content-->
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            <h4 class="modal-title"><c:out value="${service.sr_name}" /></h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p> <c:out value="${service.sr_description}" /></p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Acquista</button>
+
+                                        </div>
+                                    </div>
+
+                                </div>
                         	<%}
 							else {
 							%>
 	                    		<a href=""><img class="img-responsive" src="${service.sr_image}" alt="">
 	                                <div class="pro-grid">
-	                                    <span class="buy-in">Acquista ora</span>
 	                                </div>
 	                            </a>
                         	<%
