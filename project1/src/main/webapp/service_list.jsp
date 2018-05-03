@@ -232,13 +232,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         	<%
 							}
 							%>
-                            
-                            
-                            
-                            
-                            
-                            
-                            <!--
+                                <!--
                             <a href=""><img class="img-responsive" src="${service.sr_image}" alt="">
                                 <div class="pro-grid">
                                     <span class="buy-in">Acquista ora</span>
@@ -256,10 +250,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <%
                                     if ((session.getAttribute("user") == null) || (session.getAttribute("user") == "")) {
                                 %>
-                                <p></p>
+                        </div>
+
+                            <p></p>
                                 <%}
 
-                                else {
+
+                                    else {
                                 %>
 
 
@@ -272,10 +269,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <!-- <div class="clearfix"></div> -->
 
 
-                    </div>
+
                     </div>
                 </c:forEach>
                 <!-- <div class="clearfix"></div> -->
+
             </div>
         </div>
     </div>
