@@ -10,13 +10,10 @@
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="js/jquery.min.js"></script>
-<<<<<<< HEAD
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-=======
->>>>>>> 7b74e3387413a7880c7f62ab549f3cd6b991f513
     <!-- Custom Theme files -->
     <!--theme-style-->
     <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
@@ -82,9 +79,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <a href="index.jsp">
                             <div class="total">
                                 <span class="simpleCart_total"></span> </div>
-                            <img src="images/cart.png" alt=""/></h3>
+                            <img src="images/cart.png" alt=""/>
                         </a>
-                        <p><a href="javascript:;" class="simpleCart_empty">Carrello Vuoto</a></p>
+                        <p><a href="javascript:" class="simpleCart_empty">Carrello Vuoto</a></p>
 
                     </div>
                 </div>
@@ -128,15 +125,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					else {
 					%>
                     <li><a class="color4" href="LogoutController" onclick="if (!confirm('Sei sicuro di voler uscire? ')) return false"
-                           action="">Logout</a></li>
+                           >Logout</a></li>
 					<li><a class="color8" href="EthereumController">Wallet</a></li>
                     <%
 						}
 					%>
-                    
 
+                </ul>
             </div>
-            </ul>
+
         </div>
 
         <div class="clearfix"> </div>
@@ -167,10 +164,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class=" bottom-product">
 
 
+
                 <c:forEach items="${services}" var="service" varStatus="vs">
 
 
-                    </div>
                     <div class="col-md-3 bottom-cd simpleCart_shelfItem product-card">
                         <div class="product-at ">
                             <%
@@ -178,11 +175,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							%>
 								<img class="img-responsive" src="${service.sr_image}" alt="">
                                 <div class="pro-grid">
-                                    <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal${vs.index} ">ACQUISTA</button>
-                                    <!-- Modal -->
-
-
+                                    <button type="button" class="btn btn-info btn-mn" data-toggle="modal" data-target="#myModal${vs.index} ">ACQUISTA</button>
                                 </div>
+
+                            <!-- Modal -->
                             <div class="modal fade" id="myModal${vs.index}" role="dialog">
                                 <div class="modal-dialog">
 
@@ -203,12 +199,36 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                                 </div>
                         	<%}
+
+
 							else {
 							%>
-	                    		<a href=""><img class="img-responsive" src="${service.sr_image}" alt="">
-	                                <div class="pro-grid">
+	                    		<img class="img-responsive" src="${service.sr_image}" alt="">
+	                                <div class="pro-grid"><button type="button" class="btn btn-info btn-mn" data-toggle="modal" data-target="#myModal${vs.index} ">ACQUISTA</button>
+                                    </div>
+
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="myModal${vs.index}" role="dialog">
+                                        <div class="modal-dialog">
+
+                                            <!-- Modal content-->
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                    <h4 class="modal-title"><c:out value="${service.sr_name}" /></h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p> <c:out value="${service.sr_description}" /></p>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Acquista</button>
+
+                                                </div>
+                                            </div>
+
+                                        </div>
 	                                </div>
-	                            </a>
+
                         	<%
 							}
 							%>
@@ -253,8 +273,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
                     </div>
+                    </div>
                 </c:forEach>
-
                 <!-- <div class="clearfix"></div> -->
             </div>
         </div>
